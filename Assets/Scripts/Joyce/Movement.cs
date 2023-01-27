@@ -6,21 +6,34 @@ using UnityEngine;
 public class Movement : MonoBehaviour
 {
     [Header("Movement")]
-    [SerializeField] private CharacterController controller;
-    [SerializeField] private float speed = 3f;
+    [SerializeField] private int playerNumber = 1; // this will affect which controls the player uses
+    [SerializeField] private CharacterController controller;  // reference to the player controller for 3D movement
+    [SerializeField] private float speed = 3f; // speed of the player's movement
 
-    //[Header("Visuals")]
-    // variables for potential animations
+    // bookkeeping variables for the movement axes
+    private string xAxisName;
+    private string yAxisName;
+
+    [Header("Visuals")]
+    [SerializeField] private Animator anim;  // reference to the player's animator
+
+    private void Start()
+    {
+        xAxisName = "Horizontal" + playerNumber;
+        yAxisName = "Vertical" + playerNumber;
+    }
 
     void Update()
     {
-            float horizontal = Input.GetAxisRaw("Horizontal");
-            float vertical = Input.GetAxisRaw("Vertical");
-            Vector3 direction = new Vector3(horizontal, 0, vertical).normalized; // creates a new vector for 
+        float horizontal = Input.GetAxisRaw(xAxisName);
+        float vertical = Input.GetAxisRaw(yAxisName);
+        Vector3 direction = new Vector3(horizontal, 0, vertical).normalized; // creates a new vector for 
 
-            // stuff to change animation states
+        anim.SetFloat("Speed", Mathf.Abs(direction.magnitude));
+        if (Mathf.Abs(horizontal) > 0)
+            transform.localScale = new Vector3(-horizontal, transform.localScale.y, transform.localScale.z);
 
-            controller.Move(direction * speed * Time.deltaTime);
+        controller.Move(direction * speed * Time.deltaTime);
         
     }
 }

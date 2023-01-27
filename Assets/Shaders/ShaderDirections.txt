@@ -1,0 +1,2 @@
+The Unlit Sprite shader goes on the environment Sprites, not the characters 
+or anything that needs to be flipped!

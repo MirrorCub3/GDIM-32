@@ -242,6 +242,48 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: testEnviron_6
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 153
+        width: 470
+        height: 436
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dfb0259ba5380644f9536a5ade71c2ad
+      internalID: -498337739
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: testEnviron_7
+      rect:
+        serializedVersion: 2
+        x: 584
+        y: 328
+        width: 231
+        height: 261
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d78a1d95e72e8a04787914b1be3d4c9a
+      internalID: 2075131303
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -254,11 +296,13 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       testEnviron_0: 1094422078
+      testEnviron_6: -498337739
       testEnviron_3: 1265577967
       testEnviron_4: 178242150
       testEnviron_1: -828152869
       testEnviron_2: 1637331350
       testEnviron_5: 658799191
+      testEnviron_7: 2075131303
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
