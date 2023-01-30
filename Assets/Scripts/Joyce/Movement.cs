@@ -19,6 +19,7 @@ public class Movement : MonoBehaviour
 
     private void Start()
     {
+        // setting the axes names
         xAxisName = "Horizontal" + playerNumber;
         yAxisName = "Vertical" + playerNumber;
     }
@@ -27,13 +28,13 @@ public class Movement : MonoBehaviour
     {
         float horizontal = Input.GetAxisRaw(xAxisName);
         float vertical = Input.GetAxisRaw(yAxisName);
-        Vector3 direction = new Vector3(horizontal, 0, vertical).normalized; // creates a new vector for 
+        Vector3 direction = new Vector3(horizontal, 0, vertical).normalized; // creates a new vector for movement direction
 
-        anim.SetFloat("Speed", Mathf.Abs(direction.magnitude));
-        if (Mathf.Abs(horizontal) > 0)
-            transform.localScale = new Vector3(-horizontal, transform.localScale.y, transform.localScale.z);
+        anim.SetFloat("Speed", Mathf.Abs(direction.magnitude)); // setting the speed variable in the animator to change animation states
+        if (Mathf.Abs(horizontal) > 0) // flips the object once the player moves in a direction
+            transform.localScale = new Vector3(-horizontal, transform.localScale.y, transform.localScale.z); // sprite is left facing so the scale must be set to -horizontal
 
-        controller.Move(direction * speed * Time.deltaTime);
+        controller.Move(direction * speed * Time.deltaTime); // applys movement
         
     }
 }
