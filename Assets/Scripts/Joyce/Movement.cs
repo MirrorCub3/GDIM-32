@@ -26,6 +26,9 @@ public class Movement : MonoBehaviour
 
     void Update()
     {
+        if (Time.deltaTime.Equals(0)) // makes sure the player doesnt move when paused
+            return;
+
         float horizontal = Input.GetAxisRaw(xAxisName);
         float vertical = Input.GetAxisRaw(yAxisName);
         Vector3 direction = new Vector3(horizontal, 0, vertical).normalized; // creates a new vector for movement direction
