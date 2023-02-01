@@ -7,11 +7,13 @@ using UnityEngine;
 public class RestaurantUI : MonoBehaviour
 {
     public GameObject restaurantDisplay;
+    private int playerCount;
 
     // Start is called before the first frame update
     void Start()
     {
         restaurantDisplay.SetActive(false);
+        playerCount = 0;
     }
 
     void OnTriggerEnter (Collider other)
@@ -19,6 +21,7 @@ public class RestaurantUI : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             restaurantDisplay.SetActive(true);
+            playerCount += 1;
         }
     }
 
@@ -26,8 +29,10 @@ public class RestaurantUI : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            restaurantDisplay.SetActive(false);
-            
+            playerCount -= 1;
+            if (playerCount == 0){
+                restaurantDisplay.SetActive(false);
+            }
         }
     }
 }
