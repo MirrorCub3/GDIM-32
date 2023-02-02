@@ -6,43 +6,38 @@ using UnityEngine.UI;
 // Joyce Mai
 public class PlantingPatch : MonoBehaviour
 {
+    private enum DirtStates { WAIT, GROW, SPAWN }
+
     [Header("Card Spawn")]
     [SerializeField] private GameObject spawnPrefab; // will be used to instantiate the card
     // create private references here to the spawn prefabs's details via scritable object data
-    //[SerializeField] private [ScriptableObjectTypeHere] spawnData;
+    [SerializeField] private Sweets spawnData;
 
     [Header("UI")]
     [SerializeField] private Slider plantTimeBar; // ui for the slider showing the growth progress
 
     [Header("Spawn Data")]
     [SerializeField] private float plantTime; // the time it takes for the item to finish growing
-    [SerializeField] private float cooldown;
+    [SerializeField] private float cooldownMultiplier = 1; // multiplier on the time it takes to cool down
     private float time;
 
-    private enum DirtStates { WAIT, GROW, SPAWN }
-    private DirtStates currState = DirtStates.GROW;
-    private bool spawnExists; // will be used to determine wheter or not to increment time
-    // private references here
+    [Header("State Variables")]
+    [SerializeField] private DirtStates currState = DirtStates.GROW;
+
     void Start()
     {
+        plantTimeBar.maxValue = plantTime;
         if (currState == DirtStates.SPAWN) 
         {
-            Instantiate(spawnPrefab, this.transform);
-            spawnExists = true;
-            plantTimeBar.enabled = false;
+            Spawn();
         }
         else if (currState == DirtStates.GROW)
         {
-            time = 0;
-            spawnExists = false;
-            plantTimeBar.enabled = true;
-            plantTimeBar.value = time;
-            plantTimeBar.maxValue = plantTime;
+            Grow();
         }
         else
         {
-            //print();
-            // coroutine??
+            StartCoroutine(Cooldown());
         }
 
     }
@@ -54,19 +49,54 @@ public class PlantingPatch : MonoBehaviour
             time += Time.deltaTime;
             if (time >= plantTime)
             {
-                // disable ui
-                // switch state to spawn
-                // reset time bookkeeping vars
+                Spawn();
             }
             else
             {
                 plantTimeBar.value = time;
             }
         }
+        else if (currState == DirtStates.WAIT)
+        {
+            time -= Time.deltaTime / cooldownMultiplier;
+            plantTimeBar.value = time;
+        }
+    }
+
+    private void Spawn()
+    {
+        time = plantTime;
+        GameObject spawn = Instantiate(spawnPrefab, transform);
+        // subscribing to the instance's collect action
+        spawn.GetComponent<RecipeCardCollectable>().ThisCardCollectedNotif += OnCollect;
+        plantTimeBar.gameObject.SetActive(false);
+    }
+
+    private IEnumerator Cooldown()
+    {
+        print("Cooling down!");
+
+        currState = DirtStates.WAIT;
+        time = plantTime;
+        plantTimeBar.value = time;
+        plantTimeBar.gameObject.SetActive(true);
+
+        yield return new WaitForSeconds(plantTime * cooldownMultiplier);
+
+        Grow();
+    }
+
+    private void Grow()
+    {
+        print("Growing!");
+        currState = DirtStates.GROW;
+        time = 0;
+        plantTimeBar.value = time;
     }
 
     private void OnCollect()
     {
-        // call this via subscribe event for when it's child object becomes collected
+        StopAllCoroutines();
+        StartCoroutine(Cooldown());
     }
 }

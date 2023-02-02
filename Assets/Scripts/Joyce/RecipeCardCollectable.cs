@@ -1,15 +1,25 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
 // Joyce Mai
-public class RecipeCardCollectable : MonoBehaviour
+public class RecipeCardCollectable : MonoBehaviour, ICollectable
 {
+    // subscribers to this event will be notified for every card collected
+    public delegate void HandleCardCollectedArgs(Sweets sweet, int count);
+    public static event HandleCardCollectedArgs OnCardCollectedGlobal; // will be triggered for all cards
+    
+    // subscribers to this event will only be notified for specific card isntance
+    public delegate void HandleCardCollected();
+    public event HandleCardCollected ThisCardCollectedNotif;
+
+    [Header("Sweets SO")]
+    [SerializeField] private Sweets sweet;
+
     [Header("Visuals")]
     [SerializeField] private SpriteRenderer sr;
-    //  will be replaced by reference to the dessert scriptable object
-    [SerializeField] private Sprite icon;
     [SerializeField] private TextMeshProUGUI countText;
 
     [Header("ItemData")]
@@ -17,16 +27,26 @@ public class RecipeCardCollectable : MonoBehaviour
 
     void Awake()
     {
-        sr.sprite = icon;
+        sr.sprite = sweet.icon;
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag.Equals("Player"))
         {
-            // collect the object
-            // increment it to the appropriate recipe card in inventory
-            Destroy(gameObject);
+            Collect();
         }
+    }
+
+    public void Collect()
+    {
+        Destroy(gameObject);
+
+        // when collected, alert subscribers and pass along information
+        OnCardCollectedGlobal.Invoke(sweet, itemCount);
+
+        // only alert if there are subscribers
+        if (ThisCardCollectedNotif != null)
+            ThisCardCollectedNotif.Invoke();
     }
 }
