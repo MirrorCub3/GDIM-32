@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 // Joyce Mai
 public class RecipeCardCollectable : MonoBehaviour
@@ -9,6 +10,10 @@ public class RecipeCardCollectable : MonoBehaviour
     [SerializeField] private SpriteRenderer sr;
     //  will be replaced by reference to the dessert scriptable object
     [SerializeField] private Sprite icon;
+    [SerializeField] private TextMeshProUGUI countText;
+
+    [Header("ItemData")]
+    [SerializeField] private int itemCount;
 
     void Awake()
     {
