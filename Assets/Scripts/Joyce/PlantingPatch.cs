@@ -65,6 +65,7 @@ public class PlantingPatch : MonoBehaviour
 
     private void Spawn()
     {
+        currState = DirtStates.SPAWN;
         time = plantTime;
         GameObject spawn = Instantiate(spawnPrefab, transform);
         // subscribing to the instance's collect action
@@ -96,6 +97,9 @@ public class PlantingPatch : MonoBehaviour
 
     private void OnCollect()
     {
+        if (currState == DirtStates.WAIT)
+            return;
+
         StopAllCoroutines();
         StartCoroutine(Cooldown());
     }

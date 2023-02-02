@@ -26,7 +26,7 @@ public class Inventory : MonoBehaviour
         }
         else
         {
-            InventoryItem newItem = new InventoryItem(sweet);
+            InventoryItem newItem = new InventoryItem(sweet, count);
             inventory.Add(newItem);
             itemDictionary.Add(sweet, newItem);
         }
