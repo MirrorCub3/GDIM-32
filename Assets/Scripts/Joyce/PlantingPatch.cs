@@ -13,8 +13,11 @@ public class PlantingPatch : MonoBehaviour
     // create private references here to the spawn prefabs's details via scritable object data
     [SerializeField] private Sweets spawnData;
 
-    [Header("UI")]
+    [Header("Visuals and UI")]
+    [SerializeField] private GameObject sprout;
     [SerializeField] private Slider plantTimeBar; // ui for the slider showing the growth progress
+    [SerializeField] private Image fill;
+    [SerializeField] private DirtUISettings colors;
 
     [Header("Spawn Data")]
     [SerializeField] private float plantTime; // the time it takes for the item to finish growing
@@ -66,6 +69,7 @@ public class PlantingPatch : MonoBehaviour
     private void Spawn()
     {
         currState = DirtStates.SPAWN;
+        sprout.SetActive(false);
         time = plantTime;
         GameObject spawn = Instantiate(spawnPrefab, transform);
         // subscribing to the instance's collect action
@@ -76,11 +80,12 @@ public class PlantingPatch : MonoBehaviour
     private IEnumerator Cooldown()
     {
         print("Cooling down!");
-
         currState = DirtStates.WAIT;
+        sprout.SetActive(false);
         time = plantTime;
         plantTimeBar.value = time;
         plantTimeBar.gameObject.SetActive(true);
+        fill.color = colors.waitCol;
 
         yield return new WaitForSeconds(plantTime * cooldownMultiplier);
 
@@ -90,9 +95,11 @@ public class PlantingPatch : MonoBehaviour
     private void Grow()
     {
         print("Growing!");
+        sprout.SetActive(true);
         currState = DirtStates.GROW;
         time = 0;
         plantTimeBar.value = time;
+        fill.color = colors.growCol;
     }
 
     private void OnCollect()
