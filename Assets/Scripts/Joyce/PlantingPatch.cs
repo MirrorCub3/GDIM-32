@@ -79,7 +79,6 @@ public class PlantingPatch : MonoBehaviour
 
     private IEnumerator Cooldown()
     {
-        print("Cooling down!");
         currState = DirtStates.WAIT;
         sprout.SetActive(false);
         time = plantTime;
@@ -94,7 +93,6 @@ public class PlantingPatch : MonoBehaviour
 
     private void Grow()
     {
-        print("Growing!");
         sprout.SetActive(true);
         currState = DirtStates.GROW;
         time = 0;
