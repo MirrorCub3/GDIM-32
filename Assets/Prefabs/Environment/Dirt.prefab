@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1230212177010319028}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 5.75, y: 0.001, z: -1.75}
+  m_LocalPosition: {x: 0, y: 0.001, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -105,9 +105,8 @@ MonoBehaviour:
   plantTimeBar: {fileID: 6596948323352421786}
   fill: {fileID: 6596948322874116809}
   colors: {fileID: 11400000, guid: 4758e0c9ad27b40458d4d246fbdb9cd6, type: 2}
-  plantTime: 10
   cooldownMultiplier: 0.5
-  currState: 1
+  currState: 2
 --- !u!1 &6596948322743751901
 GameObject:
   m_ObjectHideFlags: 0

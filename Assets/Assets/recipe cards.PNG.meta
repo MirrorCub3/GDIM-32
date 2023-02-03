@@ -284,6 +284,27 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: recipe cards_8
+      rect:
+        serializedVersion: 2
+        x: 789
+        y: 534
+        width: 249
+        height: 303
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a19e27d9eb5ee641897c165ebbb7ba5
+      internalID: 1723006727
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -317,6 +338,7 @@ TextureImporter:
       recipe cards_1: -960615630
       recipe cards_8: 1723006727
       recipe cards_7: 1904551746
+      recipe cards_26: 287281880
       recipe cards_0: -719383602
       recipe cards_20: -61273937
       recipe cards_18: 74011574

@@ -251,7 +251,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1637640883, guid: 3bbda862acf8d3e4fa17f634f2960f96, type: 3}
+  m_Sprite: {fileID: -661348349, guid: 3bbda862acf8d3e4fa17f634f2960f96, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -409,7 +409,7 @@ GameObject:
   - component: {fileID: 1454952714341049108}
   - component: {fileID: 1454952714341049111}
   m_Layer: 0
-  m_Name: CookieRecipe
+  m_Name: SouffleRecipe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -457,7 +457,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 502e188fa1bfc8548aef78da747f5c68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sweet: {fileID: 11400000, guid: 840c8f9486e3ab74284af5eaad662dd7, type: 2}
+  sweet: {fileID: 11400000, guid: 2646d6431caffa144b33e4a95e12a41a, type: 2}
   sr: {fileID: 1454952714012753636}
   countText: {fileID: 1454952714302564533}
   itemCount: 5

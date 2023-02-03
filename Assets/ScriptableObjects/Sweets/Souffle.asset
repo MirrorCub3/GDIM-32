@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 102d3e4d1f4674f439f62f9b665e9c19, type: 3}
-  m_Name: Cookie
+  m_Name: Souffle
   m_EditorClassIdentifier: 
-  SweetName: Cookie
-  icon: {fileID: 1721356512, guid: 3bbda862acf8d3e4fa17f634f2960f96, type: 3}
+  SweetName: Souffle
+  icon: {fileID: -77128254, guid: 3bbda862acf8d3e4fa17f634f2960f96, type: 3}
   valueDepletionMult: 0
   MaxRev: 0
-  PlantGrowthTime: 5
+  PlantGrowthTime: 10

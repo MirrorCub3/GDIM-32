@@ -6,7 +6,7 @@ using UnityEngine.UI;
 // Joyce Mai
 public class PlantingPatch : MonoBehaviour
 {
-    private enum DirtStates { WAIT, GROW, SPAWN }
+    private enum DirtStates { WAIT, GROW, SPAWN}
 
     [Header("Card Spawn")]
     [SerializeField] private GameObject spawnPrefab; // will be used to instantiate the card
