@@ -10,7 +10,18 @@ public class Inventory : MonoBehaviour
     private Dictionary<Sweets, InventoryItem> itemDictionary = new Dictionary<Sweets, InventoryItem>();
 
     [Header("Manager")]
-    [SerializeField] List<InventorySlot> inventorySlots;
+    [SerializeField] private List<Sweets> sweetsOrder;
+    [SerializeField] private List<InventorySlot> slotOrder;
+    private Dictionary<Sweets, InventorySlot> inventorySlots = new Dictionary<Sweets, InventorySlot>();
+
+    private void Awake()
+    {
+        // at the start, zip the sweets list and slot order list together
+        for( int i = 0; i < slotOrder.Count; i++)
+        {
+            inventorySlots.Add(sweetsOrder[i], slotOrder[i]);
+        }
+    }
 
     private void OnEnable()
     {
@@ -24,37 +35,31 @@ public class Inventory : MonoBehaviour
 
     private void ResetInventory()
     {
-        foreach(InventorySlot slot in inventorySlots)
+        foreach(Sweets slotKey in inventorySlots.Keys)
         {
-            slot.ClearSlot();
+            inventorySlots[slotKey].ClearSlot();
         }
     }
 
-    private void DrawInventory()
+    private void DrawInventorySlot(Sweets sweetUpdated, InventoryItem item)
     {
-        ResetInventory();
-
-        for (int i = 0; i < inventory.Capacity; i++)
-        {
-            inventorySlots[i].ClearSlot();
-            if (i < inventory.Count)
-                inventorySlots[i].DrawSlot(inventory[i]);
-        }
+        inventorySlots[sweetUpdated].ClearSlot();
+        inventorySlots[sweetUpdated].DrawSlot(item);
     }
 
-    public void Add(Sweets sweet, int count) // add another parameter here for incrementing stack by a certain cout
+    public void Add(Sweets sweet, int count)
     {
         if (itemDictionary.TryGetValue(sweet, out InventoryItem item))
         {
             item.AddToStack(count);
-            DrawInventory();
+            DrawInventorySlot(sweet, item);
         }
         else
         {
             InventoryItem newItem = new InventoryItem(sweet, count);
             inventory.Add(newItem);
             itemDictionary.Add(sweet, newItem);
-            DrawInventory();
+            DrawInventorySlot(sweet, newItem);
         }
     }
     public void Remove(Sweets sweet, int count)
@@ -67,7 +72,7 @@ public class Inventory : MonoBehaviour
                 inventory.Remove(item);
                 itemDictionary.Remove(sweet);
             }
-            DrawInventory();
+            DrawInventorySlot(sweet, item);
         }
     }
 
