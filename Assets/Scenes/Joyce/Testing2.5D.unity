@@ -3490,9 +3490,9 @@ MonoBehaviour:
   plantTimeBar: {fileID: 402167749}
   fill: {fileID: 2054846614}
   colors: {fileID: 11400000, guid: 4758e0c9ad27b40458d4d246fbdb9cd6, type: 2}
-  plantTime: 5
+  plantTime: 2
   cooldownMultiplier: 2
-  currState: 1
+  currState: 2
 --- !u!1 &2048798856
 GameObject:
   m_ObjectHideFlags: 0

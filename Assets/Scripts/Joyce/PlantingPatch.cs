@@ -20,7 +20,6 @@ public class PlantingPatch : MonoBehaviour
     [SerializeField] private DirtUISettings colors;
 
     [Header("Spawn Data")]
-    [SerializeField] private float plantTime; // the time it takes for the item to finish growing
     [SerializeField] private float cooldownMultiplier = 1; // multiplier on the time it takes to cool down
     private float time;
 
@@ -29,7 +28,7 @@ public class PlantingPatch : MonoBehaviour
 
     void Start()
     {
-        plantTimeBar.maxValue = plantTime;
+        plantTimeBar.maxValue = spawnData.PlantGrowthTime;
         if (currState == DirtStates.SPAWN) 
         {
             Spawn();
@@ -50,7 +49,7 @@ public class PlantingPatch : MonoBehaviour
         if (currState == DirtStates.GROW)
         {
             time += Time.deltaTime;
-            if (time >= plantTime)
+            if (time >= spawnData.PlantGrowthTime)
             {
                 Spawn();
             }
@@ -70,7 +69,7 @@ public class PlantingPatch : MonoBehaviour
     {
         currState = DirtStates.SPAWN;
         sprout.SetActive(false);
-        time = plantTime;
+        time = spawnData.PlantGrowthTime;
         GameObject spawn = Instantiate(spawnPrefab, transform);
         // subscribing to the instance's collect action
         spawn.GetComponent<RecipeCardCollectable>().ThisCardCollectedNotif += OnCollect;
@@ -81,12 +80,12 @@ public class PlantingPatch : MonoBehaviour
     {
         currState = DirtStates.WAIT;
         sprout.SetActive(false);
-        time = plantTime;
+        time = spawnData.PlantGrowthTime;
         plantTimeBar.value = time;
         plantTimeBar.gameObject.SetActive(true);
         fill.color = colors.waitCol;
 
-        yield return new WaitForSeconds(plantTime * cooldownMultiplier);
+        yield return new WaitForSeconds(spawnData.PlantGrowthTime * cooldownMultiplier);
 
         Grow();
     }
