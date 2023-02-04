@@ -85,6 +85,8 @@ public class GameManager : MonoBehaviour
 
     public void LoadScene(string nextScene = "OuterWorld")
     {
+        Resume();
+
         if (nextScene == mainMenuScene && inKitchen)
             UnloadKitchen();
 
