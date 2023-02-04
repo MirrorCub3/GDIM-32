@@ -27,8 +27,9 @@ public class RecipeCardCollectable : MonoBehaviour, ICollectable
 
     void Awake()
     {
+        // setting the visuals
         sr.sprite = sweet.icon;
-        countText.text = "" + itemCount;
+        countText.text = itemCount.ToString();
     }
 
     private void OnTriggerEnter(Collider other)

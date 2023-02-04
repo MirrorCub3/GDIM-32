@@ -9,15 +9,15 @@ using UnityEngine.UI;
 public class InventorySlot : MonoBehaviour
 {
     [Header("UI Elements")]
-    [SerializeField] private Image icon;
-    [SerializeField] private Image lockedIcon;
-    [SerializeField] private Sprite emptyIcon;
-    [SerializeField] private Image x;
-    [SerializeField] private TextMeshProUGUI countText;
+    [SerializeField] private Image icon; // icon to be displayed in the inventory
+    [SerializeField] private Image lockedIcon; // Sprite icon overlay displayed when the item has not been unlocked yet
+    [SerializeField] private Sprite emptyIcon; // Sprite icon to display when there is nothing currently in the slot
+    [SerializeField] private Image x; // reference to the image that displays the card counter symbol
+    [SerializeField] private TextMeshProUGUI countText; // reference to the text displaying the count
 
-    private bool unlocked;
+    private bool unlocked; // bookkeeper variable to track if the slot has been locked or not
 
-    private void Start()
+    private void Awake()
     {
         unlocked = false;
         LockSlot();
@@ -26,6 +26,7 @@ public class InventorySlot : MonoBehaviour
 
     private void LockSlot()
     {
+        unlocked = false;
         lockedIcon.enabled = true;
     }
 
@@ -49,7 +50,7 @@ public class InventorySlot : MonoBehaviour
             return;
         }
         
-        if (!unlocked)
+        if (!unlocked) // if it's the first time drawing this slot, set to unlocked
         {
             unlocked = true;
             UnlockSlot();

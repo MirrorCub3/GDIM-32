@@ -51,10 +51,10 @@ public class PlantingPatch : MonoBehaviour
 
     void Update()
     {
-        if (currState == DirtStates.GROW)
+        if (currState == DirtStates.GROW) // if the current state is grow, increase the time and reflect it on the progress bar
         {
             time += Time.deltaTime;
-            if (time >= spawnData.PlantGrowthTime)
+            if (time >= spawnData.PlantGrowthTime) // if enough time has passed, spawn the item
             {
                 Spawn();
             }
@@ -63,7 +63,7 @@ public class PlantingPatch : MonoBehaviour
                 plantTimeBar.value = time;
             }
         }
-        else if (currState == DirtStates.WAIT)
+        else if (currState == DirtStates.WAIT) // if on cooldown state, then decrement the time
         {
             time -= Time.deltaTime / cooldownMultiplier;
             plantTimeBar.value = time;
@@ -73,6 +73,8 @@ public class PlantingPatch : MonoBehaviour
     private void Spawn()
     {
         currState = DirtStates.SPAWN;
+
+        lockedIcon.enabled = false;
         sprout.SetActive(false);
         time = spawnData.PlantGrowthTime;
         GameObject spawn = Instantiate(spawnPrefab, transform);
@@ -84,25 +86,30 @@ public class PlantingPatch : MonoBehaviour
     private void Cooldown()
     {
         currState = DirtStates.WAIT;
+
+        lockedIcon.enabled = false;
         sprout.SetActive(false);
         time = spawnData.PlantGrowthTime;
         plantTimeBar.value = time;
         plantTimeBar.gameObject.SetActive(true);
         fill.color = colors.waitCol;
-        StartCoroutine(CooldownIE());
+
+        StartCoroutine(CooldownIE()); // calls the coroutine to which will trigger the grow phase
     }
 
     private IEnumerator CooldownIE()
     {
         yield return new WaitForSeconds(spawnData.PlantGrowthTime * cooldownMultiplier);
 
-        Grow();
+        Grow(); // after cooldown has ended, start growing state
     }
 
     private void Grow()
     {
-        sprout.SetActive(true);
         currState = DirtStates.GROW;
+
+        lockedIcon.enabled = false;
+        sprout.SetActive(true);
         time = 0;
         plantTimeBar.value = time;
         fill.color = colors.growCol;
@@ -111,6 +118,7 @@ public class PlantingPatch : MonoBehaviour
     private void Locked() // used when the dirt patch is on the map but yet to become useable
     {
         currState = DirtStates.LOCKED;
+
         sprout.SetActive(false);
         plantTimeBar.gameObject.SetActive(false);
         time = 0;
@@ -123,7 +131,7 @@ public class PlantingPatch : MonoBehaviour
             return;
 
         StopAllCoroutines();
-        Cooldown();
+        Cooldown(); // enter cooldown stage after collected
     }
 
     public void Unlock(DirtStates state) // a public method for external code like the store to set the state of dirt once unlocked

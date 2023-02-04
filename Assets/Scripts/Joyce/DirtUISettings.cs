@@ -5,6 +5,6 @@ using UnityEngine;
 [CreateAssetMenu]
 public class DirtUISettings : ScriptableObject
 {
-    public Color growCol;
-    public Color waitCol;
+    public Color growCol; // a color for the bar when growing
+    public Color waitCol; // a color for the bar when on cooldown
 }
