@@ -5,3 +5,9 @@ public interface ICollectable
 {
     public void Collect();
 }
+
+//interface for requiring reset
+public interface IReset
+{
+    public void Reset();
+}

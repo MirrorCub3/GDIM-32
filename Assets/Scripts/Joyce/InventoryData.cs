@@ -5,7 +5,7 @@ using UnityEngine;
 // Joyce Mai
 // stores the inventory data between scenes
 [CreateAssetMenu(menuName = "PersistentData/ InventoryData")]
-public class InventoryData : ScriptableObject
+public class InventoryData : ScriptableObject, IReset
 {
     public List<InventoryItem> inventory { get; private set;}
     public Dictionary<Sweets, InventoryItem> itemDictionary { get; private set; }
@@ -13,6 +13,13 @@ public class InventoryData : ScriptableObject
     public void Init()
     {
         itemDictionary = new Dictionary<Sweets, InventoryItem>();
+
+        if(inventory == null)
+        {
+            inventory = new List<InventoryItem>();
+            return;
+        }
+
         foreach(InventoryItem item in inventory)
         {
             itemDictionary.Add(item.sweet, item);
@@ -45,7 +52,7 @@ public class InventoryData : ScriptableObject
         }
     }
 
-    public void ClearInventory()
+    public void Reset()
     {
         inventory.Clear();
         itemDictionary.Clear();

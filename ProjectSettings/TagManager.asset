@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Restaurant
+  - OuterWorld
   layers:
   - Default
   - TransparentFX

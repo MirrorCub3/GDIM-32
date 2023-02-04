@@ -29,7 +29,7 @@ public class PlantingPatch : MonoBehaviour
 
     void Start()
     {
-        plantTimeBar.maxValue = spawnData.PlantGrowthTime;
+        plantTimeBar.maxValue = spawnData.growthTime;
         if (currState == DirtStates.SPAWN) 
         {
             Spawn();
@@ -54,7 +54,7 @@ public class PlantingPatch : MonoBehaviour
         if (currState == DirtStates.GROW) // if the current state is grow, increase the time and reflect it on the progress bar
         {
             time += Time.deltaTime;
-            if (time >= spawnData.PlantGrowthTime) // if enough time has passed, spawn the item
+            if (time >= spawnData.growthTime) // if enough time has passed, spawn the item
             {
                 Spawn();
             }
@@ -76,7 +76,7 @@ public class PlantingPatch : MonoBehaviour
 
         lockedIcon.enabled = false;
         sprout.SetActive(false);
-        time = spawnData.PlantGrowthTime;
+        time = spawnData.growthTime;
         GameObject spawn = Instantiate(spawnPrefab, transform);
         // subscribing to the instance's collect action
         spawn.GetComponent<RecipeCardCollectable>().ThisCardCollectedNotif += OnCollect;
@@ -89,7 +89,7 @@ public class PlantingPatch : MonoBehaviour
 
         lockedIcon.enabled = false;
         sprout.SetActive(false);
-        time = spawnData.PlantGrowthTime;
+        time = spawnData.growthTime;
         plantTimeBar.value = time;
         plantTimeBar.gameObject.SetActive(true);
         fill.color = colors.waitCol;
@@ -99,7 +99,7 @@ public class PlantingPatch : MonoBehaviour
 
     private IEnumerator CooldownIE()
     {
-        yield return new WaitForSeconds(spawnData.PlantGrowthTime * cooldownMultiplier);
+        yield return new WaitForSeconds(spawnData.growthTime * cooldownMultiplier);
 
         Grow(); // after cooldown has ended, start growing state
     }

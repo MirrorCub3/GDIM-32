@@ -8,11 +8,18 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
+    [Header("Scene Management")]
+    [SerializeField] private string mainMenuScene = "MainMenu";
+    [SerializeField] private string baseScene = "OuterWorld";
+    private string currScene;
+    private bool playing;
+    private bool inKitchen;
+    private GameObject outerWorld;
+
     [Header("Inventory")] 
     [SerializeField] private InventoryData inventoryData;
-    
-    [Header("Pause Menu")]
-    [HideInInspector] public bool paused;
+
+    [HideInInspector] public bool paused { get; private set; }
 
     void Awake()
     {
@@ -27,12 +34,29 @@ public class GameManager : MonoBehaviour
             return;
         }
 
-        //currLevel = SceneManager.GetActiveScene().name;
-        //currLevelIndex = levels.IndexOf(currLevel);
+        currScene = SceneManager.GetActiveScene().name;
 
-        Time.timeScale = 1;
-        paused = false;
+        if (currScene != mainMenuScene)
+            playing = true;
+
+        if (currScene == baseScene)
+            FindOuterWorldToggle();
+
+        Resume();
     }
+
+    // used to test unloading and loading kitchens
+    //private void Update()
+    //{
+    //    if (Input.GetKeyDown(KeyCode.Space))
+    //    {
+    //        LoadKitchen("CookieKitchen");
+    //    }
+    //    if (Input.GetKeyDown(KeyCode.U))
+    //    {
+    //        UnloadKitchen();
+    //    }
+    //}
 
     public void Pause()
     {
@@ -46,34 +70,70 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1;
     }
 
-    private void OnApplicationQuit()
+    public void ToMainMenu()
     {
-        inventoryData.ClearInventory();
+        LoadScene(mainMenuScene);
     }
-    //public void ToMainMenu()
-    //{
-    //    LoadScene("MainMenu");
-    //}
 
-    //public void ReloadScene()
-    //{
-    //    SceneManager.LoadScene(currLevel);
-    //}
+    public void Restart()
+    {
+        inventoryData.Reset();
+        // reset all restaurants here too
 
-    //public void LoadScene(string nextScene = "")
-    //{
-    //    if (nextScene == "") // default to next level up
-    //    {
-    //        currLevelIndex += 1;
-    //        currLevel = levels[currLevelIndex];
-    //    }
-    //    else // otherwise use the name specified
-    //    {
-    //        currLevel = nextScene;
-    //        currLevelIndex = levels.IndexOf(currLevel);
-    //    }
+        SceneManager.LoadScene(currScene);
+    }
 
-    //    SceneManager.LoadScene(currLevel);
-    //}
+    public void LoadScene(string nextScene = "OuterWorld")
+    {
+        if (nextScene == mainMenuScene && inKitchen)
+            UnloadKitchen();
+
+        currScene = nextScene;
+        SceneManager.LoadScene(currScene);
+
+        if (currScene == baseScene)
+            FindOuterWorldToggle();
+    }
+
+    public void FindOuterWorldToggle()
+    {
+        outerWorld = GameObject.FindGameObjectWithTag("OuterWorld");
+    }
+
+    public void LoadKitchen(string sceneName) // loads the kitchen scene over the overorld scene
+    {
+        if (!playing)
+        {
+            Debug.Log("You should not be loading kitchens from the main menu");
+            return;
+        }
+
+        inKitchen = true;
+        currScene = sceneName;
+        SceneManager.LoadScene(sceneName, LoadSceneMode.Additive);
+        outerWorld.SetActive(false);
+    }
+    public void UnloadKitchen()
+    {
+        if (!playing || !inKitchen)
+        {
+            Debug.Log("you cannot unload a null kitchen");
+            return;
+        }
+
+        StartCoroutine(UnloadAsync(currScene));
+    }
+
+    private IEnumerator UnloadAsync(string scene)
+    {
+        AsyncOperation operation = SceneManager.UnloadSceneAsync(scene);
+        while (!operation.isDone)
+        {
+            yield return null;
+        }
+        inKitchen = false;
+        currScene = baseScene;
+        outerWorld.SetActive(true);
+    }
 
 }

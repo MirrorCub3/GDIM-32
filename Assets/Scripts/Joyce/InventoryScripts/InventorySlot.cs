@@ -4,7 +4,6 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 
-
 // Joyce Mai
 public class InventorySlot : MonoBehaviour
 {
