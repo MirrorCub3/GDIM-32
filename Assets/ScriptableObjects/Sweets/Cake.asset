@@ -12,8 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 102d3e4d1f4674f439f62f9b665e9c19, type: 3}
   m_Name: Cake
   m_EditorClassIdentifier: 
-  SweetName: Cake
+  sweetName: 
   icon: {fileID: 1335115368, guid: 58c33c9b34f9721459b1f94c27a51197, type: 3}
-  valueDepletionMult: 0
-  MaxRev: 0
-  PlantGrowthTime: 0
+  growthTime: 10
