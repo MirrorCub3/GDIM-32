@@ -27,14 +27,14 @@ public class PauseMenu : MonoBehaviour
     public void Resume()
     {
         pauseMenuUI.SetActive(false);
-        GameManager.instance.Pause();
+        GameManager.instance.Resume();
 
     }
 
     void Pause()
     {
         pauseMenuUI.SetActive(true);
-        GameManager.instance.Resume();
+        GameManager.instance.Pause();
 
 
 
