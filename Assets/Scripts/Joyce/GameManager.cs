@@ -44,19 +44,23 @@ public class GameManager : MonoBehaviour
 
         Resume();
     }
+    private void OnDestroy()
+    {
+        inventoryData.Reset();
+    }
 
-    // used to test unloading and loading kitchens
-    //private void Update()
-    //{
-    //    if (Input.GetKeyDown(KeyCode.Space))
-    //    {
-    //        LoadKitchen("CookieKitchen");
-    //    }
-    //    if (Input.GetKeyDown(KeyCode.U))
-    //    {
-    //        UnloadKitchen();
-    //    }
-    //}
+    //used to test unloading and loading kitchens
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            LoadKitchen("CookieKitchen");
+        }
+        if (Input.GetKeyDown(KeyCode.U))
+        {
+            UnloadKitchen();
+        }
+    }
 
     public void Pause()
     {
@@ -135,7 +139,8 @@ public class GameManager : MonoBehaviour
         }
         inKitchen = false;
         currScene = baseScene;
-        outerWorld.SetActive(true);
+        if (outerWorld != null)
+            outerWorld.SetActive(true);
     }
 
 }
