@@ -50,17 +50,17 @@ public class GameManager : MonoBehaviour
     }
 
     //used to test unloading and loading kitchens
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            LoadKitchen("CookieKitchen");
-        }
-        if (Input.GetKeyDown(KeyCode.U))
-        {
-            UnloadKitchen();
-        }
-    }
+    //private void Update()
+    //{
+    //    if (Input.GetKeyDown(KeyCode.Space))
+    //    {
+    //        LoadKitchen("CookieKitchen");
+    //    }
+    //    if (Input.GetKeyDown(KeyCode.U))
+    //    {
+    //        UnloadKitchen();
+    //    }
+    //}
 
     public void Pause()
     {
