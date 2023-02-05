@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-// Joyce Mai
+// Joyce Mai & Naman Khurana
 public class Eater : NPC
 {
     [Header("AI Variables")]
@@ -10,11 +10,17 @@ public class Eater : NPC
 
     void Start()
     {
-        
+        agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
     }
-
     void Update()
     {
-        
+        if (target != null)
+        {
+            agent.SetDestination(target.position);
+        }
+
     }
+
+
 }
+

@@ -11,7 +11,7 @@ public class NPC : MonoBehaviour
     [SerializeField] private float speed; // speed for the movement of the npc
 
     [Header("AI")]
-    [SerializeField] private NavMeshAgent agent; // refrence to the nav mesh agent
+    [SerializeField] protected private NavMeshAgent agent; // refrence to the nav mesh agent
     protected private Transform target; // the target position
 
     private void OnTriggerEnter(Collider other)

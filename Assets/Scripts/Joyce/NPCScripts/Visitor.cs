@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-// Joyce Mai
+// Joyce Mai and Naman Khurana
 public class Visitor : NPC
 {
     [Header("AI Variables")]
@@ -10,11 +10,14 @@ public class Visitor : NPC
 
     void Start()
     {
-
+        agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
     }
 
     void Update()
     {
-
+        if (target != null)
+        {
+            agent.SetDestination(target.position);
+        }
     }
 }
