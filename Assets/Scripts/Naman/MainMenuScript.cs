@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//Naman Khurana
 public class MainMenuScript : MonoBehaviour
 {
 
