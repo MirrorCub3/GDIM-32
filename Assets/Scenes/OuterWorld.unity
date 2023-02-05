@@ -2321,7 +2321,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 631940351}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.00021174597, z: -0.0033029641}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2729,6 +2729,7 @@ GameObject:
   m_Component:
   - component: {fileID: 764832042}
   - component: {fileID: 764832043}
+  - component: {fileID: 764832044}
   m_Layer: 0
   m_Name: CookieRestaurant
   m_TagString: Untagged
@@ -2764,8 +2765,21 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 7.537957, y: 8.23502, z: 1.4632139}
-  m_Center: {x: -3.2689786, y: 3.617509, z: 0.23160696}
+  m_Size: {x: 8.049234, y: 8.23502, z: 2.463214}
+  m_Center: {x: -3.1198564, y: 3.617509, z: 0.73160696}
+--- !u!65 &764832044
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 764832041}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.6177931, y: 2.0864623, z: 2}
+  m_Center: {x: 1.7149072, y: 1.0332044, z: 0.5}
 --- !u!1 &774940058
 GameObject:
   m_ObjectHideFlags: 0
@@ -2878,7 +2892,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 774940058}
   m_LocalRotation: {x: 0.38268343, y: -0, z: -0, w: 0.92387956}
-  m_LocalPosition: {x: -2, y: 21.45412, z: -25.44967}
+  m_LocalPosition: {x: -2, y: 21.451635, z: -25.447485}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3366,6 +3380,10 @@ PrefabInstance:
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8375926156796686912, guid: 7c1f8cd7ed7ce5f4782116dce234d1cf, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8375926156796686912, guid: 7c1f8cd7ed7ce5f4782116dce234d1cf, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -3409,6 +3427,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: BorderTree (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 8375926156879591390, guid: 7c1f8cd7ed7ce5f4782116dce234d1cf, type: 3}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8375926156879591390, guid: 7c1f8cd7ed7ce5f4782116dce234d1cf, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 501a84b6a0d591a4aa56ed55ec55218c, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7c1f8cd7ed7ce5f4782116dce234d1cf, type: 3}
 --- !u!4 &877686050 stripped
@@ -5164,8 +5190,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 9, y: 8.23502, z: 1.4632139}
-  m_Center: {x: 0, y: 3.617509, z: 0.23160696}
+  m_Size: {x: 9.378959, y: 8.368384, z: 2.5031052}
+  m_Center: {x: -0.043726444, y: 3.617509, z: 0.73160696}
 --- !u!1 &1458189047
 GameObject:
   m_ObjectHideFlags: 0

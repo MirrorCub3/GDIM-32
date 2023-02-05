@@ -45,7 +45,8 @@ public class RecipeCardCollectable : MonoBehaviour, ICollectable
         Destroy(gameObject);
 
         // when collected, alert subscribers and pass along information
-        OnCardCollectedGlobal.Invoke(sweet, itemCount);
+        if (OnCardCollectedGlobal != null)
+            OnCardCollectedGlobal.Invoke(sweet, itemCount);
 
         // only alert if there are subscribers
         if (ThisCardCollectedNotif != null)
