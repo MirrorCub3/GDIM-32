@@ -6,7 +6,8 @@ using UnityEngine;
 public class Eater : NPC
 {
     [Header("AI Variables")]
-    [SerializeField] private float hungerLevel;
+    [SerializeField] private EaterData myData;
+
     void Start()
     {
         

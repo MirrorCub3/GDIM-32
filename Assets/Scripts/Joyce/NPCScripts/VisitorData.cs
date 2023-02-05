@@ -6,5 +6,6 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Enemy/VisitorData")]
 public class VisitorData : ScriptableObject
 {
-    public RangeInt visitTime { get; private set; }
+    [Header("Visit State")]
+    public float visitTime;
 }
