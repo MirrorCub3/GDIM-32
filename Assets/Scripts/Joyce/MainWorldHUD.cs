@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 // Joyce Mai - Inventory toggle
-//Emily Chavez - recipe toggle 
+//Emily Chavez - Recipe toggle 
 public class MainWorldHUD : MonoBehaviour
 {
     [Header("Inventory Tab")]
@@ -15,6 +15,10 @@ public class MainWorldHUD : MonoBehaviour
     [SerializeField] private GameObject UIrecipeMenu;
     private bool _recipeMenu = false;
 
+    private void Awake()
+    {
+        Resume();
+    }
     void Update()
     {
         if (Input.GetKeyDown(inventoryToggleKey)) // allows for keypress to toggle
@@ -22,7 +26,7 @@ public class MainWorldHUD : MonoBehaviour
             ToggleInventory();
         }
 
-        if (Input.GetKeyDown(KeyCode.R))
+        if (Input.GetKeyDown(KeyCode.R)) // keypress toggles recipe display
         {
             if (_recipeMenu)
             {
@@ -57,10 +61,8 @@ public class MainWorldHUD : MonoBehaviour
     {
         if (UIrecipeMenu.activeInHierarchy)
             Resume();
-            
         else
-           {OpenRecipeMenu();
-           }
+            OpenRecipeMenu();
     }
 
 }

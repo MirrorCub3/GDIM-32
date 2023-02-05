@@ -24,15 +24,15 @@ public class Inventory : MonoBehaviour
         }
 
         inventoryData.Init();
-        ResetInventory();
-        MatchToData();
-        DrawInventory();
     }
 
     private void OnEnable()
     {
         // subscribing to be notified any time a card is collected
         RecipeCardCollectable.OnCardCollectedGlobal += Add;
+        ResetInventory();
+        MatchToData();
+        DrawInventory();
     }
 
     private void OnDisable()
