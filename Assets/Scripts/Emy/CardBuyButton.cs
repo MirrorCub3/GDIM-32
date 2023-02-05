@@ -25,7 +25,7 @@ public class CardBuyButton : MonoBehaviour
         // change the costtext to reflect the cost
     }
 
-    public void Purchase()
+    public void Purchase() //subtract cost from rev 
     {
         inventory.Add(product, 1); // adding one of this sweets object to the inventory
     }

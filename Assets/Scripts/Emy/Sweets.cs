@@ -2,13 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-// Emy
+// Emily Chavez
 [CreateAssetMenu]
 public class Sweets : ScriptableObject
 {
     [Header("Visuals")]
     public string sweetName;
     public Sprite icon;
+    public List<Sprite> qualityIcons;
 
     [Header("Number Values")]
     public float growthTime;
