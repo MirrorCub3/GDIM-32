@@ -10,8 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 6903116982541409265}
   - component: {fileID: 6903116982541409264}
-  - component: {fileID: 1310202087}
   - component: {fileID: 1310202088}
+  - component: {fileID: 1530628260957870391}
+  - component: {fileID: 3056678537901058566}
   m_Layer: 0
   m_Name: Hungry
   m_TagString: Untagged
@@ -55,22 +56,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!58 &1310202087
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6903116982541409266}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 1.5558378}
-  serializedVersion: 2
-  m_Radius: 1.5372251
 --- !u!195 &1310202088
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -80,7 +65,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 6903116982541409266}
   m_Enabled: 1
   m_AgentTypeID: -1372625422
-  m_Radius: 0.5
+  m_Radius: 1.75
   m_Speed: 3.5
   m_Acceleration: 8
   avoidancePriority: 50
@@ -89,10 +74,41 @@ NavMeshAgent:
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
-  m_Height: 2
+  m_Height: 1
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!135 &1530628260957870391
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6903116982541409266}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1.9239839
+  m_Center: {x: 0.027469158, y: 1.2208573, z: 0}
+--- !u!114 &3056678537901058566
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6903116982541409266}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05a90a87d6b90454cbb07aa823f78d28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anim: {fileID: 6903116982541409264}
+  speed: 3
+  sc: {fileID: 1530628260957870391}
+  agent: {fileID: 1310202088}
+  targets: []
+  myData: {fileID: 11400000, guid: 7e83f97652702414bb19ec0334147edf, type: 2}
 --- !u!1 &6903116982583071484
 GameObject:
   m_ObjectHideFlags: 0

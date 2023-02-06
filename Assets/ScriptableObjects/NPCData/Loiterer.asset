@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 678c41c87c8af49438ff8f698e4db11f, type: 3}
   m_Name: Loiterer
   m_EditorClassIdentifier: 
-  visitTime: 0
+  visitTimeMin: 5
+  visitTimeMax: 11

@@ -7,5 +7,17 @@ using UnityEngine;
 public class VisitorData : ScriptableObject
 {
     [Header("Visit State")]
-    public float visitTime;
+    [SerializeField] private int visitTimeMin;
+    [Tooltip("vistTimeMax is non inclusive")]
+    [SerializeField] private int visitTimeMax;
+
+    public int VisitTimeMin() // gets the visit time
+    {
+        return visitTimeMin;
+    }
+    
+    public int VisitTimeMax()
+    {
+        return visitTimeMax;
+    }
 }

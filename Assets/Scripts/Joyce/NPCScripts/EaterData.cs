@@ -7,12 +7,33 @@ using UnityEngine;
 public class EaterData : ScriptableObject
 {
     [Header("Hunger State")]
-    public float hungerLevel = 100; // the amount it takes before full
-    public int feedRate = 0; // the amount of food they take at a time
+    [SerializeField] private float hungerLevel = 100; // the amount it takes before full
+    [SerializeField] private int feedRate = 0; // the amount of food they take at a time
 
     [Header("Idle State")]
-    public float idleTime = 10; // the amount of time they wait before targeting again
+    [SerializeField] private float idleTime = 10; // the amount of time they wait before targeting again
 
     [Header("Sleep State")]
-    public float sleepTime; 
+    [SerializeField] private float sleepTime; 
+
+    public float  HungerLevel() // gets the hunger level
+    {
+        return hungerLevel;
+    }
+
+    public int FeedRate() // gets the feed rate
+    {
+        return feedRate;
+    }
+
+    public float IdleTime() // gets the idle time
+    {
+        return idleTime;
+    }
+
+    public float SleepTime() // gets the sleep time
+    {
+        return sleepTime;
+    }
+
 }

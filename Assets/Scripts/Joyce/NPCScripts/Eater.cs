@@ -8,19 +8,20 @@ public class Eater : NPC
     [Header("AI Variables")]
     [SerializeField] private EaterData myData;
 
-    void Start()
-    {
-        agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
-    }
     void Update()
     {
+        // Naman Khurana
         if (target != null)
         {
             agent.SetDestination(target.position);
+            agent.updateRotation = false; // this keeps the sprite facing the camera
         }
-
     }
 
+    public override void AtRestaurant()
+    {
+        Debug.Log("nom nom");
+    }
 
 }
 
