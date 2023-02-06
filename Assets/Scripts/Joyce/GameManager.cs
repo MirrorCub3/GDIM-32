@@ -107,7 +107,7 @@ public class GameManager : MonoBehaviour
 
     public void FindOuterWorldToggle() // called when loading into the base scene
     {
-        outerWorld = GameObject.FindGameObjectWithTag("OuterWorld");
+        outerWorld = GameObject.FindGameObjectWithTag(baseScene);
     }
 
     public void LoadKitchen(string sceneName) // loads the kitchen scene over the overorld scene
