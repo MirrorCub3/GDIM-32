@@ -47,7 +47,6 @@ public class InventoryData : ScriptableObject, IReset
             if (item.stackSize <= 0) // if there is no more of that object left
             {
                 inventory.Remove(item); // remove the item from inventory
-                itemDictionary.Remove(sweet); // remove the sweet from the dictionary
             }
         }
     }

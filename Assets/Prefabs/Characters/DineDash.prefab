@@ -150,7 +150,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.9803922, g: 0.6666667, b: 0.6431373, a: 1}
+  m_Color: {r: 0.48235297, g: 0.8352942, b: 0.92549026, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -235,7 +235,7 @@ MonoBehaviour:
       m_Calls: []
   m_Sprite: {fileID: 1257037845, guid: 58c33c9b34f9721459b1f94c27a51197, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -412,7 +412,7 @@ MonoBehaviour:
       m_Calls: []
   m_Sprite: {fileID: 1068695817, guid: 069156a7e0725cf49871f55095daf923, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -553,6 +553,7 @@ GameObject:
   - component: {fileID: 8847453964558550521}
   - component: {fileID: 4449709386263126104}
   - component: {fileID: 5990883540561000854}
+  - component: {fileID: 1830164208}
   m_Layer: 0
   m_Name: DineDash
   m_TagString: Untagged
@@ -632,3 +633,25 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 1.9239839
   m_Center: {x: 0.027469158, y: 1.2208573, z: 0}
+--- !u!114 &1830164208
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8847453964558550523}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb6d20dd06524bf4a9f3f2095274d1e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anim: {fileID: 8847453964558550521}
+  restaurantTag: PhysicalRestaurant
+  sc: {fileID: 5990883540561000854}
+  agent: {fileID: 4449709386263126104}
+  targets: []
+  myData: {fileID: 11400000, guid: 9f6eb54fbdf415f4aba489897f8849c2, type: 2}
+  homeBase: {fileID: 0}
+  timerObject: {fileID: 101637422}
+  timerSlider: {fileID: 101637424}
+  theftAmount: 1

@@ -67,6 +67,10 @@ public class PlantingPatch : MonoBehaviour
         {
             time -= Time.deltaTime / cooldownMultiplier;
             plantTimeBar.value = time;
+            if (time <= 0)
+            {
+                Grow();
+            }
         }
     }
 
@@ -94,15 +98,15 @@ public class PlantingPatch : MonoBehaviour
         plantTimeBar.gameObject.SetActive(true);
         fill.color = colors.waitCol;
 
-        StartCoroutine(CooldownIE()); // calls the coroutine to which will trigger the grow phase
+        //StopAllCoroutines();
+        //StartCoroutine(CooldownIE()); // calls the coroutine to which will trigger the grow phase
     }
 
-    private IEnumerator CooldownIE()
-    {
-        yield return new WaitForSeconds(spawnData.growthTime * cooldownMultiplier);
-
-        Grow(); // after cooldown has ended, start growing state
-    }
+    //private IEnumerator CooldownIE()
+    //{
+    //    yield return new WaitForSeconds(spawnData.growthTime * cooldownMultiplier);
+    //    Grow(); // after cooldown has ended, start growing state
+    //}
 
     private void Grow()
     {
@@ -129,8 +133,6 @@ public class PlantingPatch : MonoBehaviour
     {
         if (currState == DirtStates.WAIT)
             return;
-
-        StopAllCoroutines();
         Cooldown(); // enter cooldown stage after collected
     }
 

@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 
 //JESSICA Lam wrote this
 public class RestaurantController : MonoBehaviour
@@ -18,6 +17,8 @@ public class RestaurantController : MonoBehaviour
     public GameObject barBG1;
     public GameObject barBG2;
 
+    private bool calledLoad;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,14 +31,26 @@ public class RestaurantController : MonoBehaviour
         player2Bar.fillAmount = 0;
         // takes the gameobjects name (which player # the script is on)
         kitchenLevel = gameObject.name + "Kitchen";
+        calledLoad = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (player1Bar.fillAmount == 1 & player2Bar.fillAmount == 1){
-            Debug.Log("The scene: " + kitchenLevel + " should load");
-            SceneManager.LoadScene(kitchenLevel);
+        if (player1Bar.fillAmount == 1 && player2Bar.fillAmount == 1 && !calledLoad){
+            LoadKitchen();
         }
+    }
+
+    private void OnEnable()
+    {
+        calledLoad = false;
+    }
+
+    private void LoadKitchen()
+    {
+        calledLoad = true;
+        Debug.Log("The scene: " + kitchenLevel + " should load");
+        GameManager.instance.LoadKitchen(kitchenLevel);
     }
 }

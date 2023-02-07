@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Restaurant
   - OuterWorld
+  - PhysicalRestaurant
   layers:
   - Default
   - TransparentFX

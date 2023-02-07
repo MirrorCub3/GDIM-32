@@ -68,7 +68,7 @@ MonoBehaviour:
       m_Calls: []
   m_Sprite: {fileID: 1068695817, guid: 069156a7e0725cf49871f55095daf923, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -412,7 +412,7 @@ MonoBehaviour:
       m_Calls: []
   m_Sprite: {fileID: 1257037845, guid: 58c33c9b34f9721459b1f94c27a51197, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -430,9 +430,9 @@ GameObject:
   m_Component:
   - component: {fileID: 5330678235483529792}
   - component: {fileID: 5330678235483529793}
-  - component: {fileID: 6101985628135136522}
   - component: {fileID: 7818521926090457133}
   - component: {fileID: 7985790206767757924}
+  - component: {fileID: 1184124086046272972}
   m_Layer: 0
   m_Name: Loiterer
   m_TagString: Untagged
@@ -477,26 +477,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &6101985628135136522
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5330678235483529807}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 79a9080910088a34fba7c984af888b39, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  anim: {fileID: 5330678235483529793}
-  speed: 3
-  sc: {fileID: 7818521926090457133}
-  agent: {fileID: 7985790206767757924}
-  targets:
-  - {fileID: 0}
-  - {fileID: 0}
-  myData: {fileID: 11400000, guid: ab1817b686e0e304da8bff7ffa25aed7, type: 2}
 --- !u!135 &7818521926090457133
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -532,6 +512,27 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &1184124086046272972
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5330678235483529807}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79a9080910088a34fba7c984af888b39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anim: {fileID: 5330678235483529793}
+  restaurantTag: PhysicalRestaurant
+  sc: {fileID: 7818521926090457133}
+  agent: {fileID: 7985790206767757924}
+  targets: []
+  myData: {fileID: 11400000, guid: ab1817b686e0e304da8bff7ffa25aed7, type: 2}
+  homeBase: {fileID: 0}
+  timerObject: {fileID: 1414024589842189277}
+  timerSlider: {fileID: 6755203371638119716}
 --- !u!1 &5330678236464966731
 GameObject:
   m_ObjectHideFlags: 0

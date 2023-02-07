@@ -17,3 +17,5 @@ MonoBehaviour:
   UIIcon: {fileID: 1721356512, guid: 3bbda862acf8d3e4fa17f634f2960f96, type: 3}
   qualityIcons: []
   growthTime: 5
+  hungerFillAmount: 1
+  price: 10

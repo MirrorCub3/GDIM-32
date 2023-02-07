@@ -8,34 +8,23 @@ public class NPC : MonoBehaviour
 {
     [Header("NPC Data")]
     [SerializeField] private Animator anim; // reference to the animator component
-    [SerializeField] private float speed = 3f; // speed for the movement of the npc
 
     [Header("AI")]
+    [SerializeField] private string restaurantTag = "PhysicalRestaurant";
     [SerializeField] protected private SphereCollider sc; // refrence to the sphere collider to turn on and off
     [SerializeField] protected private NavMeshAgent agent; // refrence to the nav mesh agent
     [SerializeField] protected private List<Transform> targets = new List<Transform>(); // adjust this to something more dynamic later for spawning purposes
     protected private Transform target; // the target position
 
-    private void Awake()
-    {
-        // Naman Khurana
-        agent = GetComponent<NavMeshAgent>();
-
-        // Joyce Mai
-        sc = GetComponent<SphereCollider>();
-        agent.updateRotation = false; // this keeps the sprite facing the camera
-        agent.speed = speed;
-
-        PickTarget();
-    }
-
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag.Equals("Restaurant") && other.transform == target)
+        if (other.tag.Equals(restaurantTag) && other.transform == target)
         {
             print("I'm at my restaurant");
-            AtRestaurant();
+            Restaurant restaurant = other.GetComponent<Restaurant>();
+            AtRestaurant(restaurant); // valid to pass a null restaurant location for loiterers
         }
+        AdditionalTrigger(other);
     }
     protected private void PickTarget() // chooses a random location from the list
     {
@@ -46,9 +35,8 @@ public class NPC : MonoBehaviour
         target = targets[index];
     }
 
-    public virtual void AtRestaurant() // have child classes override this with their own behavior
-    {
-        Debug.Log("The base NPC Class does nothing on arrival");
-    }
+    public virtual void AtRestaurant(Restaurant restaurant){}
+
+    public virtual void AdditionalTrigger(Collider other){}
 
 }

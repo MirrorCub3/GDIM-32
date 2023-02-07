@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 // Joyce Mai
 public class GameManager : MonoBehaviour
@@ -20,6 +21,10 @@ public class GameManager : MonoBehaviour
 
     [Header("Inventory")] 
     [SerializeField] private InventoryData inventoryData;
+
+    //[Header("Loading")] // revist this later
+    //[SerializeField] private GameObject loadingScreen;
+    //[SerializeField] private Slider loadingBar;
 
     [HideInInspector] public bool paused { get; private set; }
 
@@ -45,26 +50,16 @@ public class GameManager : MonoBehaviour
         if (currScene == baseScene)
             FindOuterWorldToggle();
 
+        //loadingScreen.SetActive(false);
+
         Resume();
     }
+    
     private void OnDestroy()
     {
         // makes sure the data is reset between plays
         inventoryData.Reset();
     }
-
-    //used to test unloading and loading kitchens
-    //private void Update()
-    //{
-    //    if (Input.GetKeyDown(KeyCode.Space))
-    //    {
-    //        LoadKitchen("CookieKitchen");
-    //    }
-    //    if (Input.GetKeyDown(KeyCode.U))
-    //    {
-    //        UnloadKitchen();
-    //    }
-    //}
 
     public void Pause()
     {
@@ -103,6 +98,8 @@ public class GameManager : MonoBehaviour
 
         if (currScene == baseScene)
             FindOuterWorldToggle();
+
+        //loadingScreen.SetActive(false);
     }
 
     public void FindOuterWorldToggle() // called when loading into the base scene
@@ -112,16 +109,13 @@ public class GameManager : MonoBehaviour
 
     public void LoadKitchen(string sceneName) // loads the kitchen scene over the overorld scene
     {
-        if (!playing)
+        if (!playing || inKitchen)
         {
-            Debug.Log("You should not be loading kitchens from the main menu");
+            Debug.Log("You should not be loading kitchens from the main menu or from other kitchens");
             return;
         }
-
-        inKitchen = true;
-        currScene = sceneName;
-        SceneManager.LoadScene(sceneName, LoadSceneMode.Additive);
-        outerWorld.SetActive(false);
+        StopAllCoroutines();
+        StartCoroutine(LoadKitchenAsync(sceneName));
     }
     public void UnloadKitchen() // starts unloading process of the kitchen
     {
@@ -130,8 +124,25 @@ public class GameManager : MonoBehaviour
             Debug.Log("you cannot unload a null kitchen");
             return;
         }
-
+        StopAllCoroutines();
         StartCoroutine(UnloadIntoBaseAsync(currScene));
+    }
+
+    private IEnumerator LoadKitchenAsync(string scene) // used to unload the kitchen scene and reactivate the base world
+    {
+        inKitchen = true;
+
+        //loadingScreen.SetActive(true);
+        AsyncOperation operation = SceneManager.LoadSceneAsync(scene, LoadSceneMode.Additive);
+        while (!operation.isDone)
+        {
+            //float progess = Mathf.Clamp01(operation.progress / .9f);
+            //loadingBar.value = progess;
+            yield return null;
+        }
+        //loadingScreen.SetActive(false);
+        currScene = scene;
+        outerWorld.SetActive(false);
     }
 
     private IEnumerator UnloadIntoBaseAsync(string scene) // used to unload the kitchen scene and reactivate the base world

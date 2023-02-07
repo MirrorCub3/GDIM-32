@@ -45,6 +45,7 @@ public class Inventory : MonoBehaviour
     {
         if (inventoryData.itemDictionary == null) // only set if the dictionary is not empty
             return;
+        itemDictionary.Clear();
         foreach (KeyValuePair<Sweets, InventoryItem> item in inventoryData.itemDictionary)
         {
             InventoryItem newItem = new InventoryItem(item.Value.sweet, item.Value.stackSize); // making a copy of the inventory item data held in inventoryData
@@ -101,7 +102,7 @@ public class Inventory : MonoBehaviour
             if (item.stackSize <= 0) // if there is no more of that object left
             {
                 inventory.Remove(item); // remove the item from inventory
-                itemDictionary.Remove(sweet); // remove the sweet from the dictionary
+                //itemDictionary.Remove(sweet); // remove the sweet from the dictionary
             }
             DrawInventorySlot(sweet, item); // update UI
             inventoryData.Remove(sweet, count);

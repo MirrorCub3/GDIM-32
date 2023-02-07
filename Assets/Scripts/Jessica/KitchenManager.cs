@@ -43,7 +43,13 @@ public class KitchenManager : MonoBehaviour
         
         // set up the max amount of cards available (based on your inventory)
         textmeshpro_maxcards = MaxCardsInventory.GetComponent<TMPro.TextMeshProUGUI>();
-        textmeshpro_maxcards.text = (inventoryData.itemDictionary[cookieSweet].stackSize).ToString();
+        if (inventoryData.itemDictionary.TryGetValue(cookieSweet, out InventoryItem item))
+            textmeshpro_maxcards.text = (inventoryData.itemDictionary[cookieSweet].stackSize).ToString();
+        else
+        {
+            textmeshpro_maxcards.text = 0.ToString();
+            Debug.Log("There are none of this card to cook");
+        }
     }
 
     void Update()

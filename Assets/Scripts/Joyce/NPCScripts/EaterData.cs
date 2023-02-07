@@ -9,6 +9,7 @@ public class EaterData : ScriptableObject
     [Header("Hunger State")]
     [SerializeField] private float hungerLevel = 100; // the amount it takes before full
     [SerializeField] private int feedRate = 0; // the amount of food they take at a time
+    [SerializeField] private float speed = 3;
 
     [Header("Idle State")]
     [SerializeField] private float idleTime = 10; // the amount of time they wait before targeting again
@@ -34,6 +35,11 @@ public class EaterData : ScriptableObject
     public float SleepTime() // gets the sleep time
     {
         return sleepTime;
+    }
+
+    public float Speed()
+    {
+        return speed;
     }
 
 }

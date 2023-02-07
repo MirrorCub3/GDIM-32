@@ -14,3 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   visitTimeMin: 5
   visitTimeMax: 11
+  speed: 2
+  idleTime: 15

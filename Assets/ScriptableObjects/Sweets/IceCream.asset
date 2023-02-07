@@ -16,4 +16,6 @@ MonoBehaviour:
   icon: {fileID: 1735660322, guid: df9693e9720569b4483e53288e74d478, type: 3}
   UIIcon: {fileID: 1931985, guid: df9693e9720569b4483e53288e74d478, type: 3}
   qualityIcons: []
-  growthTime: 10
+  growthTime: 30
+  hungerFillAmount: 10
+  price: 20

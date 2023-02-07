@@ -14,5 +14,7 @@ public class Sweets : ScriptableObject
 
     [Header("Number Values")]
     public float growthTime;
+    public int hungerFillAmount;
+    public int price;
 
 }
