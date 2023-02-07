@@ -130,6 +130,7 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator LoadKitchenAsync(string scene) // used to unload the kitchen scene and reactivate the base world
     {
+        print("loading kitchen");
         inKitchen = true;
 
         //loadingScreen.SetActive(true);

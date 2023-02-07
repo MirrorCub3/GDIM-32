@@ -16,6 +16,11 @@ public class RestaurantUI : MonoBehaviour
         playerCount = 0;
     }
 
+    private void OnEnable()
+    {
+        playerCount = 0;
+    }
+
     void OnTriggerEnter (Collider other)
     {
         if (other.CompareTag("Player"))
