@@ -432,7 +432,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &240310290
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1794,6 +1794,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventoryData: {fileID: 11400000, guid: 8f53d3771661f7549a2aee2714e2e58e, type: 2}
+  restaurantData: {fileID: 11400000, guid: 7a1c305ac19e4794dbf60b69ae02055b, type: 2}
   BeforeGameCanvas: {fileID: 240310289}
   InGameCanvas: {fileID: 1805765642}
   DessertsChosen: {fileID: 1171689012}

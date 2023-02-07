@@ -9,6 +9,7 @@ public class KitchenManager : MonoBehaviour
     // private int currentBPM;
 
     [SerializeField] private InventoryData inventoryData;
+    [SerializeField] private RestaurantData restaurantData;
 
     // UI Canvas
     public GameObject BeforeGameCanvas;
@@ -65,6 +66,7 @@ public class KitchenManager : MonoBehaviour
         dessertsChosen = int.Parse(textmeshpro_dessertschosen.text);
         
         inventoryData.Remove(cookieSweet, dessertsChosen); // remove the desserts from the inventory
+        restaurantData.AddStock(dessertsChosen); // add it to the restaurant stock (in outer world)
 
         dessertsLeft = dessertsChosen; // initialize the amount of desserts left
         chosen = true;
