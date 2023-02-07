@@ -18,4 +18,4 @@ MonoBehaviour:
   qualityIcons: []
   growthTime: 50
   hungerFillAmount: 10
-  price: 0
+  price: 50
