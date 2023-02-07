@@ -16,7 +16,7 @@ public class Restaurant : MonoBehaviour
         myData.Init(stock);
     }
 
-    private void OnEnable()
+    private void OnEnable() // when entering back into the scene, match data with scriptable object
     {
         stock = myData.stock;
     }
