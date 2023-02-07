@@ -7,11 +7,15 @@ public class KitchenManager : MonoBehaviour
 {
     // private string currentDessertRestaurant;
     // private int currentBPM;
+
+    [SerializeField] private InventoryData inventoryData;
+
     public GameObject BeforeGameCanvas;
     public GameObject InGameCanvas;
 
-    public bool chosen;
+    bool chosen;
 
+    // text to change during run-time
     public GameObject DessertsChosen;
     TextMeshProUGUI textmeshpro_dessertschosen;
     private int dessertsChosen;
@@ -20,7 +24,13 @@ public class KitchenManager : MonoBehaviour
     TextMeshProUGUI textmeshpro_dessertsleft;
     private int dessertsLeft;
 
-    // Start is called before the first frame update
+    public GameObject MaxCardsInventory;
+    TextMeshProUGUI textmeshpro_maxcards;
+    int maxCards;
+
+    // always takes the Cookie Scriptable Objects
+    public Sweets cookieSweet;
+
     void Start()
     {
         Time.timeScale = 0f;
@@ -29,9 +39,12 @@ public class KitchenManager : MonoBehaviour
         InGameCanvas.SetActive(false);
         textmeshpro_dessertschosen = DessertsChosen.GetComponent<TMPro.TextMeshProUGUI>();
         textmeshpro_dessertsleft = DessertsLeftDisplay.GetComponent<TMPro.TextMeshProUGUI>();
+        
+        // set up the max amount of cards available (based on your inventory)
+        textmeshpro_maxcards = MaxCardsInventory.GetComponent<TMPro.TextMeshProUGUI>();
+        textmeshpro_maxcards.text = (inventoryData.itemDictionary[cookieSweet].stackSize).ToString();
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (chosen){
