@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-// Emy
+// Emily Chavez
 public class CardBuyButton : MonoBehaviour
 {
     [Header("Item Info")]
