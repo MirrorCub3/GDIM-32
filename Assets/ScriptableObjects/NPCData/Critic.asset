@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Critic
   m_EditorClassIdentifier: 
   hungerLevel: 10
-  feedRate: 2
+  feedRate: 5
   speed: 3
   idleTime: 5
   sleepTime: 20
