@@ -6,15 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/OuterWorld.unity
-    guid: f0abc020d9f1f2c4ea10528e079cd358
-  - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: aeaf85ac9d6e3fe489d37c20aea6fe19
   - enabled: 1
+    path: Assets/Scenes/OuterWorld.unity
+    guid: f0abc020d9f1f2c4ea10528e079cd358
+  - enabled: 1
     path: Assets/Scenes/CookieKitchen.unity
     guid: f7425721aa2c15c4fb11e0b049b00e8f
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SouffleKitchen.unity
     guid: 2da4307920b583b4ea109847f870734d
   m_configObjects: {}

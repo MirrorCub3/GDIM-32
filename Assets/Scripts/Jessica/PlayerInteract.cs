@@ -40,6 +40,10 @@ public class PlayerInteract : MonoBehaviour
             keyPressCode = "p";
         } 
     }
+    private void OnDisable()
+    {
+        holdingButton = false;
+    }
 
     // called every frame
     void Update()

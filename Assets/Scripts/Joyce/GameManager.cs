@@ -38,7 +38,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            Destroy(this);
+            Destroy(this.gameObject);
             return;
         }
 
@@ -46,9 +46,6 @@ public class GameManager : MonoBehaviour
 
         if (currScene != mainMenuScene)
             playing = true;
-
-        if (currScene == baseScene)
-            FindOuterWorldToggle();
 
         //loadingScreen.SetActive(false);
 
@@ -93,18 +90,19 @@ public class GameManager : MonoBehaviour
         if (nextScene == mainMenuScene && inKitchen) // if the current scene is the kitchen make sure to unload it first
             UnloadKitchen();
 
-        currScene = nextScene;
-        SceneManager.LoadScene(currScene);
+        currScene = nextScene; 
+        
+        if (currScene != mainMenuScene)
+            playing = true;
 
-        if (currScene == baseScene)
-            FindOuterWorldToggle();
+        SceneManager.LoadScene(currScene);
 
         //loadingScreen.SetActive(false);
     }
 
-    public void FindOuterWorldToggle() // called when loading into the base scene
+    public void SetOuterWorldToggle(GameObject toggle)
     {
-        outerWorld = GameObject.FindGameObjectWithTag(baseScene);
+        outerWorld = toggle;
     }
 
     public void LoadKitchen(string sceneName) // loads the kitchen scene over the overorld scene

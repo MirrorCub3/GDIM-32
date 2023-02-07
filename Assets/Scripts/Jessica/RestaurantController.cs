@@ -17,9 +17,7 @@ public class RestaurantController : MonoBehaviour
     public GameObject barBG1;
     public GameObject barBG2;
 
-    [SerializeField] private float enterTimeCooldown = 2;
     private bool calledLoad;
-    private bool canEnter;
 
     // Start is called before the first frame update
     void Start()
@@ -42,7 +40,6 @@ public class RestaurantController : MonoBehaviour
         calledLoad = false;
         barBG1.SetActive(false);
         barBG2.SetActive(false);
-        StartCoroutine(EnterCoolDown());
     }
 
     // Update is called once per frame
@@ -57,20 +54,8 @@ public class RestaurantController : MonoBehaviour
 
     private void LoadKitchen()
     {
-        if (!canEnter)
-        {
-            return;
-        }
-
         calledLoad = true;
         Debug.Log("The scene: " + kitchenLevel + " should load");
         GameManager.instance.LoadKitchen(kitchenLevel);
-    }
-
-    private IEnumerator EnterCoolDown() // counters issue where player's are immediatly reloaded back into the kitchen
-    {
-        canEnter = false;
-        yield return new WaitForSeconds(enterTimeCooldown);
-        canEnter = true;
     }
 }
