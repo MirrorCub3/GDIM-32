@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 // Joyce Mai - Inventory toggle
 //Emily Chavez - Recipe toggle 
@@ -15,10 +16,24 @@ public class MainWorldHUD : MonoBehaviour
     [SerializeField] private GameObject UIrecipeMenu;
     private bool _recipeMenu = false;
 
+    [Header("Money")]
+    [SerializeField] private TextMeshProUGUI coinText;
+
     private void Awake()
     {
         Resume();
+        UpdateCoinText(RevenueManager.instance.coins);
     }
+
+    private void OnEnable()
+    {
+        RevenueManager.CoinsChanged += UpdateCoinText;
+    }
+    private void OnDisable()
+    {
+        RevenueManager.CoinsChanged -= UpdateCoinText;
+    }
+
     void Update()
     {
         if (Input.GetKeyDown(inventoryToggleKey)) // allows for keypress to toggle
@@ -65,4 +80,8 @@ public class MainWorldHUD : MonoBehaviour
             OpenRecipeMenu();
     }
 
+    private void UpdateCoinText(int amount)
+    {
+        coinText.text = amount.ToString();
+    }
 }

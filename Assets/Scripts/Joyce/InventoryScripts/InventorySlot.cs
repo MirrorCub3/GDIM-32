@@ -13,6 +13,7 @@ public class InventorySlot : MonoBehaviour
     [SerializeField] private Sprite emptyIcon; // Sprite icon to display when there is nothing currently in the slot
     [SerializeField] private Image x; // reference to the image that displays the card counter symbol
     [SerializeField] private TextMeshProUGUI countText; // reference to the text displaying the count
+    [SerializeField] private TextMeshProUGUI nameText; // reference to the text displaying the count
 
     private bool unlocked; // bookkeeper variable to track if the slot has been locked or not
 
@@ -55,7 +56,8 @@ public class InventorySlot : MonoBehaviour
             UnlockSlot();
         }
 
-        icon.sprite = item.sweet.icon;
+        icon.sprite = item.sweet.UIIcon;
+        nameText.text = item.sweet.sweetName;
         x.enabled = true;
         countText.enabled = true;
         countText.text = item.stackSize.ToString();

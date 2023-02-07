@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 102d3e4d1f4674f439f62f9b665e9c19, type: 3}
   m_Name: IceCream
   m_EditorClassIdentifier: 
-  sweetName: 
-  icon: {fileID: 1335115368, guid: 58c33c9b34f9721459b1f94c27a51197, type: 3}
+  sweetName: Ice Cream
+  icon: {fileID: 1735660322, guid: df9693e9720569b4483e53288e74d478, type: 3}
+  UIIcon: {fileID: 1931985, guid: df9693e9720569b4483e53288e74d478, type: 3}
+  qualityIcons: []
   growthTime: 10

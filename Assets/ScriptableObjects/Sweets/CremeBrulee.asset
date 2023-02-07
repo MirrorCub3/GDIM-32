@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 102d3e4d1f4674f439f62f9b665e9c19, type: 3}
   m_Name: CremeBrulee
   m_EditorClassIdentifier: 
-  sweetName: 
-  icon: {fileID: 1335115368, guid: 58c33c9b34f9721459b1f94c27a51197, type: 3}
+  sweetName: Creme Brulee
+  icon: {fileID: -1490512734, guid: 46dd2569a7877b940a3b92b9424477ab, type: 3}
+  UIIcon: {fileID: -1627661343, guid: 46dd2569a7877b940a3b92b9424477ab, type: 3}
+  qualityIcons: []
   growthTime: 10
