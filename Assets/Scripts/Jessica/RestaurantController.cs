@@ -6,6 +6,7 @@ using UnityEngine.UI;
 //JESSICA Lam wrote this
 public class RestaurantController : MonoBehaviour
 {
+    [SerializeField] private InventoryData inventoryData;
     private string kitchenLevel;
 
     public Image player1Bar;
@@ -18,6 +19,8 @@ public class RestaurantController : MonoBehaviour
     public GameObject barBG2;
 
     private bool calledLoad;
+
+    public Sweets cookieSweet;
 
     // Start is called before the first frame update
     void Start()
@@ -45,7 +48,7 @@ public class RestaurantController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (player1Bar.fillAmount == 1 && player2Bar.fillAmount == 1 && !calledLoad)
+        if (player1Bar.fillAmount == 1 && player2Bar.fillAmount == 1 && !calledLoad && inventoryData.itemDictionary[cookieSweet].stackSize > 0) // don't load if you don't have any cookies
         {
             print(player1Bar.fillAmount + " " + player2Bar.fillAmount + " " + !calledLoad);
             LoadKitchen();

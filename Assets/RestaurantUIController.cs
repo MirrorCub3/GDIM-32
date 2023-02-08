@@ -18,8 +18,6 @@ public class RestaurantUIController : MonoBehaviour
     TextMeshProUGUI textmeshpro_dessertsMoney;
     private int dessertsMoney;
 
-    int currentStock;
-
     void Start()
     {
         quantityOfDessert = this.transform.Find("Quantity of Dessert Text").gameObject;
@@ -29,17 +27,13 @@ public class RestaurantUIController : MonoBehaviour
         moneyPerDessert = this.transform.Find("Money per Dessert Text").gameObject;
         textmeshpro_dessertsMoney = moneyPerDessert.GetComponent<TMPro.TextMeshProUGUI>();
         textmeshpro_dessertsMoney.text = "0"; // money per dessert always starts off at 0, and will return to 0 when there is no stock
-
-        currentStock = 0;
     }
 
     void Update()
     {
-        currentStock = int.Parse(textmeshpro_dessertQuantity.text); // take current stock -> int
-        currentStock += tempStockToAdd; // add the stock from the restaurant to the current stock
-        textmeshpro_dessertQuantity.text = currentStock.ToString(); // set the UI to display the current stock
+        textmeshpro_dessertQuantity.text = restaurantData.stock.ToString(); // set the UI to display the current stock
 
-        if (currentStock != 0){
+        if (restaurantData.stock != 0){
             textmeshpro_dessertsMoney.text = cookieSweet.price.ToString();
         }
         else {

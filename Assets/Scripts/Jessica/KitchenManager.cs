@@ -51,6 +51,7 @@ public class KitchenManager : MonoBehaviour
             textmeshpro_maxcards.text = 0.ToString();
             Debug.Log("There are none of this card to cook");
         }
+
     }
 
     void Update()
