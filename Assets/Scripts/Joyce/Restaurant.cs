@@ -23,11 +23,14 @@ public class Restaurant : MonoBehaviour
 
     public int BuyProduct(int amount = 1) // returns true or false based on successful purchase
     {
-        if (stock - amount < 0)
+        if (stock <= 0)
         {
-            Debug.Log("Not enough stock");
+            Debug.Log("There is no stock");
             return 0;
         }
+        
+        if (amount > stock) // if trying to steal more than avaliable, just take everything
+            amount = stock;
 
         stock -= amount;
         RevenueManager.instance.ChangeCoins(product.price * amount);
