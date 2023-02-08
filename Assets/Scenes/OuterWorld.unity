@@ -554,7 +554,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 000
+  m_text: 00000
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c1fe470c24d703a46af8b363646ea230, type: 2}
   m_sharedMaterial: {fileID: 21787498236480076, guid: c1fe470c24d703a46af8b363646ea230, type: 2}
@@ -2397,7 +2397,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 295602857}
   m_OnClick:
     m_PersistentCalls:
@@ -4421,8 +4421,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -70.605, y: 227.3}
-  m_SizeDelta: {x: 57.9, y: 50}
+  m_AnchoredPosition: {x: -79.718, y: 236.43}
+  m_SizeDelta: {x: 74.203, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &680933340
 MonoBehaviour:
@@ -4446,8 +4446,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Cookie Nook '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b738a036cdd90174ab0daffc51bdbb05, type: 2}
+  m_sharedMaterial: {fileID: 6559644652845824822, guid: b738a036cdd90174ab0daffc51bdbb05, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -4471,19 +4471,19 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 14.2
-  m_fontSizeBase: 14.2
+  m_fontSize: 22
+  m_fontSizeBase: 22
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
+  m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
-  m_lineSpacing: 0
+  m_lineSpacing: -50
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
@@ -6316,7 +6316,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1844690925458762379, guid: 408c06be8d06ac24fa6b0625da0cf154, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.00000047683716
       objectReference: {fileID: 0}
     - target: {fileID: 1844690925458762379, guid: 408c06be8d06ac24fa6b0625da0cf154, type: 3}
       propertyPath: m_LocalPosition.y
@@ -6336,7 +6336,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1844690925649996308, guid: 408c06be8d06ac24fa6b0625da0cf154, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.9999995
+      value: -1.9999998
       objectReference: {fileID: 0}
     - target: {fileID: 1844690925649996308, guid: 408c06be8d06ac24fa6b0625da0cf154, type: 3}
       propertyPath: m_LocalPosition.y
@@ -6400,7 +6400,7 @@ PrefabInstance:
       objectReference: {fileID: 1149978981}
     - target: {fileID: 1844690925679333911, guid: 408c06be8d06ac24fa6b0625da0cf154, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.8749995
+      value: 1.8750002
       objectReference: {fileID: 0}
     - target: {fileID: 1844690925679333911, guid: 408c06be8d06ac24fa6b0625da0cf154, type: 3}
       propertyPath: m_LocalPosition.y
@@ -9708,7 +9708,7 @@ GameObject:
   - component: {fileID: 1220419976}
   - component: {fileID: 1220419975}
   m_Layer: 5
-  m_Name: CookieNum Txt
+  m_Name: CookieNum Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9731,8 +9731,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 16.5, y: 170.9}
-  m_SizeDelta: {x: 25.1455, y: 13.958}
+  m_AnchoredPosition: {x: 17.9103, y: 170.9}
+  m_SizeDelta: {x: 27.9661, y: 13.958}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1220419975
 MonoBehaviour:
@@ -9754,7 +9754,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 100
+  m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -13591,7 +13591,7 @@ GameObject:
   - component: {fileID: 1671369617}
   - component: {fileID: 1671369616}
   m_Layer: 5
-  m_Name: Coin/cookie Txt
+  m_Name: Coin per cookie Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13614,8 +13614,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 95.1, y: 165.4}
-  m_SizeDelta: {x: 25.1455, y: 13.958}
+  m_AnchoredPosition: {x: 101.30529, y: 165.4}
+  m_SizeDelta: {x: 37.556, y: 13.958}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1671369616
 MonoBehaviour:
@@ -13637,7 +13637,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 300
+  m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -14010,7 +14010,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 203.55801, y: 192.90002}
+  m_AnchoredPosition: {x: 219, y: 192.90002}
   m_SizeDelta: {x: 41.5566, y: 41.5131}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1715174883
@@ -15520,8 +15520,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1918131519}
+  - component: {fileID: 1918131520}
   m_Layer: 5
-  m_Name: unlocked recipe UI
+  m_Name: Cookie Recipe UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15568,6 +15569,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1918131520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1918131518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 704a5507bad6f2b45b41def58cdd0bab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  restaurantData: {fileID: 11400000, guid: 7a1c305ac19e4794dbf60b69ae02055b, type: 2}
+  cookieSweet: {fileID: 11400000, guid: 840c8f9486e3ab74284af5eaad662dd7, type: 2}
 --- !u!1 &1920906110
 GameObject:
   m_ObjectHideFlags: 0

@@ -23,7 +23,10 @@ public class CardBuyButton : MonoBehaviour
         inventory = GameObject.FindObjectOfType<Inventory>(); // this is the reference the inventory to update/add to
         productIcon.sprite = product.icon; // change this to reference the UI icon instead
         costText.text = cost.ToString();
+        myButton.interactable = false;
+    }
 
+    private void Update(){
         CheckCanUse(RevenueManager.instance.coins); // checks if the button can be used based on current revenue
     }
 
@@ -38,7 +41,7 @@ public class CardBuyButton : MonoBehaviour
 
     private void CheckCanUse(int currCoins)
     {
-        myButton.interactable = currCoins >= cost;
+        myButton.interactable = (currCoins >= cost);
     }
 
     public void Purchase() //subtract cost from rev 
