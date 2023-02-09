@@ -48,10 +48,16 @@ public class RestaurantController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (player1Bar.fillAmount == 1 && player2Bar.fillAmount == 1 && !calledLoad && inventoryData.itemDictionary[cookieSweet].stackSize > 0) // don't load if you don't have any cookies
+        if (player1Bar.fillAmount == 1 && player2Bar.fillAmount == 1 && !calledLoad)
         {
-            print(player1Bar.fillAmount + " " + player2Bar.fillAmount + " " + !calledLoad);
-            LoadKitchen();
+            if (inventoryData.itemDictionary.TryGetValue(cookieSweet, out InventoryItem item)) // don't load if there is none of this item
+            {
+                if (item.stackSize <= 0)
+                    return;
+                LoadKitchen();
+            }
+            else
+                Debug.Log("This item is not in the dictionary yet (No cookies have been collected yet)");
         }
     }
 
