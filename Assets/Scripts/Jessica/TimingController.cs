@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TimingController : MonoBehaviour
 {   
-public float Timer = 2;
+    float Timer = 2f;
     public GameObject dessertPrefab;
     GameObject dessertClone;
 
@@ -17,10 +17,12 @@ public float Timer = 2;
     // Update is called once per frame
     void Update()
     {
+        // Creates a new dessert every 2 seconds
         Timer -= Time.deltaTime;
         if (Timer <= 0f)
         {
-            dessertClone = Instantiate(dessertPrefab, new Vector3(Random.Range(-9, 9), 5f, 0f), transform.rotation) as GameObject;
+            dessertClone = Instantiate(dessertPrefab, new Vector3(0, 0, 0), Quaternion.identity) as GameObject;
+            Debug.Log("Created new dessert");
             Timer = 2f;
         }
     }

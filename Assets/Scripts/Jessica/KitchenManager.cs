@@ -33,6 +33,9 @@ public class KitchenManager : MonoBehaviour
     // always takes the Cookie Scriptable Objects right now
     public Sweets cookieSweet;
 
+    // audio control
+    AudioSource audioSource;
+
     void Start()
     {   // pause background and display the dessert choosing Canvas
         Time.timeScale = 0f;
@@ -52,6 +55,8 @@ public class KitchenManager : MonoBehaviour
             Debug.Log("There are none of this card to cook");
         }
 
+        // audio control initialize
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -64,6 +69,10 @@ public class KitchenManager : MonoBehaviour
     public void StartGameCycle(){
         // start the rhythm kitchen section after choosing the amount of desserts
         Time.timeScale = 1f;
+        // start music
+        audioSource.clip = cookieSweet.BGMusic;
+        audioSource.Play();
+
         dessertsChosen = int.Parse(textmeshpro_dessertschosen.text);
         
         inventoryData.Remove(cookieSweet, dessertsChosen); // remove the desserts from the inventory

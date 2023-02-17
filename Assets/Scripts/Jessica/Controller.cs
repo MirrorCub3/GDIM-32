@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class Controller : MonoBehaviour
 {
+    public Sweets sweet; //temporarily here to just stop the music when leaving
+
     public void NextScene()
     {
         //SceneManager.LoadScene("OuterWorld");

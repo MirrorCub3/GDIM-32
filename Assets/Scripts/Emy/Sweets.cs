@@ -17,4 +17,15 @@ public class Sweets : ScriptableObject
     public int hungerFillAmount;
     public int price;
 
+    [Header("Kitchen Sprites")]
+    public Sprite startSprite;
+    public Sprite P1GoodSprite;
+    public Sprite P1BadSprite;
+    public Sprite P1GoodP2BadSprite;
+    public Sprite P1BadP2BadSprite;
+    public Sprite P1GoodP2GoodSprite;
+    public Sprite P1BadP2GoodSprite;
+
+    [Header("Music")]
+    public AudioClip BGMusic;
 }
