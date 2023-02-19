@@ -36,4 +36,9 @@ public class RestaurantData : ScriptableObject, IReset
         }
         stock -= amount;
     }
+
+    public void SetStars(float amount) // call to set new quality for restaurant in kitchen
+    {
+        stars = amount;
+    }
 }
