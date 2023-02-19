@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DessertController : MonoBehaviour
+// Leaf class
+public class DessertController : MonoBehaviour, Quality
 {   
     SpriteRenderer spriteRenderer; // get current spriterenderer to change sprite during runtime
     public Sweets sweetObject; // get the correct sweet object
@@ -11,11 +12,14 @@ public class DessertController : MonoBehaviour
 
     bool withinRange; // determines if dessert is withinRange
 
+    public float quality { get; private set; } // quality rating of this dessert
+
     void Start()
     {
         // Get this gameobjects SpriteRenderer component
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
         keypressCode = "e";
+        quality = 0f;
     }
 
     void Update()
@@ -64,9 +68,11 @@ public class DessertController : MonoBehaviour
         else if (keypressCode == "p"){
             if (spriteRenderer.sprite == sweetObject.P1GoodSprite){
                 spriteRenderer.sprite = sweetObject.P1GoodP2BadSprite;
+                quality = 2f;
             }
             else if (spriteRenderer.sprite == sweetObject.P1BadSprite){
                 spriteRenderer.sprite = sweetObject.P1BadP2BadSprite;
+                quality = 1f;
             }
         }
     }
@@ -82,9 +88,11 @@ public class DessertController : MonoBehaviour
             else if (keypressCode == "p"){
                 if (spriteRenderer.sprite == sweetObject.P1GoodSprite){
                     spriteRenderer.sprite = sweetObject.P1GoodP2GoodSprite;
+                    quality = 3f;
                 }
                 else if (spriteRenderer.sprite == sweetObject.P1BadSprite){
                     spriteRenderer.sprite = sweetObject.P1BadP2GoodSprite;
+                    quality = 2f;
                 }
             }
         }
@@ -96,11 +104,18 @@ public class DessertController : MonoBehaviour
             else if (keypressCode == "p"){
                 if (spriteRenderer.sprite == sweetObject.P1GoodSprite){
                     spriteRenderer.sprite = sweetObject.P1GoodP2BadSprite;
+                    quality = 2f;
                 }
                 else if (spriteRenderer.sprite == sweetObject.P1BadSprite){
                     spriteRenderer.sprite = sweetObject.P1BadP2BadSprite;
+                    quality = 1f;
                 }
             }
         }
+    }
+
+    // returns the quality of this dessert
+    public float GetQuality(){
+        return quality;
     }
 }
