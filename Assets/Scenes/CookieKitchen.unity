@@ -1705,7 +1705,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08e309acc12f3b745b9290795bc2c7d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dessertPrefab: {fileID: 1603912065851627294, guid: 857bbaa692885f64bb12d0fea1d1ef93, type: 3}
+  dessertPrefab: {fileID: 2312669917052067986, guid: 857bbaa692885f64bb12d0fea1d1ef93, type: 3}
   desserts: []
   kitchenManager: {fileID: 0}
 --- !u!1 &753125857

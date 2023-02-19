@@ -7,21 +7,21 @@ public class DessertSpawner : MonoBehaviour
 {   
     // Spawn Dessert
     float Timer = 2f;
-    public GameObject dessertPrefab;
-    GameObject dessertClone;
+    public DessertController dessertPrefab;
+    DessertController dessertClone;
 
     // List of Dessert
-    public List<Quality> desserts;
+    public List<DessertController> desserts;
 
     // Take Kitchen Manager Script
     public KitchenManager kitchenManager;
 
     void Start()
     {
-        desserts = new List<Quality>();
+        desserts = new List<DessertController>();
     }
 
-    public void AddDessert(Quality dessert)
+    public void AddDessert(DessertController dessert)
     {
         desserts.Add(dessert);
     }
@@ -32,8 +32,9 @@ public class DessertSpawner : MonoBehaviour
         Timer -= Time.deltaTime;
         if (Timer <= 0f)
         {
-            dessertClone = Instantiate(dessertPrefab, new Vector3(0, 0, 0), Quaternion.identity) as GameObject;
-            // HOW DO I ADD the dessertClone to a list of Quality? Since right now it's a gameobject ;-;
+            dessertClone = Instantiate(dessertPrefab);
+            desserts.Add(dessertClone);
+            Debug.Log("Desserts in the list: " + desserts.Count);
 
             if (kitchenManager){ // testing purposes
                 kitchenManager.ReduceDessertByOne(); // call function from kitchen manager script to reduce dessert by one

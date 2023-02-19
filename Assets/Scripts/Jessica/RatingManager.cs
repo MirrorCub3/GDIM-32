@@ -7,7 +7,7 @@ using UnityEngine.UI;
 // Composite Class
 public class RatingManager : MonoBehaviour, Quality
 {
-    public DessertSpawner dessertSpawn; // script to take list of dessert prefabs from
+    [SerializeField] private DessertSpawner dessertSpawn; // script to take list of dessert prefabs from
     float averageRating;
 
     public Slider StarSlider3;
@@ -23,8 +23,15 @@ public class RatingManager : MonoBehaviour, Quality
         StarSlider1.value = 0f;
     }
 
+    void Update()
+    {
+        float currQuality = GetQuality();
+        Debug.Log("The current rating is: " + currQuality);
+    }
+
     public float GetQuality(){
-        foreach (Quality dessert in dessertSpawn.desserts)
+        averageRating = 0f; // added for testing purposes
+        foreach (DessertController dessert in dessertSpawn.desserts)
             {
                 averageRating += dessert.GetQuality();
             }
