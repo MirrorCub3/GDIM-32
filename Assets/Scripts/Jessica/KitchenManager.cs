@@ -64,6 +64,9 @@ public class KitchenManager : MonoBehaviour
         if (chosen){
             textmeshpro_dessertsleft.text = dessertsLeft.ToString();
         }
+        if (textmeshpro_dessertsleft.text == "0"){
+            EndGameCycle();
+        }
     }
 
     public void StartGameCycle(){
@@ -84,5 +87,14 @@ public class KitchenManager : MonoBehaviour
         // bring in the game canvas and remove the choosing-dessert canvas
         BeforeGameCanvas.SetActive(false);
         InGameCanvas.SetActive(true);
+    }
+
+    public void ReduceDessertByOne(){
+        dessertsLeft -= 1;
+        textmeshpro_dessertsleft.text = dessertsLeft.ToString();
+    }
+
+    void EndGameCycle(){
+        GameManager.instance.UnloadKitchen();
     }
 }

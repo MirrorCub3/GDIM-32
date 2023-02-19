@@ -4,17 +4,21 @@ using UnityEngine;
 
 public class TimingController : MonoBehaviour
 {   
+    // Spawn Dessert
     float Timer = 2f;
     public GameObject dessertPrefab;
     GameObject dessertClone;
 
-    // Start is called before the first frame update
+    // Take Kitchen Manager Script
+    public KitchenManager kitchenManager;
+
+    // Checking how many desserts were made, update text
+
     void Start()
     {
         
     }
 
-    // Update is called once per frame
     void Update()
     {
         // Creates a new dessert every 2 seconds
@@ -22,7 +26,9 @@ public class TimingController : MonoBehaviour
         if (Timer <= 0f)
         {
             dessertClone = Instantiate(dessertPrefab, new Vector3(0, 0, 0), Quaternion.identity) as GameObject;
-            Debug.Log("Created new dessert");
+            if (kitchenManager){ // testing purposes
+                kitchenManager.ReduceDessertByOne(); // call function from kitchen manager script to reduce dessert by one
+            }
             Timer = 2f;
         }
     }

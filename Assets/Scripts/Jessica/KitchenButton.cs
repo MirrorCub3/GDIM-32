@@ -5,8 +5,6 @@ using UnityEngine;
 public class KitchenButton : MonoBehaviour
 {
     Animator anim;
-    public Animator playerAnim;
-    public Animator player2Anim;
     string whichButton;
 
     // Start is called before the first frame update
@@ -22,14 +20,11 @@ public class KitchenButton : MonoBehaviour
         if (whichButton == "E Button"){// if this script is on E
             if (Input.GetKeyDown(KeyCode.E)){
                 anim.SetTrigger("Pressed");
-                playerAnim.SetBool("Perfect Press",true);
-
             }
         }
         if (whichButton == "P Button"){// if this script is on P
             if (Input.GetKeyDown(KeyCode.P)){
                 anim.SetTrigger("Pressed");
-                player2Anim.SetBool("Perfect Press",true);
             }
         }
     }

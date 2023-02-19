@@ -4,14 +4,13 @@ using UnityEngine;
 
 public class DessertController : MonoBehaviour
 {   
-    SpriteRenderer spriteRenderer;
-    public Sweets sweetObject;
+    SpriteRenderer spriteRenderer; // get current spriterenderer to change sprite during runtime
+    public Sweets sweetObject; // get the correct sweet object
 
     string keypressCode; // changes depending on P1 or P2
 
     bool withinRange; // determines if dessert is withinRange
 
-    // Start is called before the first frame update
     void Start()
     {
         // Get this gameobjects SpriteRenderer component
@@ -19,7 +18,6 @@ public class DessertController : MonoBehaviour
         keypressCode = "e";
     }
 
-    // Update is called once per frame
     void Update()
     {
         CheckInput(keypressCode);
@@ -76,6 +74,7 @@ public class DessertController : MonoBehaviour
     // Checks if input buttons are pressed
     void CheckInput(string keypressCode)
     {
+        // if pressed on time
         if (Input.GetKeyDown(keypressCode) && withinRange){
             if (keypressCode == "e" && spriteRenderer.sprite != sweetObject.P1BadSprite){
                 spriteRenderer.sprite = sweetObject.P1GoodSprite;
@@ -89,6 +88,7 @@ public class DessertController : MonoBehaviour
                 }
             }
         }
+        // if pressed too early
         else if (Input.GetKeyDown(keypressCode) && !withinRange){
             if (keypressCode == "e"){
                 spriteRenderer.sprite = sweetObject.P1BadSprite;
