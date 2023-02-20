@@ -33,10 +33,10 @@ public class RatingManager : MonoBehaviour, Quality
     {
         float currQuality = GetQuality(); // current quality of all the desserts = the quality of your restaurant
         
-        if (currQuality < 1f){
+        if (currQuality <= 1f){
             StarSlider1.value = currQuality;
         }
-        else if (currQuality < 2f){
+        else if (currQuality <= 2f){
             StarSlider1.value = 1f;
             StarSlider2.value = currQuality-1;
         }
@@ -62,6 +62,7 @@ public class RatingManager : MonoBehaviour, Quality
     }
 
     public void SetEndSliders(){
+        Update();
         StarSlider1End.value = StarSlider1.value;
         StarSlider2End.value = StarSlider2.value;
         StarSlider3End.value = StarSlider3.value;

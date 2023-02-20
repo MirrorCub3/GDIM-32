@@ -97,20 +97,21 @@ public class KitchenManager : MonoBehaviour
     }
 
     public void ReduceDessertByOne(){
-        dessertsLeft -= 1;
-        textmeshpro_dessertsleft.text = dessertsLeft.ToString();
         if (textmeshpro_dessertsleft.text == "0"){
-                EndGameCycle();
-            }
+            EndGameCycle();
+        }
+        else {
+            dessertsLeft -= 1;
+            textmeshpro_dessertsleft.text = dessertsLeft.ToString();
+        }
     }
 
     void EndGameCycle(){
-        Time.timeScale = 0f;
         audioSource.Stop();
         ratingManager.SetEndSliders();
         dessertSpawner.DestroyAllDesserts();
+        Time.timeScale = 0f;
         EndGameCanvas.SetActive(true);
-        Debug.Log("HI");
     }
 
     // used for player input at the end of kitchen
