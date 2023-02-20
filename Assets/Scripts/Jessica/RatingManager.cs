@@ -10,9 +10,15 @@ public class RatingManager : MonoBehaviour, Quality
     [SerializeField] private DessertSpawner dessertSpawn; // script to take list of dessert prefabs from
     float averageRating;
 
+    [Header("InGameSliders")]
     public Slider StarSlider3;
     public Slider StarSlider2;
     public Slider StarSlider1;
+
+    [Header("EndScreenSliders")]
+    public Slider StarSlider3End;
+    public Slider StarSlider2End;
+    public Slider StarSlider1End;
 
     void Start()
     {
@@ -25,8 +31,25 @@ public class RatingManager : MonoBehaviour, Quality
 
     void Update()
     {
-        float currQuality = GetQuality();
-        Debug.Log("The current rating is: " + currQuality);
+        float currQuality = GetQuality(); // current quality of all the desserts = the quality of your restaurant
+        
+        if (currQuality < 1f){
+            StarSlider1.value = currQuality;
+        }
+        else if (currQuality < 2f){
+            StarSlider1.value = 1f;
+            StarSlider2.value = currQuality-1;
+        }
+        else if (currQuality < 3f){
+            StarSlider1.value = 1f;
+            StarSlider2.value = 1f;
+            StarSlider3.value = currQuality-2;
+        }
+        else if (currQuality == 3f){
+            StarSlider1.value = 1f;
+            StarSlider2.value = 1f;
+            StarSlider3.value = 1f;
+        }
     }
 
     public float GetQuality(){
@@ -35,6 +58,12 @@ public class RatingManager : MonoBehaviour, Quality
             {
                 averageRating += dessert.GetQuality();
             }
-        return (averageRating/(dessertSpawn.desserts.Count));
+        return (averageRating/(dessertSpawn.desserts.Count-1));
+    }
+
+    public void SetEndSliders(){
+        StarSlider1End.value = StarSlider1.value;
+        StarSlider2End.value = StarSlider2.value;
+        StarSlider3End.value = StarSlider3.value;
     }
 }

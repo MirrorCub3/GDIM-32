@@ -34,7 +34,6 @@ public class DessertSpawner : MonoBehaviour
         {
             dessertClone = Instantiate(dessertPrefab);
             desserts.Add(dessertClone);
-            Debug.Log("Desserts in the list: " + desserts.Count);
 
             if (kitchenManager){ // testing purposes
                 kitchenManager.ReduceDessertByOne(); // call function from kitchen manager script to reduce dessert by one
@@ -43,5 +42,11 @@ public class DessertSpawner : MonoBehaviour
         }
     }
 
-
+    public void DestroyAllDesserts() // destroys all the prefabs when exiting kitchen
+    {
+        foreach (DessertController dessert in desserts)
+            {
+                Destroy(dessert.gameObject);
+            }
+    }
 }

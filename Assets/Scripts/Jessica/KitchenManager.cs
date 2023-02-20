@@ -11,9 +11,13 @@ public class KitchenManager : MonoBehaviour
     [SerializeField] private InventoryData inventoryData;
     [SerializeField] private RestaurantData restaurantData;
 
+    [SerializeField] private RatingManager ratingManager;
+    [SerializeField] private DessertSpawner dessertSpawner;
+
     // UI Canvas
     public GameObject BeforeGameCanvas;
     public GameObject InGameCanvas;
+    public GameObject EndGameCanvas;
 
     bool chosen;
 
@@ -30,6 +34,9 @@ public class KitchenManager : MonoBehaviour
     TextMeshProUGUI textmeshpro_maxcards;
     int maxCards;
 
+    public GameObject DessertsCreated;
+    TextMeshProUGUI textmeshpro_dessertscreated;
+
     // always takes the Cookie Scriptable Objects right now
     public Sweets cookieSweet;
 
@@ -42,8 +49,10 @@ public class KitchenManager : MonoBehaviour
         chosen = false;
         BeforeGameCanvas.SetActive(true);
         InGameCanvas.SetActive(false);
+        EndGameCanvas.SetActive(false);
         textmeshpro_dessertschosen = DessertsChosen.GetComponent<TMPro.TextMeshProUGUI>();
         textmeshpro_dessertsleft = DessertsLeftDisplay.GetComponent<TMPro.TextMeshProUGUI>();
+        textmeshpro_dessertscreated = DessertsCreated.GetComponent<TMPro.TextMeshProUGUI>();
         
         // set up the max amount of cards available (based on your inventory)
         textmeshpro_maxcards = MaxCardsInventory.GetComponent<TMPro.TextMeshProUGUI>();
@@ -64,9 +73,6 @@ public class KitchenManager : MonoBehaviour
         if (chosen){
             textmeshpro_dessertsleft.text = dessertsLeft.ToString();
         }
-        if (textmeshpro_dessertsleft.text == "0"){
-            EndGameCycle();
-        }
     }
 
     public void StartGameCycle(){
@@ -77,6 +83,7 @@ public class KitchenManager : MonoBehaviour
         audioSource.Play();
 
         dessertsChosen = int.Parse(textmeshpro_dessertschosen.text);
+        textmeshpro_dessertscreated.text = dessertsChosen.ToString();
         
         inventoryData.Remove(cookieSweet, dessertsChosen); // remove the desserts from the inventory
         restaurantData.AddStock(dessertsChosen); // add it to the restaurant stock (in outer world)
@@ -92,9 +99,23 @@ public class KitchenManager : MonoBehaviour
     public void ReduceDessertByOne(){
         dessertsLeft -= 1;
         textmeshpro_dessertsleft.text = dessertsLeft.ToString();
+        if (textmeshpro_dessertsleft.text == "0"){
+                EndGameCycle();
+            }
     }
 
     void EndGameCycle(){
+        Time.timeScale = 0f;
+        audioSource.Stop();
+        ratingManager.SetEndSliders();
+        dessertSpawner.DestroyAllDesserts();
+        EndGameCanvas.SetActive(true);
+        Debug.Log("HI");
+    }
+
+    // used for player input at the end of kitchen
+    public void BackToOuterWorld(){
+        Time.timeScale = 1f;
         GameManager.instance.UnloadKitchen();
     }
 }
