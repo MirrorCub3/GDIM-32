@@ -25,6 +25,8 @@ public class RestaurantUIController : MonoBehaviour
     Slider starSlider2;
     Slider starSlider3;
 
+    float multiplier;
+
     void Start()
     {
         quantityOfDessert = this.transform.Find("Quantity of Dessert Text").gameObject;
@@ -44,6 +46,8 @@ public class RestaurantUIController : MonoBehaviour
         starSlider3GO = this.transform.Find("StarSlider3").gameObject;
         starSlider3 = starSlider3GO.GetComponent<Slider>();
         starSlider3.value = 0f;
+
+        multiplier = 1f;
     }
 
     void Update()
@@ -51,7 +55,7 @@ public class RestaurantUIController : MonoBehaviour
         textmeshpro_dessertQuantity.text = restaurantData.stock.ToString(); // set the UI to display the current stock
 
         if (restaurantData.stock != 0){
-            textmeshpro_dessertsMoney.text = sweet.price.ToString();
+            textmeshpro_dessertsMoney.text = (sweet.price * multiplier).ToString();
         }
         else {
             textmeshpro_dessertsMoney.text = "0";
@@ -75,21 +79,25 @@ public class RestaurantUIController : MonoBehaviour
             starSlider1.value = restaurantData.stars;
             starSlider2.value = 0f;
             starSlider3.value = 0f;
+            multiplier = .5f;
         }
         else if (1f < restaurantData.stars && restaurantData.stars <= 2f){
             starSlider1.value = 1f;
             starSlider2.value = restaurantData.stars-1;
             starSlider3.value = 0f;
+            multiplier = .8f;
         }
         else if (2f < restaurantData.stars && restaurantData.stars <= 3f){
             starSlider1.value = 1f;
             starSlider2.value = 1f;
             starSlider3.value = restaurantData.stars-2;
+            multiplier = 1f;
         }
         else if (restaurantData.stars == 3f){
             starSlider1.value = 1f;
             starSlider2.value = 1f;
             starSlider3.value = 1f;
+            multiplier = 1f;
         }
     }
 }
