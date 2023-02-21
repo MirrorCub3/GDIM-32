@@ -35,12 +35,15 @@ public class RatingManager : MonoBehaviour, Quality
         
         if (currQuality <= 1f){
             StarSlider1.value = currQuality;
+            StarSlider2.value = 0f;
+            StarSlider3.value = 0f;
         }
-        else if (currQuality <= 2f){
+        else if (1f < currQuality && currQuality <= 2f){
             StarSlider1.value = 1f;
             StarSlider2.value = currQuality-1;
+            StarSlider3.value = 0f;
         }
-        else if (currQuality < 3f){
+        else if (2f < currQuality && currQuality <= 3f){
             StarSlider1.value = 1f;
             StarSlider2.value = 1f;
             StarSlider3.value = currQuality-2;

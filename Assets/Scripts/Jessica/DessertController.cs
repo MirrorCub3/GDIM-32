@@ -72,7 +72,7 @@ public class DessertController : MonoBehaviour, Quality
             }
             else if (spriteRenderer.sprite == sweetObject.P1BadSprite){
                 spriteRenderer.sprite = sweetObject.P1BadP2BadSprite;
-                quality = 1f;
+                quality = 0f;
             }
         }
     }
@@ -108,7 +108,7 @@ public class DessertController : MonoBehaviour, Quality
                 }
                 else if (spriteRenderer.sprite == sweetObject.P1BadSprite){
                     spriteRenderer.sprite = sweetObject.P1BadP2BadSprite;
-                    quality = 1f;
+                    quality = 0f;
                 }
             }
         }
