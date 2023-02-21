@@ -7,6 +7,7 @@ using UnityEngine.UI;
 // Composite Class
 public class RatingManager : MonoBehaviour, Quality
 {
+    [SerializeField] private RestaurantData restaurantData;
     [SerializeField] private DessertSpawner dessertSpawn; // script to take list of dessert prefabs from
     float averageRating;
 
@@ -20,9 +21,13 @@ public class RatingManager : MonoBehaviour, Quality
     public Slider StarSlider2End;
     public Slider StarSlider1End;
 
+    float currQuality;
+
     void Start()
     {
         averageRating = 0f;
+
+        currQuality = 0f;
 
         StarSlider3.value = 0f;
         StarSlider2.value = 0f;
@@ -31,7 +36,7 @@ public class RatingManager : MonoBehaviour, Quality
 
     void Update()
     {
-        float currQuality = GetQuality(); // current quality of all the desserts = the quality of your restaurant
+        currQuality = GetQuality(); // current quality of all the desserts = the quality of your restaurant
         
         if (currQuality <= 1f){
             StarSlider1.value = currQuality;
@@ -69,5 +74,6 @@ public class RatingManager : MonoBehaviour, Quality
         StarSlider1End.value = StarSlider1.value;
         StarSlider2End.value = StarSlider2.value;
         StarSlider3End.value = StarSlider3.value;
+        restaurantData.SetStars(currQuality);
     }
 }

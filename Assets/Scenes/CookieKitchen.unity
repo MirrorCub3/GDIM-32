@@ -1424,6 +1424,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c91e7014301a48e4c81f77671c010103, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  restaurantData: {fileID: 11400000, guid: 7a1c305ac19e4794dbf60b69ae02055b, type: 2}
   dessertSpawn: {fileID: 740507664}
   StarSlider3: {fileID: 1757187084}
   StarSlider2: {fileID: 992218677}

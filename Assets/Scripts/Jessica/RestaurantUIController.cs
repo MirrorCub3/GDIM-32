@@ -1,22 +1,29 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class RestaurantUIController : MonoBehaviour
 {
     [SerializeField] private RestaurantData restaurantData;
-    // always takes the Cookie Scriptable Objects right now
-    public Sweets cookieSweet;
+    public Sweets sweet;
 
     // text to change during run-time
-    public GameObject quantityOfDessert;
+    GameObject quantityOfDessert;
     TextMeshProUGUI textmeshpro_dessertQuantity;
     private int dessertQuantity;
 
-    public GameObject moneyPerDessert;
+    GameObject moneyPerDessert;
     TextMeshProUGUI textmeshpro_dessertsMoney;
     private int dessertsMoney;
+
+    GameObject starSlider1GO;
+    GameObject starSlider2GO;
+    GameObject starSlider3GO;
+    Slider starSlider1;
+    Slider starSlider2;
+    Slider starSlider3;
 
     void Start()
     {
@@ -27,6 +34,16 @@ public class RestaurantUIController : MonoBehaviour
         moneyPerDessert = this.transform.Find("Money per Dessert Text").gameObject;
         textmeshpro_dessertsMoney = moneyPerDessert.GetComponent<TMPro.TextMeshProUGUI>();
         textmeshpro_dessertsMoney.text = "0"; // money per dessert always starts off at 0, and will return to 0 when there is no stock
+
+        starSlider1GO = this.transform.Find("StarSlider1").gameObject;
+        starSlider1 = starSlider1GO.GetComponent<Slider>();
+        starSlider1.value = 0f;
+        starSlider2GO = this.transform.Find("StarSlider2").gameObject;
+        starSlider2 = starSlider2GO.GetComponent<Slider>();
+        starSlider2.value = 0f;
+        starSlider3GO = this.transform.Find("StarSlider3").gameObject;
+        starSlider3 = starSlider3GO.GetComponent<Slider>();
+        starSlider3.value = 0f;
     }
 
     void Update()
@@ -34,10 +51,45 @@ public class RestaurantUIController : MonoBehaviour
         textmeshpro_dessertQuantity.text = restaurantData.stock.ToString(); // set the UI to display the current stock
 
         if (restaurantData.stock != 0){
-            textmeshpro_dessertsMoney.text = cookieSweet.price.ToString();
+            textmeshpro_dessertsMoney.text = sweet.price.ToString();
         }
         else {
             textmeshpro_dessertsMoney.text = "0";
+            SetStarsToZero();
+        }
+
+        if (restaurantData.stars != 0f){
+            SetStars();
+        }
+    }
+
+    void SetStarsToZero(){
+        restaurantData.SetStars(0f);
+        starSlider1.value = 0f;
+        starSlider2.value = 0f;
+        starSlider3.value = 0f;
+    }
+
+    void SetStars(){
+        if (restaurantData.stars <= 1f){
+            starSlider1.value = restaurantData.stars;
+            starSlider2.value = 0f;
+            starSlider3.value = 0f;
+        }
+        else if (1f < restaurantData.stars && restaurantData.stars <= 2f){
+            starSlider1.value = 1f;
+            starSlider2.value = restaurantData.stars-1;
+            starSlider3.value = 0f;
+        }
+        else if (2f < restaurantData.stars && restaurantData.stars <= 3f){
+            starSlider1.value = 1f;
+            starSlider2.value = 1f;
+            starSlider3.value = restaurantData.stars-2;
+        }
+        else if (restaurantData.stars == 3f){
+            starSlider1.value = 1f;
+            starSlider2.value = 1f;
+            starSlider3.value = 1f;
         }
     }
 }
