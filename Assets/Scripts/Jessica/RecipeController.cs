@@ -51,7 +51,7 @@ public class RecipeController : MonoBehaviour
         textmeshpro_cookieQuantity.text = restaurantData.stock.ToString(); // set the UI to display the current stock
 
         if (restaurantData.stock != 0){
-            textmeshpro_dessertsMoney.text = (sweet.price * multiplier).ToString();
+            textmeshpro_cookieMoney.text = (sweet.price * multiplier).ToString();
         }
         else {
             textmeshpro_cookieMoney.text = "0";
@@ -87,7 +87,7 @@ public class RecipeController : MonoBehaviour
             starSlider1.value = 1f;
             starSlider2.value = 1f;
             starSlider3.value = restaurantData.stars-2;
-            multiplier = .8f;
+            multiplier = 1f;
         }
         else if (restaurantData.stars == 3f){
             starSlider1.value = 1f;
