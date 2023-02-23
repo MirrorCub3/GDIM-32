@@ -22,9 +22,9 @@ public class GameManager : MonoBehaviour
     [Header("Inventory")] 
     [SerializeField] private InventoryData inventoryData;
 
-    //[Header("Loading")] // revist this later
-    //[SerializeField] private GameObject loadingScreen;
-    //[SerializeField] private Slider loadingBar;
+    [Header("Loading")] // revist this later
+    [SerializeField] private GameObject loadingScreen;
+    [SerializeField] private Slider loadingBar;
 
     [HideInInspector] public bool paused { get; private set; }
 
@@ -47,7 +47,7 @@ public class GameManager : MonoBehaviour
         if (currScene != mainMenuScene)
             playing = true;
 
-        //loadingScreen.SetActive(false);
+        loadingScreen.SetActive(false);
 
         Resume();
     }
@@ -73,11 +73,13 @@ public class GameManager : MonoBehaviour
     public void ToMainMenu() // simple call to menu, for ease of access
     {
         LoadScene(mainMenuScene);
+        RevenueManager.instance.Reset();
     }
 
     public void Restart()
     {
         inventoryData.Reset();
+        RevenueManager.instance.Reset();
         // reset all restaurants here too
 
         SceneManager.LoadScene(currScene);
@@ -97,7 +99,7 @@ public class GameManager : MonoBehaviour
 
         SceneManager.LoadScene(currScene);
 
-        //loadingScreen.SetActive(false);
+        loadingScreen.SetActive(false);
     }
 
     public void SetOuterWorldToggle(GameObject toggle)
@@ -128,20 +130,19 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator LoadKitchenAsync(string scene) // used to unload the kitchen scene and reactivate the base world
     {
-        print("loading kitchen");
         inKitchen = true;
 
-        //loadingScreen.SetActive(true);
+        loadingScreen.SetActive(true);
         AsyncOperation operation = SceneManager.LoadSceneAsync(scene, LoadSceneMode.Additive);
         while (!operation.isDone)
         {
-            //float progess = Mathf.Clamp01(operation.progress / .9f);
-            //loadingBar.value = progess;
+            float progess = Mathf.Clamp01(operation.progress / .9f);
+            loadingBar.value = progess;
             yield return null;
         }
-        //loadingScreen.SetActive(false);
-        currScene = scene;
         outerWorld.SetActive(false);
+        loadingScreen.SetActive(false);
+        currScene = scene;
     }
 
     private IEnumerator UnloadIntoBaseAsync(string scene) // used to unload the kitchen scene and reactivate the base world

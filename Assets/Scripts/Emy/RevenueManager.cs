@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 // Emily Chavez and Joyce Mai
-public class RevenueManager : MonoBehaviour
+public class RevenueManager : MonoBehaviour, IReset
 { 
     // allows subscription to knowing when coins has changed
     public delegate void OnChangedCoins(int amount);
@@ -26,7 +26,7 @@ public class RevenueManager : MonoBehaviour
             return;
         }
 
-        coins = 0;
+        Reset();
     }
 
     // method to change number of coins
@@ -43,5 +43,10 @@ public class RevenueManager : MonoBehaviour
         // updating subcribers that coins has changed
         if (CoinsChanged != null)
             CoinsChanged.Invoke(coins);
+    }
+
+    public void Reset()
+    {
+        coins = 0;
     }
 }
