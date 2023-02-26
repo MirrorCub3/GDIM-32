@@ -6,15 +6,18 @@ using UnityEngine.UI;
 
 // Joyce Mai & Naman Khurana
 public class Eater : NPC
-{
+{   
     [Header("AI Variables")]
-    [SerializeField] private EaterData myData;
-    [SerializeField] private int idleThreshold = 0; // the amount of targets minimum in the list before idle state is triggered
-    [SerializeField] private Transform idleSpot; // temporary unit wander behavior is implemented
+    [SerializeField] protected EaterData myData;
+    public float chewTime { get; protected set; } // used to tell how long to eat for based on the amount of food eaten
+    [SerializeField] private int emptyTolerance = 2; // used to prolong the wander state if the amount of unsuccessful encounters is this
+    protected Transform lastTarget;
+    protected int emptyCount = 0;
 
-    [Header("UI")]
-    [SerializeField] private GameObject hungerBar; // reference to the bar object
-    [SerializeField] private Slider hungerSlider; // reference to the bar used to show how full the NPC is
+    [Header("Visuals")]
+    [SerializeField] protected GameObject hungerBar; // reference to the bar object
+    [SerializeField] protected Slider hungerSlider; // reference to the bar used to show how full the NPC is
+    [SerializeField] protected SpriteRenderer sr;
 
     private void Awake()
     {
@@ -29,7 +32,18 @@ public class Eater : NPC
         hungerSlider.maxValue = myData.HungerLevel();
         hungerSlider.value = 0;
 
-        PickTarget();
+        lastTarget = null;
+        emptyCount = 0;
+
+        if (currState == States.Wander || currState == States.Sleep || currState == States.Target)
+        {
+            anim.SetTrigger(currState.ToString());
+        }
+        else
+        {
+            Debug.Log("The chosen state is an invalid initial state for Eater");
+            anim.SetTrigger("Wander");
+        }
     }
 
     void Update()
@@ -38,10 +52,39 @@ public class Eater : NPC
         if (target != null)
         {
             agent.SetDestination(target.position);
-            agent.updateRotation = false; // this keeps the sprite facing the camera
         }
+
+        if(currState == States.Wander || currState == States.Sleep)
+            hungerBar.SetActive(false);
     }
 
+    public EaterData GetData()
+    {
+        return myData;
+    }
+
+    public override void Target()
+    {
+        if (emptyCount >= emptyTolerance && targets.Count != 1) // used to force the target of a different location if previous was constantly empty
+        {
+            while (!target || target == lastTarget)
+            {
+                PickTarget();
+            }
+            sc.enabled = true;
+        }
+        else if (emptyCount >= emptyTolerance && targets.Count == 1) // if only one location is avaliable, sleep to delay
+        {
+            anim.SetTrigger("Sleep");
+        }
+        else // picking target as usual
+        {
+            PickTarget();
+            sc.enabled = true;
+        }
+
+        hungerBar.SetActive(true);
+    }
     public override void AtRestaurant(Restaurant restaurant)
     {
         if (restaurant == null)
@@ -52,41 +95,51 @@ public class Eater : NPC
 
         sc.enabled = false;
         Eat(restaurant);
-        sc.enabled = true;
     }
-
-    public override void AdditionalTrigger(Collider other)
+    public virtual void Eat(Restaurant restaurant)
     {
-        if (other.transform == idleSpot && idleSpot == target)
+        int amountBought = restaurant.BuyProduct(Mathf.Min(myData.FeedRate(), (int)(hungerSlider.maxValue - hungerSlider.value))); // buys less than the npc's feed rate if there's not enough room
+        hungerSlider.value += amountBought;
+        chewTime = myData.ChewSpeed() * amountBought;
+
+        if (amountBought <= 0) // if unsuccessful purchase
         {
-            Debug.Log("i'm chewing");
-            if (hungerSlider.value >= hungerSlider.maxValue)
-                StartCoroutine(Sleep());
+            if (target == lastTarget)
+            {
+                print("eating nothing");
+                emptyCount++;
+            }
             else
-                StartCoroutine(Wandering());
+            {
+                lastTarget = target;
+                emptyCount = 1;
+            }
+            anim.SetTrigger("Wander");
+
         }
+        else
+            anim.SetTrigger("Eat");
+    }
+    public bool IsFull()
+    {
+        return hungerSlider.value >= hungerSlider.maxValue;
     }
 
-    private void Eat(Restaurant restaurant)
+    public void Sleep()
     {
-        print("nom nom");
-        hungerSlider.value += restaurant.BuyProduct(myData.FeedRate());
-        target = idleSpot;
-    }
-
-    protected IEnumerator Wandering()
-    {
-        yield return new WaitForSeconds(myData.IdleTime());
-        PickTarget();
-    }
-
-    protected IEnumerator Sleep()
-    {
-        hungerBar.SetActive(false);
-        yield return new WaitForSeconds(myData.SleepTime());
-        hungerBar.SetActive(true);
+        target = null;
+        // enable the timer bar here
+        sr.sprite = myData.SleepSprite();
+        sc.enabled = false;
+        agent.enabled = false;
         hungerSlider.value = 0;
-        PickTarget();
+    }
+    public void WakeUp()
+    {
+        sr.sprite = myData.NormalSprite();
+        sc.enabled = true;
+        agent.enabled = true;
+        emptyCount = 0;
     }
 
 }

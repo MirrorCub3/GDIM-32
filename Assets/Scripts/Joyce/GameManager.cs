@@ -7,6 +7,11 @@ using UnityEngine.UI;
 // Joyce Mai
 public class GameManager : MonoBehaviour
 {
+    public delegate void WorldStatusAlert();
+    // use these to alert when the outer world has been deactivated/activated
+    public static event WorldStatusAlert OnWorldEnable;
+    public static event WorldStatusAlert OnWorldDisable;
+
     public static GameManager instance; // reference to this singleton
 
     [Header("Scene Management")]
@@ -141,6 +146,9 @@ public class GameManager : MonoBehaviour
             yield return null;
         }
         outerWorld.SetActive(false);
+        if (OnWorldDisable != null)
+            OnWorldDisable.Invoke();
+
         loadingScreen.SetActive(false);
         currScene = scene;
     }
@@ -158,6 +166,8 @@ public class GameManager : MonoBehaviour
         {
             currScene = baseScene;
             outerWorld.SetActive(true);
+            if (OnWorldEnable != null)
+                OnWorldEnable.Invoke();
         }
     }
 

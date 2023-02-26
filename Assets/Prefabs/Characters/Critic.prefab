@@ -376,7 +376,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6720878101605610727}
   - component: {fileID: 6720878101605610726}
-  - component: {fileID: 6720878101605610720}
   m_Layer: 0
   m_Name: Graphic
   m_TagString: Untagged
@@ -451,26 +450,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &6720878101605610720
-Animator:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6720878101605610725}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &6720878102277587455
 GameObject:
   m_ObjectHideFlags: 0
@@ -483,7 +462,7 @@ GameObject:
   - component: {fileID: 6720878102277587449}
   - component: {fileID: 530056580}
   - component: {fileID: 3018558153122908432}
-  - component: {fileID: 1659547767}
+  - component: {fileID: 6475849449825844352}
   m_Layer: 0
   m_Name: Critic
   m_TagString: Untagged
@@ -563,7 +542,7 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 1.9239839
   m_Center: {x: 0.027469158, y: 1.2208573, z: 0}
---- !u!114 &1659547767
+--- !u!114 &6475849449825844352
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -572,19 +551,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 6720878102277587455}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 05a90a87d6b90454cbb07aa823f78d28, type: 3}
+  m_Script: {fileID: 11500000, guid: c4871f21fa37742479d10c94ac386114, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currState: 0
   anim: {fileID: 6720878102277587449}
   restaurantTag: PhysicalRestaurant
   sc: {fileID: 3018558153122908432}
   agent: {fileID: 530056580}
-  targets: []
+  targets:
+  - {fileID: 0}
+  - {fileID: 0}
+  wanderRadius: 10
   myData: {fileID: 11400000, guid: 3b60d602a09871f4ca5124d6eff0374c, type: 2}
-  idleThreshold: 1
-  idleSpot: {fileID: 0}
+  emptyTolerance: 2
   hungerBar: {fileID: 7962935281013684410}
   hungerSlider: {fileID: 354652990969030667}
+  sr: {fileID: 6720878101605610726}
 --- !u!1 &7962935281013684410
 GameObject:
   m_ObjectHideFlags: 0

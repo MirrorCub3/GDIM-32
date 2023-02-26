@@ -148,7 +148,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3096705699724351569}
   - component: {fileID: 3096705699724351571}
-  - component: {fileID: 3096705699724351568}
   m_Layer: 0
   m_Name: Graphic
   m_TagString: Untagged
@@ -223,26 +222,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &3096705699724351568
-Animator:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3096705699724351566}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &3096705700000942590
 GameObject:
   m_ObjectHideFlags: 0
@@ -290,7 +269,7 @@ Animator:
   m_GameObject: {fileID: 3096705700000942590}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 27905d3bafa0c4544b59ef34e7876c4b, type: 2}
+  m_Controller: {fileID: 9100000, guid: aabe0ac95fdc1594dbd67c984377167d, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -347,16 +326,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05a90a87d6b90454cbb07aa823f78d28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anim: {fileID: 3096705699724351568}
+  currState: 0
+  anim: {fileID: 3096705700000942528}
   restaurantTag: PhysicalRestaurant
   sc: {fileID: 6271949458423145675}
   agent: {fileID: 1776763845}
-  targets: []
+  targets:
+  - {fileID: 0}
+  wanderRadius: 10
   myData: {fileID: 11400000, guid: 5d14e65cd91274c4da3a1971ba388cd5, type: 2}
-  idleThreshold: 1
-  idleSpot: {fileID: 0}
+  emptyTolerance: 3
   hungerBar: {fileID: 7067382982506236534}
   hungerSlider: {fileID: 5522539437826690243}
+  sr: {fileID: 3096705699724351571}
 --- !u!1 &3370351383771054774
 GameObject:
   m_ObjectHideFlags: 0

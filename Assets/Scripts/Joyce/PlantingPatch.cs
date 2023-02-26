@@ -6,7 +6,7 @@ using UnityEngine.UI;
 // Joyce Mai
 public class PlantingPatch : MonoBehaviour
 {
-    public enum DirtStates { LOCKED, GROW, SPAWN, WAIT} // making public such that external programs can set the state of the dirt patch once unlocked
+    public enum DirtStates { LOCKED, GROW, SPAWN, WAIT } // making public such that external programs can set the state of the dirt patch once unlocked
 
     [Header("Card Spawn")]
     [SerializeField] private GameObject spawnPrefab; // will be used to instantiate the card
@@ -26,6 +26,8 @@ public class PlantingPatch : MonoBehaviour
 
     [Header("State Variables")]
     [SerializeField] private DirtStates currState = DirtStates.GROW; // used to keep track of the current state
+
+    private bool paused;
 
     void Start()
     {
@@ -51,6 +53,9 @@ public class PlantingPatch : MonoBehaviour
 
     void Update()
     {
+        if (paused)
+            return;
+
         if (currState == DirtStates.GROW) // if the current state is grow, increase the time and reflect it on the progress bar
         {
             time += Time.deltaTime;
@@ -72,6 +77,28 @@ public class PlantingPatch : MonoBehaviour
                 Grow();
             }
         }
+    }
+
+    private void OnEnable()
+    {
+        GameManager.OnWorldDisable += PauseSelf;
+        GameManager.OnWorldEnable += ResumeSelf;
+    }
+
+    private void OnDisable()
+    {
+        GameManager.OnWorldDisable -= PauseSelf;
+        GameManager.OnWorldEnable -= ResumeSelf;
+    }
+
+    private void PauseSelf()
+    {
+        paused = true;
+    }
+
+    private void ResumeSelf()
+    {
+        paused = false;
     }
 
     private void Spawn()
@@ -97,16 +124,7 @@ public class PlantingPatch : MonoBehaviour
         plantTimeBar.value = time;
         plantTimeBar.gameObject.SetActive(true);
         fill.color = colors.waitCol;
-
-        //StopAllCoroutines();
-        //StartCoroutine(CooldownIE()); // calls the coroutine to which will trigger the grow phase
     }
-
-    //private IEnumerator CooldownIE()
-    //{
-    //    yield return new WaitForSeconds(spawnData.growthTime * cooldownMultiplier);
-    //    Grow(); // after cooldown has ended, start growing state
-    //}
 
     private void Grow()
     {

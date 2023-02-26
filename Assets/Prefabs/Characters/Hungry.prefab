@@ -248,7 +248,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -4, y: -8}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -504,7 +504,7 @@ Animator:
   m_GameObject: {fileID: 6903116982541409266}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 27905d3bafa0c4544b59ef34e7876c4b, type: 2}
+  m_Controller: {fileID: 9100000, guid: aabe0ac95fdc1594dbd67c984377167d, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -561,6 +561,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05a90a87d6b90454cbb07aa823f78d28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currState: 0
   anim: {fileID: 6903116982541409264}
   restaurantTag: PhysicalRestaurant
   sc: {fileID: 1530628260957870391}
@@ -568,11 +569,12 @@ MonoBehaviour:
   targets:
   - {fileID: 0}
   - {fileID: 0}
+  wanderRadius: 20
   myData: {fileID: 11400000, guid: 7e83f97652702414bb19ec0334147edf, type: 2}
-  idleThreshold: 1
-  idleSpot: {fileID: 0}
+  emptyTolerance: 3
   hungerBar: {fileID: 2056213144}
   hungerSlider: {fileID: 2056213146}
+  sr: {fileID: 6903116982583071361}
 --- !u!1 &6903116982583071484
 GameObject:
   m_ObjectHideFlags: 0
@@ -583,7 +585,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6903116982583071363}
   - component: {fileID: 6903116982583071361}
-  - component: {fileID: 6903116982583071362}
   m_Layer: 0
   m_Name: Graphic
   m_TagString: Untagged
@@ -658,23 +659,3 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &6903116982583071362
-Animator:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6903116982583071484}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0

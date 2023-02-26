@@ -4,19 +4,26 @@ using UnityEngine;
 
 // Joyce Mai
 [CreateAssetMenu(menuName = "Enemy/EaterData")]
-public class EaterData : ScriptableObject
+public class EaterData : Data
 {
     [Header("Hunger State")]
     [SerializeField] private float hungerLevel = 100; // the amount it takes before full
-    [SerializeField] private int feedRate = 0; // the amount of food they take at a time
-    [SerializeField] private float speed = 3;
+    [SerializeField] private int feedRate = 1; // the amount of food they take at a time
 
-    [Header("Idle State")]
-    [SerializeField] private float idleTime = 10; // the amount of time they wait before targeting again
+    [Header("Eat State")]
+    [SerializeField] private float chewSpeed = 2f; // amount of time to eat each food
 
     [Header("Sleep State")]
-    [SerializeField] private float sleepTime; 
+    [SerializeField] private float sleepTime;
 
+    [Header("Sprites")]
+    [SerializeField] private Sprite normalSprite;
+    [SerializeField] private Sprite sleepSprite;
+
+    public void IncreaseHunger() // can be used later in the game to increase difficulty
+    {
+        hungerLevel++;
+    }
     public float  HungerLevel() // gets the hunger level
     {
         return hungerLevel;
@@ -26,20 +33,21 @@ public class EaterData : ScriptableObject
     {
         return feedRate;
     }
-
-    public float IdleTime() // gets the idle time
-    {
-        return idleTime;
-    }
-
     public float SleepTime() // gets the sleep time
     {
         return sleepTime;
     }
 
-    public float Speed()
+    public float ChewSpeed()
     {
-        return speed;
+        return chewSpeed;
     }
-
+    public Sprite NormalSprite()
+    {
+        return normalSprite;
+    }
+    public Sprite SleepSprite()
+    {
+        return sleepSprite;
+    }
 }
