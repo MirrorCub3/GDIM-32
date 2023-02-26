@@ -187,8 +187,8 @@ TextureImporter:
         y: 2192
         width: 157
         height: 107
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -208,8 +208,8 @@ TextureImporter:
         y: 2396
         width: 139
         height: 100
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -229,8 +229,8 @@ TextureImporter:
         y: 2576
         width: 230
         height: 167
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -250,8 +250,8 @@ TextureImporter:
         y: 3063
         width: 149
         height: 108
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -271,8 +271,8 @@ TextureImporter:
         y: 2844
         width: 257
         height: 113
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -295,23 +295,23 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      updated green nature_9: -1560910917
-      updated green nature_3: -250204073
-      updated green nature_15: -629630540
-      updated green nature_12: -1969889302
-      updated green nature_6: -1464429061
-      updated green nature_8: -931482406
-      updated green nature_11: -1224862226
-      updated green nature_1: -781256131
-      updated green nature_13: 1711261098
-      updated green nature_16: -567401725
-      updated green nature_2: 11401622
-      updated green nature_4: 119999805
-      updated green nature_7: 327043849
-      updated green nature_0: -519757638
+      updated green nature_9: -519757638
+      updated green nature_3: -781256131
+      updated green nature_15: 11401622
+      updated green nature_12: -250204073
+      updated green nature_6: 119999805
+      updated green nature_8: 34473072
+      updated green nature_11: -1464429061
+      updated green nature_1: 327043849
+      updated green nature_13: -931482406
+      updated green nature_16: -1560910917
+      updated green nature_2: -1692340512
+      updated green nature_4: -1224862226
+      updated green nature_7: -1969889302
+      updated green nature_0: 1711261098
       updated green nature_14: -1968769895
-      updated green nature_5: 34473072
-      updated green nature_10: -1692340512
+      updated green nature_5: -629630540
+      updated green nature_10: -567401725
       updated green nature_17: 865543350
   spritePackingTag: 
   pSDRemoveMatte: 0

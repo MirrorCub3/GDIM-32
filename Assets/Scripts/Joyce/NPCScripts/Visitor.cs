@@ -8,11 +8,10 @@ using UnityEngine.UI;
 public class Visitor : NPC
 {
     [Header("AI Variables")]
-    [SerializeField] private VisitorData myData;
-    [SerializeField] Transform homeBase;
+    [SerializeField] protected VisitorData myData;
 
     [Header("UI")]
-    [SerializeField] private GameObject timerObject;
+    [SerializeField] protected GameObject timerObject;
     [SerializeField] private Slider timerSlider;
     private void Awake()
     {
@@ -26,57 +25,50 @@ public class Visitor : NPC
 
         timerObject.SetActive(false);
 
-        PickTarget();
+        if (currState == States.Target || currState == States.Wander)
+        {
+            anim.SetTrigger(currState.ToString());
+        }
+        else
+        {
+            Debug.Log("The chosen state is an invalid initial state for Visitor");
+            anim.SetTrigger("Wander");
+        }
     }
 
     void Update()
     {
         // Naman Khurana
-        if (target != null)
+        if (target != null && agent.enabled)
         {
             agent.SetDestination(target.position);
         }
+    }
+    public override Data GetData()
+    {
+        return myData;
+    }
+
+    public void Visit(float time)
+    {
+        timerSlider.maxValue = time;
+        timerObject.SetActive(true);
+        target = null;
+    }
+    public void SetTimePassed(float time)
+    {
+        timerSlider.value = Mathf.Min(timerSlider.maxValue, time);
+    }
+
+    public virtual void DoneVisiting()
+    {
+        timerObject.SetActive(false);
+        anim.SetTrigger("Wander");
     }
 
     public override void AtRestaurant(Restaurant restaurant) // defines what this AI does when at the restuarant
     {
         sc.enabled = false;
-        StopAllCoroutines();
-        StartCoroutine(Visiting());
-    }
-
-    public override void AdditionalTrigger(Collider other)
-    {
-        // visitors have an additional target of home base to idle at
-        if (other.transform == homeBase && homeBase == target)
-        {
-            Debug.Log("back at home base");
-            StartCoroutine(Visiting(myData.IdleTime()));
-        }
-    }
-
-    protected IEnumerator Visiting(int specificTime = -1) // defines the waiting state of the AI
-    {
-        timerObject.SetActive(true);
-        target = null;
-
-        int waitTime = specificTime;
-
-        if (waitTime < 0) // choose a random time if none is given
-                waitTime = Random.Range(myData.VisitTimeMin(), myData.VisitTimeMax()); // picks a loiter time based on the given interval 
-
-        timerSlider.maxValue = waitTime;
-        timerSlider.value = waitTime;
-
-        while (timerSlider.value > 0) // updates the slider to display timer
-        {
-            timerSlider.value -= Time.deltaTime;
-            yield return new WaitForEndOfFrame();
-        }
-
-        // after the wait time, pick a new target location
-        PickTarget();
-        sc.enabled = true;
-        timerObject.SetActive(false);
+        anim.SetTrigger("Inspect");
     }
 }

@@ -3,44 +3,45 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Wander : StateMachineBehaviour
+public class Inspect : StateMachineBehaviour
 {
     [Header("Data From NPC")]
-    private Data data;
-    private NPC script;
-    private NavMeshAgent agent;
+    private VisitorData data;
+    private Visitor script;
 
     [Header("Bookkeeping")]
+    private float waitTime;
     private float time;
+    private bool exited;
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         time = 0;
+        exited = false;
 
-        script = animator.gameObject.GetComponent<NPC>();
-        data = script.GetData();
-        script.SetCurrState(NPC.States.Wander);
-        agent = script.GetAgent();
+        script = animator.gameObject.GetComponent<Visitor>();
+        data = script.GetData() as VisitorData;
+        script.SetCurrState(NPC.States.Inspect);
+
+        waitTime = data.VistTime();
+        script.Visit(waitTime);
     }
 
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         if (script.paused) return;
 
+        if (exited) return;
+
         time += Time.deltaTime;
-        if (time >= data.IdleTime())
+        if (time >= waitTime)
         {
-            animator.SetTrigger("Target");
+            script.DoneVisiting();
+            exited = true;
         }
-        else
-        {
-            if(agent.remainingDistance <= agent.stoppingDistance)
-            {
-                script.Wander();
-            }
-        }
+        script.SetTimePassed(time);
     }
     public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        animator.ResetTrigger("Wander");
+        animator.ResetTrigger("Inspect");
     }
 }

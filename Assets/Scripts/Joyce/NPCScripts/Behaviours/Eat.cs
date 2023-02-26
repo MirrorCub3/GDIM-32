@@ -22,6 +22,8 @@ public class Eat : StateMachineBehaviour
 
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        if (script.paused) return;
+
         time += Time.deltaTime;
         if (time >= script.chewTime) // determines how to proceed out of eat state
         {

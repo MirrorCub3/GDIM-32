@@ -19,19 +19,22 @@ public class Target : StateMachineBehaviour
         time = 0;
         reached = false;
 
-        script = animator.gameObject.GetComponent<Eater>();
+        script = animator.gameObject.GetComponent<NPC>();
         script.Target();
         script.SetCurrState(NPC.States.Target);
         agent = script.GetAgent();
     }
     public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        if (script.paused) return;
+
         if (reached)
         {
             time += Time.deltaTime;
 
             if (time >= timeout)
             {
+                Debug.Log("timeout wander");
                 animator.SetTrigger("Wander");
                 return;
             }
@@ -48,6 +51,7 @@ public class Target : StateMachineBehaviour
     }
     public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        Debug.Log("exited target");
         animator.ResetTrigger("Target");
     }
 }

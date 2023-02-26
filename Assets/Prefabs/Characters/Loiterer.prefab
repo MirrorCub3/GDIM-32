@@ -524,13 +524,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79a9080910088a34fba7c984af888b39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currState: 1
   anim: {fileID: 5330678235483529793}
   restaurantTag: PhysicalRestaurant
   sc: {fileID: 7818521926090457133}
   agent: {fileID: 7985790206767757924}
-  targets: []
+  targets:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  wanderRadius: 10
   myData: {fileID: 11400000, guid: ab1817b686e0e304da8bff7ffa25aed7, type: 2}
-  homeBase: {fileID: 0}
   timerObject: {fileID: 1414024589842189277}
   timerSlider: {fileID: 6755203371638119716}
 --- !u!1 &5330678236464966731
@@ -543,7 +547,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5330678236464966732}
   - component: {fileID: 5330678236464966734}
-  - component: {fileID: 5330678236464966733}
   m_Layer: 0
   m_Name: Graphic
   m_TagString: Untagged
@@ -618,26 +621,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &5330678236464966733
-Animator:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5330678236464966731}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &6430365492242476537
 GameObject:
   m_ObjectHideFlags: 0

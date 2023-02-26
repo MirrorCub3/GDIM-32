@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 678c41c87c8af49438ff8f698e4db11f, type: 3}
   m_Name: Thief
   m_EditorClassIdentifier: 
+  speed: 10
+  idleTime: 60
   visitTimeMin: 1
   visitTimeMax: 2
-  speed: 15
-  idleTime: 60

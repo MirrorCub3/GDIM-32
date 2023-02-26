@@ -10,14 +10,8 @@ public class VisitorData : Data
     [SerializeField] private int visitTimeMin;
     [Tooltip("vistTimeMax is non inclusive")]
     [SerializeField] private int visitTimeMax;
-
-    public int VisitTimeMin() // gets the visit time
+    public int VistTime()
     {
-        return visitTimeMin;
-    }
-    
-    public int VisitTimeMax()
-    {
-        return visitTimeMax;
+        return Random.Range(visitTimeMin, visitTimeMax);
     }
 }

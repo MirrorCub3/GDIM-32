@@ -42,6 +42,7 @@ public class Eater : NPC
         else
         {
             Debug.Log("The chosen state is an invalid initial state for Eater");
+            currState = States.Wander;
             anim.SetTrigger("Wander");
         }
     }
@@ -49,7 +50,7 @@ public class Eater : NPC
     void Update()
     {
         // Naman Khurana
-        if (target != null)
+        if (target != null && agent.enabled)
         {
             agent.SetDestination(target.position);
         }
@@ -58,7 +59,7 @@ public class Eater : NPC
             hungerBar.SetActive(false);
     }
 
-    public EaterData GetData()
+    public override Data GetData()
     {
         return myData;
     }

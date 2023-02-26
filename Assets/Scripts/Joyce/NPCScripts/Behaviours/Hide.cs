@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Sleep : StateMachineBehaviour
+public class Hide : StateMachineBehaviour
 {
     [Header("Data From NPC")]
-    private EaterData data;
-    private Eater script;
+    private VisitorData data;
+    private DineAndDasher script;
 
     [Header("Bookkeeping")]
     private float time;
@@ -14,10 +14,10 @@ public class Sleep : StateMachineBehaviour
     {
         time = 0;
 
-        script = animator.gameObject.GetComponent<Eater>();
-        data = script.GetData() as EaterData;
-        script.SetCurrState(NPC.States.Sleep);
-        script.Sleep();
+        script = animator.gameObject.GetComponent<DineAndDasher>();
+        data = script.GetData() as VisitorData;
+        script.SetCurrState(NPC.States.Wander);
+        script.Visit(data.IdleTime());
     }
 
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
@@ -25,14 +25,15 @@ public class Sleep : StateMachineBehaviour
         if (script.paused) return;
 
         time += Time.deltaTime;
-        if (time >= data.SleepTime())
+        if (time >= data.IdleTime())
         {
-            animator.SetTrigger("Wander");
+            animator.SetTrigger("Target");
+            return;
         }
+        script.SetTimePassed(time);
     }
     public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        animator.ResetTrigger("Sleep");
-        script.WakeUp();
+        animator.ResetTrigger("Wander");
     }
 }

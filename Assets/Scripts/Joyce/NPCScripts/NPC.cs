@@ -6,10 +6,11 @@ using UnityEngine.AI;
 // Joyce Mai and Naman Khurana
 public class NPC : MonoBehaviour
 {
-    public enum States { Wander, Target, Eat, Sleep };
+    public enum States { Wander, Target, Eat, Sleep , Inspect };
 
     [Header("State Controls")]
     [SerializeField] protected NPC.States currState; // devs can set this in the editor to change the starting state of the NPC
+    public bool paused { get; private set; }
 
     [Header("NPC Data")]
     [SerializeField] protected Animator anim; // reference to the animator component
@@ -51,16 +52,23 @@ public class NPC : MonoBehaviour
     {
         anim.speed = 0;
         agent.isStopped = true;
+        paused = true;
     }
     private void PlayAnim()
     {
         anim.speed = Time.timeScale;
         agent.isStopped = false;
+        paused = false;
     }
 
     public NavMeshAgent GetAgent()
     {
         return agent;
+    }
+
+    public virtual Data GetData()
+    {
+        return null;
     }
 
     protected private void PickTarget() // chooses a random location from the list

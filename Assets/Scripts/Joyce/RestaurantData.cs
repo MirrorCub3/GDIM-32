@@ -44,7 +44,8 @@ public class RestaurantData : ScriptableObject, IReset
 
     public void SetStars(float amount) // call to set new quality for restaurant in kitchen
     {
-        stars = Mathf.Min(0, amount);
+        stars = Mathf.Min(3, amount);
+        stars = Mathf.Max(0, stars);
     }
     public void RemoveStars(float amount) // call to set new quality for restaurant in kitchen
     {
