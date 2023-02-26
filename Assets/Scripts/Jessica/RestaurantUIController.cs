@@ -62,9 +62,11 @@ public class RestaurantUIController : MonoBehaviour
             //SetStarsToZero(); // commented this out to allow restaurants to start at 3 stars
         }
 
-        if (restaurantData.stars != 0f){
-            SetStars();
-        }
+        //if (restaurantData.stars != 0f)
+        //{
+        //    SetStars();
+        //}
+        SetStars();
     }
 
     void SetStarsToZero(){

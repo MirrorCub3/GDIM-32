@@ -58,9 +58,10 @@ public class RecipeController : MonoBehaviour
             //SetStarsToZero();
         }
 
-        if (restaurantData.stars != 0f){
-            SetStars();
-        }
+        //if (restaurantData.stars != 0f){
+        //    SetStars();
+        //}
+        SetStars();
     }
 
     void SetStarsToZero(){
