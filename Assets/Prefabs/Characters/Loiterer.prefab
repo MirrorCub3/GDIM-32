@@ -467,7 +467,7 @@ Animator:
   m_GameObject: {fileID: 5330678235483529807}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 27905d3bafa0c4544b59ef34e7876c4b, type: 2}
+  m_Controller: {fileID: 9100000, guid: d23cf53380a961a43801ec62ea21a7e7, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -488,7 +488,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1.9239839
+  m_Radius: 1.5
   m_Center: {x: 0.027469158, y: 1.2208573, z: 0}
 --- !u!195 &7985790206767757924
 NavMeshAgent:
@@ -499,7 +499,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 5330678235483529807}
   m_Enabled: 1
   m_AgentTypeID: -1372625422
-  m_Radius: 1.75
+  m_Radius: 1.25
   m_Speed: 3.5
   m_Acceleration: 8
   avoidancePriority: 50
@@ -532,8 +532,7 @@ MonoBehaviour:
   targets:
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
-  wanderRadius: 10
+  wanderRadius: 20
   myData: {fileID: 11400000, guid: ab1817b686e0e304da8bff7ffa25aed7, type: 2}
   timerObject: {fileID: 1414024589842189277}
   timerSlider: {fileID: 6755203371638119716}

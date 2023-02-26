@@ -35,7 +35,6 @@ public class DineAndDasher : Visitor
     public override void Target()
     {
         base.Target();
-        agent.enabled = false;
         timerObject.SetActive(false);
     }
 
@@ -70,7 +69,6 @@ public class DineAndDasher : Visitor
             print("at my hidng spot");
             timerObject.SetActive(true);
             anim.SetTrigger("Wander");
-            agent.enabled = false;
         }
     }
 }

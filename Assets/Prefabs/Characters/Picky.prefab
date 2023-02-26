@@ -288,7 +288,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 3096705700000942590}
   m_Enabled: 1
   m_AgentTypeID: -1372625422
-  m_Radius: 1.75
+  m_Radius: 1.25
   m_Speed: 3.5
   m_Acceleration: 8
   avoidancePriority: 50
@@ -312,7 +312,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1.9239839
+  m_Radius: 1.5
   m_Center: {x: 0.027469158, y: 1.2208573, z: 0}
 --- !u!114 &1996154827
 MonoBehaviour:
@@ -333,7 +333,7 @@ MonoBehaviour:
   agent: {fileID: 1776763845}
   targets:
   - {fileID: 0}
-  wanderRadius: 10
+  wanderRadius: 20
   myData: {fileID: 11400000, guid: 5d14e65cd91274c4da3a1971ba388cd5, type: 2}
   emptyTolerance: 3
   hungerBar: {fileID: 7067382982506236534}

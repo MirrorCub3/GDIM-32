@@ -497,7 +497,7 @@ Animator:
   m_GameObject: {fileID: 6720878102277587455}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 27905d3bafa0c4544b59ef34e7876c4b, type: 2}
+  m_Controller: {fileID: 9100000, guid: aabe0ac95fdc1594dbd67c984377167d, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -516,7 +516,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 6720878102277587455}
   m_Enabled: 1
   m_AgentTypeID: -1372625422
-  m_Radius: 1.75
+  m_Radius: 1.25
   m_Speed: 3.5
   m_Acceleration: 8
   avoidancePriority: 50
@@ -540,7 +540,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1.9239839
+  m_Radius: 1.5
   m_Center: {x: 0.027469158, y: 1.2208573, z: 0}
 --- !u!114 &6475849449825844352
 MonoBehaviour:
@@ -554,20 +554,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4871f21fa37742479d10c94ac386114, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currState: 0
+  currState: 1
   anim: {fileID: 6720878102277587449}
   restaurantTag: PhysicalRestaurant
   sc: {fileID: 3018558153122908432}
   agent: {fileID: 530056580}
   targets:
   - {fileID: 0}
-  - {fileID: 0}
-  wanderRadius: 10
+  wanderRadius: 20
   myData: {fileID: 11400000, guid: 3b60d602a09871f4ca5124d6eff0374c, type: 2}
-  emptyTolerance: 2
+  emptyTolerance: 1
   hungerBar: {fileID: 7962935281013684410}
   hungerSlider: {fileID: 354652990969030667}
   sr: {fileID: 6720878101605610726}
+  starRemovalRate: 0.5
 --- !u!1 &7962935281013684410
 GameObject:
   m_ObjectHideFlags: 0
