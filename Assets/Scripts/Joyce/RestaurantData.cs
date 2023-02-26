@@ -8,19 +8,24 @@ public class RestaurantData : ScriptableObject, IReset
 {
     // will hold persistent restaurant data
     public bool open { get; private set; }
+    private bool startOpen;
     public float stars { get; private set; }
+    [SerializeField] private float startStars = 1.5f;
     public int stock { get; private set; }
 
-    public void Init(int startStock = 0)
+    public void Init(int startStock = 0, bool isOpen = false)
     {
         stock = startStock;
+        stars = startStars;
+        open = isOpen;
+        startOpen = open;
     }
 
     public void Reset()
     {
         stock = 0;
-        stars = 0;
-        open = false;
+        stars = startStars;
+        open = startOpen;
     }
 
     public void AddStock(int amount)
@@ -39,6 +44,10 @@ public class RestaurantData : ScriptableObject, IReset
 
     public void SetStars(float amount) // call to set new quality for restaurant in kitchen
     {
-        stars = amount;
+        stars = Mathf.Min(0, amount);
+    }
+    public void RemoveStars(float amount) // call to set new quality for restaurant in kitchen
+    {
+        stars = Mathf.Max(0, stars - amount);
     }
 }

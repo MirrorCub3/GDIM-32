@@ -3,22 +3,28 @@ using System.Collections.Generic;
 using UnityEngine;
 
 // Joyce Mai
-public class Restaurant : MonoBehaviour
+public class Restaurant : MonoBehaviour, IReset
 {
     [Header("Data")]
     [SerializeField] private RestaurantData myData;
     [SerializeField] private Sweets product;
+    [SerializeField] private bool startOpen;
     public int stock { get; private set; }
 
     private void Awake()
     {
         stock = 0;
-        myData.Init(stock);
+        myData.Init(stock, startOpen);
     }
 
     private void OnEnable() // when entering back into the scene, match data with scriptable object
     {
         stock = myData.stock;
+    }
+
+    public bool IsOpen()
+    {
+        return myData.open;
     }
 
     public int BuyProduct(int amount = 1) // returns true or false based on successful purchase
@@ -52,5 +58,20 @@ public class Restaurant : MonoBehaviour
         stock -= amount;
         myData.RemoveStock(amount);
         return true;
+    }
+
+    public void RemoveStars(float removeAmount)
+    {
+        myData.RemoveStars(removeAmount);
+        if(myData.stars <= 0)
+        {
+            RestaurantManager.instance.CloseRestaurant();
+        }
+    }
+
+    public void Reset()
+    {
+        myData.Reset();
+        stock = 0;
     }
 }

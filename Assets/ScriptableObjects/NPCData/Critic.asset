@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a28cd3ef3d9d87645bcb54bfa45f6dd3, type: 3}
   m_Name: Critic
   m_EditorClassIdentifier: 
-  speed: 0.5
+  speed: 10
   idleTime: 60
   hungerLevel: 10
   feedRate: 5

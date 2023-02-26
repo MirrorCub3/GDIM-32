@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 // Joyce Mai
-public class GameManager : MonoBehaviour
+public class GameManager : MonoBehaviour, IReset
 {
     public delegate void WorldStatusAlert();
     // use these to alert when the outer world has been deactivated/activated
@@ -13,6 +13,8 @@ public class GameManager : MonoBehaviour
     public static event WorldStatusAlert OnWorldDisable;
 
     public static GameManager instance; // reference to this singleton
+    public enum GameState { PLAY, WIN, LOSE};
+    public GameState state = GameState.PLAY;
 
     [Header("Scene Management")]
     [SerializeField] private string mainMenuScene = "MainMenu";
@@ -83,11 +85,22 @@ public class GameManager : MonoBehaviour
 
     public void Restart()
     {
+        Reset();
+        SceneManager.LoadScene(currScene);
+    }
+
+    public void Reset()
+    {
         inventoryData.Reset();
         RevenueManager.instance.Reset();
-        // reset all restaurants here too
+        RestaurantManager.instance.Reset();
+    }
 
-        SceneManager.LoadScene(currScene);
+    public void GoToEndScreen( GameState newState)
+    {
+        state = newState;
+        Reset();
+        LoadScene("EndScreen");
     }
 
     public void LoadScene(string nextScene = "OuterWorld")

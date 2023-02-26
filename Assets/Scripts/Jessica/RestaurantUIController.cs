@@ -59,7 +59,7 @@ public class RestaurantUIController : MonoBehaviour
         }
         else {
             textmeshpro_dessertsMoney.text = "0";
-            SetStarsToZero();
+            //SetStarsToZero(); // commented this out to allow restaurants to start at 3 stars
         }
 
         if (restaurantData.stars != 0f){

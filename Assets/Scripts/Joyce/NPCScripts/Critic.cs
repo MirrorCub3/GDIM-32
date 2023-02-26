@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Critic : Eater
 {
+    [Header("Critic")]
+    [SerializeField] private float starRemovalRate = .5f;
     public override void Eat(Restaurant restaurant)
     {
         int amountBought = restaurant.BuyProduct(Mathf.Min(myData.FeedRate(), (int)(hungerSlider.maxValue - hungerSlider.value))); // buys less than the npc's feed rate if there's not enough room
@@ -14,7 +16,7 @@ public class Critic : Eater
         {
             if (target == lastTarget)
             {
-                print("eating nothing"); // remove stars
+                print("eating nothing");
                 emptyCount++;
             }
             else
@@ -23,7 +25,7 @@ public class Critic : Eater
                 emptyCount = 1;
             }
             anim.SetTrigger("Wander");
-
+            restaurant.RemoveStars(starRemovalRate);
         }
         else
             anim.SetTrigger("Eat");

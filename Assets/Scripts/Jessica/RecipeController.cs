@@ -55,7 +55,7 @@ public class RecipeController : MonoBehaviour
         }
         else {
             textmeshpro_cookieMoney.text = "0";
-            SetStarsToZero();
+            //SetStarsToZero();
         }
 
         if (restaurantData.stars != 0f){
