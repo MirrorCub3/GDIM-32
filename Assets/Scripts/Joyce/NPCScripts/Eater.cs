@@ -73,6 +73,7 @@ public class Eater : NPC
                 PickTarget();
             }
             sc.enabled = true;
+            hungerBar.SetActive(true);
         }
         else if (emptyCount >= emptyTolerance && targets.Count == 1) // if only one location is avaliable, sleep to delay
         {
@@ -82,9 +83,8 @@ public class Eater : NPC
         {
             PickTarget();
             sc.enabled = true;
+            hungerBar.SetActive(true);
         }
-
-        hungerBar.SetActive(true);
     }
     public override void AtRestaurant(Restaurant restaurant)
     {

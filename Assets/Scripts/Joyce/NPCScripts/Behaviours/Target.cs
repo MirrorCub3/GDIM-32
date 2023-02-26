@@ -26,7 +26,7 @@ public class Target : StateMachineBehaviour
     }
     public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        if (script.paused) return;
+        if (script.paused || !agent.enabled) return;
 
         if (reached)
         {
