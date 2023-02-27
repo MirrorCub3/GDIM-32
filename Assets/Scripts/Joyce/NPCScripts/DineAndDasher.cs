@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
+// Joyce Mai
 public class DineAndDasher : Visitor
 {
     [Header("Dine N' Dash")]

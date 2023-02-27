@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
+// Joyce Mai
 public class Target : StateMachineBehaviour
 {
     [Header("Data From NPC")]

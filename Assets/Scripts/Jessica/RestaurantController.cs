@@ -6,7 +6,11 @@ using UnityEngine.UI;
 //JESSICA Lam wrote this
 public class RestaurantController : MonoBehaviour
 {
+    public delegate void RestaurantNotif(string msg);
+    public static RestaurantNotif OnError; // used to trigger popup when issue occurs
+
     [SerializeField] private InventoryData inventoryData;
+    [SerializeField] private RestaurantData restaurantData;
     private string kitchenLevel;
 
     public Image player1Bar;
@@ -50,14 +54,29 @@ public class RestaurantController : MonoBehaviour
     {
         if (player1Bar.fillAmount == 1 && player2Bar.fillAmount == 1 && !calledLoad)
         {
+
+            if (!restaurantData.open)
+            {
+                if (OnError != null)
+                    OnError.Invoke("This restaurant is not open.");
+                return;
+            }
+
             if (inventoryData.itemDictionary.TryGetValue(cookieSweet, out InventoryItem item)) // don't load if there is none of this item
             {
                 if (item.stackSize <= 0)
+                {
+                    if (OnError != null)
+                        OnError.Invoke("You have no " + cookieSweet.sweetName + " cards in stock.");
                     return;
+                }
                 LoadKitchen();
             }
             else
-                Debug.Log("This item is not in the dictionary yet (No cookies have been collected yet)");
+            {
+                if (OnError != null)
+                    OnError.Invoke("You haven't collected " + cookieSweet.sweetName + " cards yet.");
+            }
         }
     }
 

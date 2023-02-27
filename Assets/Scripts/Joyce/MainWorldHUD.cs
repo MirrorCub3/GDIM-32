@@ -19,19 +19,26 @@ public class MainWorldHUD : MonoBehaviour
     [Header("Money")]
     [SerializeField] private TextMeshProUGUI coinText;
 
+    [Header("Popup")]
+    [SerializeField] private GameObject popup;
+    [SerializeField] private TextMeshProUGUI messageText;
+
     private void Awake()
     {
         Resume();
         UpdateCoinText(RevenueManager.instance.coins);
+        ClosePopup();
     }
 
     private void OnEnable()
     {
         RevenueManager.CoinsChanged += UpdateCoinText;
+        RestaurantController.OnError += PopUpMessage;
     }
     private void OnDisable()
     {
         RevenueManager.CoinsChanged -= UpdateCoinText;
+        RestaurantController.OnError -= PopUpMessage;
     }
 
     void Update()
@@ -83,5 +90,15 @@ public class MainWorldHUD : MonoBehaviour
     private void UpdateCoinText(int amount)
     {
         coinText.text = amount.ToString();
+    }
+
+    private void PopUpMessage(string msg)
+    {
+        popup.SetActive(true);
+        messageText.text = msg;
+    }
+    public void ClosePopup()
+    {
+        popup.SetActive(false);
     }
 }

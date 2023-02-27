@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
+// Joyce Mai
 public class EndScreen : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI message;

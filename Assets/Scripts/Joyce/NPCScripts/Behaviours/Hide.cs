@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Joyce Mai
 public class Hide : StateMachineBehaviour
 {
     [Header("Data From NPC")]

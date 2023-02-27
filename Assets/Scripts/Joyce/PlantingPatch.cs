@@ -123,7 +123,7 @@ public class PlantingPatch : MonoBehaviour
         time = spawnData.growthTime;
         plantTimeBar.value = time;
         plantTimeBar.gameObject.SetActive(true);
-        fill.color = colors.waitCol;
+        fill.color = colors.WaitCol();
     }
 
     private void Grow()
@@ -134,7 +134,7 @@ public class PlantingPatch : MonoBehaviour
         sprout.SetActive(true);
         time = 0;
         plantTimeBar.value = time;
-        fill.color = colors.growCol;
+        fill.color = colors.GrowCol();
     }
 
     private void Locked() // used when the dirt patch is on the map but yet to become useable
