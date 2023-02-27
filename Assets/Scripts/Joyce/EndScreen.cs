@@ -7,16 +7,18 @@ using TMPro;
 // Joyce Mai
 public class EndScreen : MonoBehaviour
 {
-    [SerializeField] private TextMeshProUGUI message;
-    [SerializeField] string winMessage = "You Win!";
-    [SerializeField] string loseMessage = "Game Over";
+    [SerializeField] private GameObject winScreen;
+    [SerializeField] private GameObject loseScreen;
 
     private void Awake()
     {
+        winScreen.SetActive(false);
+        loseScreen.SetActive(false);
+
         if (GameManager.instance.state == GameManager.GameState.WIN)
-            message.text = winMessage;
+            winScreen.SetActive(true);
         else
-            message.text = loseMessage;
+            loseScreen.SetActive(true);
     }
 
     public void ToMain()
