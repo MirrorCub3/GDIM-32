@@ -51,4 +51,9 @@ public class RestaurantData : ScriptableObject, IReset
     {
         stars = Mathf.Max(0, stars - amount);
     }
+
+    public void OpenCloseRestaurant(bool isOpen)
+    {
+        open = isOpen;
+    }
 }

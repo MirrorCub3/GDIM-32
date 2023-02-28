@@ -26,7 +26,8 @@ public class Critic : Eater
                 emptyCount = 1;
             }
             anim.SetTrigger("Wander");
-            restaurant.RemoveStars(starRemovalRate);
+            if(restaurant.GetData().open)
+                restaurant.RemoveStars(starRemovalRate);
         }
         else
             anim.SetTrigger("Eat");

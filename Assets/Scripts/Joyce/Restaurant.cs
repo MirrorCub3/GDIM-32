@@ -65,8 +65,14 @@ public class Restaurant : MonoBehaviour, IReset
         myData.RemoveStars(removeAmount);
         if(myData.stars <= 0)
         {
+            myData.OpenCloseRestaurant(false);
             RestaurantManager.instance.CloseRestaurant();
         }
+    }
+
+    public RestaurantData GetData()
+    {
+        return myData;
     }
 
     public void Reset()
