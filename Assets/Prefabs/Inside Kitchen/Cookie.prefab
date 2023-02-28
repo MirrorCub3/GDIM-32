@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2312669917052067985}
   - component: {fileID: 2312669917052067984}
   m_Layer: 0
-  m_Name: Dessert
+  m_Name: Cookie
   m_TagString: Dessert
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -15,11 +15,11 @@ public class KitchenManager : MonoBehaviour
     [SerializeField] private DessertSpawner dessertSpawner;
 
     // UI Canvas
-    public GameObject BeforeGameCanvas;
-    public GameObject InGameCanvas;
-    public GameObject EndGameCanvas;
+    [SerializeField] private GameObject BeforeGameCanvas;
+    [SerializeField] private GameObject InGameCanvas;
+    [SerializeField] private GameObject EndGameCanvas;
 
-    bool chosen;
+    private bool chosen;
 
     // text to change during run-time
     public GameObject DessertsChosen;
@@ -38,7 +38,7 @@ public class KitchenManager : MonoBehaviour
     TextMeshProUGUI textmeshpro_dessertscreated;
 
     // always takes the Cookie Scriptable Objects right now
-    public Sweets cookieSweet;
+    public Sweets sweet;
 
     // audio control
     AudioSource audioSource;
@@ -56,8 +56,8 @@ public class KitchenManager : MonoBehaviour
         
         // set up the max amount of cards available (based on your inventory)
         textmeshpro_maxcards = MaxCardsInventory.GetComponent<TMPro.TextMeshProUGUI>();
-        if (inventoryData.itemDictionary.TryGetValue(cookieSweet, out InventoryItem item))
-            textmeshpro_maxcards.text = (inventoryData.itemDictionary[cookieSweet].stackSize).ToString();
+        if (inventoryData.itemDictionary.TryGetValue(sweet, out InventoryItem item))
+            textmeshpro_maxcards.text = (inventoryData.itemDictionary[sweet].stackSize).ToString();
         else
         {
             textmeshpro_maxcards.text = 0.ToString();
@@ -79,13 +79,13 @@ public class KitchenManager : MonoBehaviour
         // start the rhythm kitchen section after choosing the amount of desserts
         Time.timeScale = 1f;
         // start music
-        audioSource.clip = cookieSweet.BGMusic;
+        audioSource.clip = sweet.BGMusic;
         audioSource.Play();
 
         dessertsChosen = int.Parse(textmeshpro_dessertschosen.text);
         textmeshpro_dessertscreated.text = dessertsChosen.ToString();
         
-        inventoryData.Remove(cookieSweet, dessertsChosen); // remove the desserts from the inventory
+        inventoryData.Remove(sweet, dessertsChosen); // remove the desserts from the inventory
         restaurantData.AddStock(dessertsChosen); // add it to the restaurant stock (in outer world)
 
         dessertsLeft = dessertsChosen; // initialize the amount of desserts left
