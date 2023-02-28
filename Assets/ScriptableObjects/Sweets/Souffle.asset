@@ -26,4 +26,4 @@ MonoBehaviour:
   P1BadP2BadSprite: {fileID: -1011879414, guid: 44e3e2424414dd1439b741209c9e865d, type: 3}
   P1GoodP2GoodSprite: {fileID: -549144678, guid: 44e3e2424414dd1439b741209c9e865d, type: 3}
   P1BadP2GoodSprite: {fileID: -172229356, guid: 44e3e2424414dd1439b741209c9e865d, type: 3}
-  BGMusic: {fileID: 8300000, guid: d074985782555694eb2493403a6238d8, type: 3}
+  BGMusic: {fileID: 8300000, guid: 592bc74e52798fd44aa0d8a6fa3ed8b7, type: 3}

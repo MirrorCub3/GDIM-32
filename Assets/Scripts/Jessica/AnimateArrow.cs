@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Jessica Lam
 public class AnimateArrow : MonoBehaviour
 {
     Animator anim;

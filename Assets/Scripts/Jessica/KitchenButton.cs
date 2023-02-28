@@ -20,11 +20,13 @@ public class KitchenButton : MonoBehaviour
         if (whichButton == "E Button"){// if this script is on E
             if (Input.GetKeyDown(KeyCode.E)){
                 anim.SetTrigger("Pressed");
+                FindObjectOfType<AudioManager>().Play("Button Press");
             }
         }
         if (whichButton == "P Button"){// if this script is on P
             if (Input.GetKeyDown(KeyCode.P)){
                 anim.SetTrigger("Pressed");
+                FindObjectOfType<AudioManager>().Play("Button Press");
             }
         }
     }

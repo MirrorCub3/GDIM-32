@@ -63,16 +63,19 @@ public class DessertController : MonoBehaviour, Quality
         if (keypressCode == "e"){
             if (spriteRenderer.sprite == sweetObject.startSprite){
                 spriteRenderer.sprite = sweetObject.P1BadSprite;
+                FindObjectOfType<AudioManager>().Play("Dessert Whiff");
             }
         }
         else if (keypressCode == "p"){
             if (spriteRenderer.sprite == sweetObject.P1GoodSprite){
                 spriteRenderer.sprite = sweetObject.P1GoodP2BadSprite;
                 quality = 2f;
+                FindObjectOfType<AudioManager>().Play("Dessert Whiff");
             }
             else if (spriteRenderer.sprite == sweetObject.P1BadSprite){
                 spriteRenderer.sprite = sweetObject.P1BadP2BadSprite;
                 quality = 0f;
+                FindObjectOfType<AudioManager>().Play("Dessert Whiff");
             }
         }
     }
@@ -84,15 +87,18 @@ public class DessertController : MonoBehaviour, Quality
         if (Input.GetKeyDown(keypressCode) && withinRange){
             if (keypressCode == "e" && spriteRenderer.sprite != sweetObject.P1BadSprite){
                 spriteRenderer.sprite = sweetObject.P1GoodSprite;
+                FindObjectOfType<AudioManager>().Play("Dessert Success");
             }
             else if (keypressCode == "p"){
                 if (spriteRenderer.sprite == sweetObject.P1GoodSprite){
                     spriteRenderer.sprite = sweetObject.P1GoodP2GoodSprite;
                     quality = 3f;
+                    FindObjectOfType<AudioManager>().Play("Dessert Success");
                 }
                 else if (spriteRenderer.sprite == sweetObject.P1BadSprite){
                     spriteRenderer.sprite = sweetObject.P1BadP2GoodSprite;
                     quality = 2f;
+                    FindObjectOfType<AudioManager>().Play("Dessert Success");
                 }
             }
         }
@@ -100,15 +106,18 @@ public class DessertController : MonoBehaviour, Quality
         else if (Input.GetKeyDown(keypressCode) && !withinRange){
             if (keypressCode == "e"){
                 spriteRenderer.sprite = sweetObject.P1BadSprite;
+                FindObjectOfType<AudioManager>().Play("Dessert Whiff");
             }
             else if (keypressCode == "p"){
                 if (spriteRenderer.sprite == sweetObject.P1GoodSprite){
                     spriteRenderer.sprite = sweetObject.P1GoodP2BadSprite;
                     quality = 2f;
+                    FindObjectOfType<AudioManager>().Play("Dessert Whiff");
                 }
                 else if (spriteRenderer.sprite == sweetObject.P1BadSprite){
                     spriteRenderer.sprite = sweetObject.P1BadP2BadSprite;
                     quality = 0f;
+                    FindObjectOfType<AudioManager>().Play("Dessert Whiff");
                 }
             }
         }
