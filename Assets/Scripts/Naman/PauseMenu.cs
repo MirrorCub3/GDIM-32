@@ -31,16 +31,24 @@ public class PauseMenu : MonoBehaviour
     {
         pauseMenuUI.SetActive(false);
         GameManager.instance.Resume();
+        AudioSource[] audios = FindObjectsOfType<AudioSource>();
 
+        foreach (AudioSource audio in audios)
+        {
+            audio.Play();
+        }
     }
 
     void Pause()
     {
         pauseMenuUI.SetActive(true);
         GameManager.instance.Pause();
+        AudioSource[] audios = FindObjectsOfType<AudioSource>();
 
-
-
+        foreach (AudioSource audio in audios)
+        {
+            audio.Pause();
+        }
     }
 
     public void LoadMenu()
