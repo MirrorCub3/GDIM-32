@@ -1624,7 +1624,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: d074985782555694eb2493403a6238d8, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 592bc74e52798fd44aa0d8a6fa3ed8b7, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.1
   m_Pitch: 1
@@ -1757,7 +1757,7 @@ MonoBehaviour:
   P1Anim: {fileID: 1675478564}
   P2Anim: {fileID: 976921016}
   DessertToP1: {fileID: 813222804}
-  idleTime: 3.1
+  idleTime: 8.8
   BPM: 63
   dessertPrefab: {fileID: 2312669917052067986, guid: e291bdecdc2d17842894203d15fa642f, type: 3}
   desserts: []
@@ -5222,7 +5222,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: a23db934547880a4298b1c8bb4b09d99, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.9848268, b: 0.7783019, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
