@@ -86,6 +86,7 @@ public class KitchenManager : MonoBehaviour
         textmeshpro_dessertscreated.text = dessertsChosen.ToString();
         
         inventoryData.Remove(sweet, dessertsChosen); // remove the desserts from the inventory
+        Debug.Log("Just removed " + dessertsChosen + " souffles.");
         restaurantData.AddStock(dessertsChosen); // add it to the restaurant stock (in outer world)
 
         dessertsLeft = dessertsChosen; // initialize the amount of desserts left

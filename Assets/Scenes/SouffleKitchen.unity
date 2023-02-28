@@ -1339,7 +1339,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c91e7014301a48e4c81f77671c010103, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  restaurantData: {fileID: 11400000, guid: 7a1c305ac19e4794dbf60b69ae02055b, type: 2}
+  restaurantData: {fileID: 11400000, guid: 3f96c64f0350e79418e38b020690977d, type: 2}
   dessertSpawn: {fileID: 740507664}
   StarSlider3: {fileID: 1757187084}
   StarSlider2: {fileID: 992218677}
@@ -4113,8 +4113,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -427.27, y: -326.81}
-  m_SizeDelta: {x: 57.166, y: 58.3821}
+  m_AnchoredPosition: {x: -431.9, y: -325.9}
+  m_SizeDelta: {x: 57.166, y: 66.9471}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1572032496
 MonoBehaviour:
@@ -4136,7 +4136,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -937808133, guid: 1f988842447b74d4c9a3822c334d145c, type: 3}
+  m_Sprite: {fileID: -960615630, guid: 3bbda862acf8d3e4fa17f634f2960f96, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5465,6 +5465,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1126457486976307370, guid: 7bd83e00d7b7a3d4899d8c3b31a66469, type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1126457486976307372, guid: 7bd83e00d7b7a3d4899d8c3b31a66469, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 22100000, guid: 2f83cffdbeabb074985d4f26cfb74f46, type: 2}
     - target: {fileID: 5317867710297480782, guid: 7bd83e00d7b7a3d4899d8c3b31a66469, type: 3}
       propertyPath: m_RootOrder
       value: 8
@@ -5569,6 +5577,14 @@ PrefabInstance:
     - target: {fileID: 5372620294451503882, guid: 4c84101cb25ece54abf82d136d528aac, type: 3}
       propertyPath: m_Name
       value: Player 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7319382832566784493, guid: 4c84101cb25ece54abf82d136d528aac, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 22100000, guid: 5d0d0f9b25e5ace469c570be98c9cacd, type: 2}
+    - target: {fileID: 7319382832566784495, guid: 4c84101cb25ece54abf82d136d528aac, type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4c84101cb25ece54abf82d136d528aac, type: 3}

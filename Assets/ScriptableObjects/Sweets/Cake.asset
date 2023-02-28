@@ -18,4 +18,12 @@ MonoBehaviour:
   qualityIcons: []
   growthTime: 50
   hungerFillAmount: 10
-  price: 50
+  price: 80
+  startSprite: {fileID: 0}
+  P1GoodSprite: {fileID: 0}
+  P1BadSprite: {fileID: 0}
+  P1GoodP2BadSprite: {fileID: 0}
+  P1BadP2BadSprite: {fileID: 0}
+  P1GoodP2GoodSprite: {fileID: 0}
+  P1BadP2GoodSprite: {fileID: 0}
+  BGMusic: {fileID: 0}

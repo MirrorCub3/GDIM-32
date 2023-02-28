@@ -18,7 +18,7 @@ MonoBehaviour:
   qualityIcons: []
   growthTime: 10
   hungerFillAmount: 2
-  price: 12
+  price: 20
   startSprite: {fileID: 1576786285, guid: 44e3e2424414dd1439b741209c9e865d, type: 3}
   P1GoodSprite: {fileID: -1380555421, guid: 44e3e2424414dd1439b741209c9e865d, type: 3}
   P1BadSprite: {fileID: -1806761651, guid: 44e3e2424414dd1439b741209c9e865d, type: 3}
