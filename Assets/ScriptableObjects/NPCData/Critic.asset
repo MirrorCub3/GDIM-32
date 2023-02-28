@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a28cd3ef3d9d87645bcb54bfa45f6dd3, type: 3}
   m_Name: Critic
   m_EditorClassIdentifier: 
-  speed: 0.5
-  idleTime: 60
+  speed: 1
+  idleTime: 2
   hungerLevel: 10
   feedRate: 5
-  chewSpeed: 2
-  sleepTime: 20
+  chewSpeed: 1
+  sleepTime: 1
   normalSprite: {fileID: -769727177, guid: 8f0d5998e01874c42be655f5cef404b8, type: 3}
   sleepSprite: {fileID: -1854969128, guid: 4c98ab0a7b26c544eb9e20a6850411d1, type: 3}
