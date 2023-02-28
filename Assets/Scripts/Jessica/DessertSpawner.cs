@@ -4,9 +4,18 @@ using UnityEngine;
 
 // Has the list of Dessert Qualitys
 public class DessertSpawner : MonoBehaviour
-{   
+{  
+    // Controls timing based on the song BPM
+    [SerializeField] Animator P1Anim;
+    [SerializeField] Animator P2Anim;
+    [SerializeField] Animator DessertToP1;
+    public float idleTime; // time to wait before starting song
+    public float BPM; // BPM of the song
+    private float startTime;
+    private bool started;
+
     // Spawn Dessert
-    float Timer = 2f;
+    float Timer;
     public DessertController dessertPrefab;
     DessertController dessertClone;
 
@@ -19,6 +28,20 @@ public class DessertSpawner : MonoBehaviour
     void Start()
     {
         desserts = new List<DessertController>();
+        Timer = .3f;
+        P1Anim.speed = (BPM/60f);
+        P2Anim.speed = (BPM/60f);
+        DessertToP1.speed = (BPM / 60f);
+        startTime = 0f;
+    }
+
+    void WaitFor(Animator anim)
+    {
+        anim.SetBool("WaitFor", true);
+        if (startTime >= idleTime){
+            anim.SetBool("WaitFor", false);
+            started = true;
+        }
     }
 
     public void AddDessert(DessertController dessert)
@@ -27,18 +50,28 @@ public class DessertSpawner : MonoBehaviour
     }
 
     void Update()
-    {
-        // Creates a new dessert every 2 seconds
-        Timer -= Time.deltaTime;
-        if (Timer <= 0f)
-        {
-            dessertClone = Instantiate(dessertPrefab);
-            desserts.Add(dessertClone);
+    {   // start Timer
+        if (started == false){
+            startTime = startTime + Time.deltaTime;
+            WaitFor(P1Anim);
+            WaitFor(P2Anim);
+            WaitFor(DessertToP1);
+        }
+        else {
+            // Creates a new dessert every 2 seconds
+            Timer -= Time.deltaTime;
+            if (Timer <= 0f)
+            {
+                dessertClone = Instantiate(dessertPrefab);
+                Animator dessertAnim = dessertClone.GetComponent<Animator>();
+                dessertAnim.speed = (BPM/60f);
+                desserts.Add(dessertClone);
 
-            if (kitchenManager){ // testing purposes
-                kitchenManager.ReduceDessertByOne(); // call function from kitchen manager script to reduce dessert by one
+                if (kitchenManager){ // testing purposes
+                    kitchenManager.ReduceDessertByOne(); // call function from kitchen manager script to reduce dessert by one
+                }
+                Timer = (60f/BPM)*2f;
             }
-            Timer = 2f;
         }
     }
 
