@@ -6,6 +6,8 @@ using UnityEngine;
 public class RestaurantManager : MonoBehaviour, IReset
 {
     public static RestaurantManager instance;
+    public delegate void OnCloseRestaurant(RestaurantData data);
+    public static OnCloseRestaurant OnClose;
 
     [SerializeField] private List<RestaurantData> restaurants;
     private int openRestaurants = 0;
@@ -38,16 +40,19 @@ public class RestaurantManager : MonoBehaviour, IReset
         }
     }
 
-    public void CloseRestaurant()
+    public void CloseRestaurant(RestaurantData data)
     {
         openRestaurants--;
+        if (OnClose != null)
+            OnClose.Invoke(data);
         if(openRestaurants <= 0)
         {
             GameManager.instance.GoToEndScreen(GameManager.GameState.LOSE);
         }
     }
-    public void OpenRestaurant()
+    public void OpenRestaurant(RestaurantData restaurant)
     {
+        restaurant.OpenCloseRestaurant(true);
         openRestaurants++;
     }
 

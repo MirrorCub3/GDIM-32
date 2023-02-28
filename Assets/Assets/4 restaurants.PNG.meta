@@ -125,7 +125,7 @@ TextureImporter:
         width: 798
         height: 1199
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -146,7 +146,7 @@ TextureImporter:
         width: 1590
         height: 1203
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -154,6 +154,48 @@ TextureImporter:
       bones: []
       spriteID: 129b8403188179b449ffa46d33898e2e
       internalID: -2056014021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4 restaurants_2
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 2185
+        width: 1109
+        height: 1129
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e9b70af5934f21048bfabfc6a1a7f249
+      internalID: -590365419
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4 restaurants_3
+      rect:
+        serializedVersion: 2
+        x: 1230
+        y: 2204
+        width: 1091
+        height: 1091
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4acac0eb85076db498dcddb98a0ea599
+      internalID: -297368263
       vertices: []
       indices: 
       edges: []
@@ -170,6 +212,8 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       4 restaurants_0: -820207720
+      4 restaurants_2: -590365419
+      4 restaurants_3: -297368263
       4 restaurants_1: -2056014021
   spritePackingTag: 
   pSDRemoveMatte: 0

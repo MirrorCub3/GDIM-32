@@ -9,12 +9,18 @@ public class Restaurant : MonoBehaviour, IReset
     [SerializeField] private RestaurantData myData;
     [SerializeField] private Sweets product;
     [SerializeField] private bool startOpen;
+    [SerializeField] private GameObject lockIcon;
     public int stock { get; private set; }
 
     private void Awake()
     {
         stock = 0;
         myData.Init(stock, startOpen);
+    }
+
+    private void Update()
+    {
+        lockIcon.SetActive(!myData.open);
     }
 
     private void OnEnable() // when entering back into the scene, match data with scriptable object
@@ -66,7 +72,7 @@ public class Restaurant : MonoBehaviour, IReset
         if(myData.stars <= 0)
         {
             myData.OpenCloseRestaurant(false);
-            RestaurantManager.instance.CloseRestaurant();
+            RestaurantManager.instance.CloseRestaurant(myData);
         }
     }
 
