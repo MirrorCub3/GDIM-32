@@ -7,22 +7,22 @@ using UnityEngine.Audio;
 // Jessica Lam
 public class AudioManager : MonoBehaviour
 {
-    [SerializeField] private Sound[] sounds;
+    [SerializeField] Sound[] sounds;
 
     void Awake()
     {
         foreach(Sound s in sounds)
         {
-            s.source = gameObject.AddComponent<AudioSource>();
-            s.source.clip = s.clip;
-            s.source.volume = s.volume;
-            s.source.pitch = s.pitch;
+            s.setSource(gameObject);
+            s.setClip();
+            s.setVolume();
+            s.setPitch();
         }
     }
 
     public void Play(string name)
     {
-        Sound s = Array.Find(sounds, sounds => sounds.name == name);
-        s.source.Play();
+        Sound s = Array.Find(sounds, sounds => sounds.getName() == name);
+        s.playSource();
     }
 }

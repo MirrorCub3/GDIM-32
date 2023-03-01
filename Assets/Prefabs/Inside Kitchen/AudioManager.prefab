@@ -70,3 +70,8 @@ MonoBehaviour:
     volume: 0.087
     pitch: 0.8
     source: {fileID: 0}
+  - name: Arrow Deny
+    clip: {fileID: 8300000, guid: 7dfc65eaeb2ace34c91fcf4503ef7a0d, type: 3}
+    volume: 0.1
+    pitch: 0.6
+    source: {fileID: 0}

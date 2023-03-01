@@ -258,6 +258,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 16999319}
   m_CullTransparentMesh: 1
+--- !u!1 &126149110 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6515245827069338696, guid: 596b69c4dcd86d04ebc7df24b4264354, type: 3}
+  m_PrefabInstance: {fileID: 1546521785}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &190103052
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -882,12 +887,12 @@ MonoBehaviour:
   restaurantData: {fileID: 11400000, guid: 3f96c64f0350e79418e38b020690977d, type: 2}
   ratingManager: {fileID: 558860291}
   dessertSpawner: {fileID: 740507664}
-  BeforeGameCanvas: {fileID: 0}
+  BeforeGameCanvas: {fileID: 126149110}
   InGameCanvas: {fileID: 1805765642}
   EndGameCanvas: {fileID: 768789935}
-  DessertsChosen: {fileID: 0}
+  DessertsChosen: {fileID: 1546521787}
   DessertsLeftDisplay: {fileID: 1332541774}
-  MaxCardsInventory: {fileID: 0}
+  MaxCardsInventory: {fileID: 1546521786}
   DessertsCreated: {fileID: 1673027791}
   sweet: {fileID: 11400000, guid: 2646d6431caffa144b33e4a95e12a41a, type: 2}
 --- !u!82 &730429953
@@ -1033,8 +1038,8 @@ MonoBehaviour:
   P1Anim: {fileID: 1675478564}
   P2Anim: {fileID: 976921016}
   DessertToP1: {fileID: 813222804}
-  ConveyerBelt: {fileID: 0}
-  ConveyerBeltBack: {fileID: 0}
+  ConveyerBelt: {fileID: 1587769732}
+  ConveyerBeltBack: {fileID: 1218995005}
   idleTime: 8.6
   BPM: 63
   dessertPrefab: {fileID: 2312669917052067986, guid: e291bdecdc2d17842894203d15fa642f, type: 3}
@@ -2772,6 +2777,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2583071195561714586, guid: 596b69c4dcd86d04ebc7df24b4264354, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 730429952}
+    - target: {fileID: 2583071195561714586, guid: 596b69c4dcd86d04ebc7df24b4264354, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: StartGameCycle
+      objectReference: {fileID: 0}
     - target: {fileID: 2583071195618128663, guid: 596b69c4dcd86d04ebc7df24b4264354, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -2870,6 +2883,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 596b69c4dcd86d04ebc7df24b4264354, type: 3}
+--- !u!1 &1546521786 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2583071197237425140, guid: 596b69c4dcd86d04ebc7df24b4264354, type: 3}
+  m_PrefabInstance: {fileID: 1546521785}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1546521787 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2583071196884559153, guid: 596b69c4dcd86d04ebc7df24b4264354, type: 3}
+  m_PrefabInstance: {fileID: 1546521785}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1572032494
 GameObject:
   m_ObjectHideFlags: 0
