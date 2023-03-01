@@ -129,17 +129,17 @@ public class Eater : NPC
     public void Sleep()
     {
         target = null;
+        agent.isStopped = true;
         // enable the timer bar here
         sr.sprite = myData.SleepSprite();
         sc.enabled = false;
-        agent.enabled = false;
         hungerSlider.value = 0;
     }
     public void WakeUp()
     {
         sr.sprite = myData.NormalSprite();
+        agent.isStopped = false;
         sc.enabled = true;
-        agent.enabled = true;
         emptyCount = 0;
     }
 

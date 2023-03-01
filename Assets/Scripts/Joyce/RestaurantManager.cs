@@ -47,7 +47,7 @@ public class RestaurantManager : MonoBehaviour, IReset
             OnClose.Invoke(data);
         if(openRestaurants <= 0)
         {
-            GameManager.instance.GoToEndScreen(GameManager.GameState.LOSE);
+            GameManager.instance.GoToEndScreen();
         }
     }
     public void OpenRestaurant(RestaurantData restaurant)

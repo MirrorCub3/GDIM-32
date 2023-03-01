@@ -17,6 +17,6 @@ MonoBehaviour:
   hungerLevel: 10
   feedRate: 1
   chewSpeed: 5
-  sleepTime: 20
+  sleepTime: 15
   normalSprite: {fileID: -1896308047, guid: 8f0d5998e01874c42be655f5cef404b8, type: 3}
   sleepSprite: {fileID: -1730311172, guid: 4c98ab0a7b26c544eb9e20a6850411d1, type: 3}

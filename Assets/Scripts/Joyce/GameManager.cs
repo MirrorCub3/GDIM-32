@@ -13,8 +13,6 @@ public class GameManager : MonoBehaviour, IReset
     public static event WorldStatusAlert OnWorldDisable;
 
     public static GameManager instance; // reference to this singleton
-    public enum GameState { PLAY, WIN, LOSE};
-    public GameState state = GameState.PLAY;
 
     [Header("Scene Management")]
     [SerializeField] private string mainMenuScene = "MainMenu";
@@ -96,9 +94,8 @@ public class GameManager : MonoBehaviour, IReset
         RestaurantManager.instance.Reset();
     }
 
-    public void GoToEndScreen( GameState newState)
+    public void GoToEndScreen()
     {
-        state = newState;
         Reset();
         LoadScene("EndScreen");
     }

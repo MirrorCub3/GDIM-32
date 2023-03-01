@@ -51,15 +51,13 @@ public class NPC : MonoBehaviour
     private void PauseAnim()
     {
         anim.speed = 0;
-        if (agent.enabled)
-            agent.isStopped = true;
+        agent.isStopped = true;
         paused = true;
     }
     private void PlayAnim()
     {
         anim.speed = Time.timeScale;
-        if (agent.enabled)
-            agent.isStopped = false;
+        agent.isStopped = false;
         paused = false;
     }
 
