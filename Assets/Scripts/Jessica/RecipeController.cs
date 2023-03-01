@@ -4,10 +4,11 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
+// Jessica Lam
 public class RecipeController : MonoBehaviour
 {    
-    [SerializeField] private RestaurantData restaurantData;
-    public Sweets sweet;
+    [SerializeField] RestaurantData restaurantData;
+    [SerializeField] Sweets sweet;
 
     // cookie text to change during run-time
     GameObject quantityOfCookie;

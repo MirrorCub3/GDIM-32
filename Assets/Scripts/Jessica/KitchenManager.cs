@@ -3,11 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
+// Jessica Lam
 public class KitchenManager : MonoBehaviour
 {
-    // private string currentDessertRestaurant;
-    // private int currentBPM;
-
     [SerializeField] private InventoryData inventoryData;
     [SerializeField] private RestaurantData restaurantData;
 
@@ -22,23 +20,22 @@ public class KitchenManager : MonoBehaviour
     private bool chosen;
 
     // text to change during run-time
-    public GameObject DessertsChosen;
+    [SerializeField] private GameObject DessertsChosen;
     TextMeshProUGUI textmeshpro_dessertschosen;
     private int dessertsChosen;
 
-    public GameObject DessertsLeftDisplay;
+    [SerializeField] private GameObject DessertsLeftDisplay;
     TextMeshProUGUI textmeshpro_dessertsleft;
     private int dessertsLeft;
 
-    public GameObject MaxCardsInventory;
+    [SerializeField] private GameObject MaxCardsInventory;
     TextMeshProUGUI textmeshpro_maxcards;
     int maxCards;
 
-    public GameObject DessertsCreated;
+    [SerializeField] private GameObject DessertsCreated;
     TextMeshProUGUI textmeshpro_dessertscreated;
 
-    // always takes the Cookie Scriptable Objects right now
-    public Sweets sweet;
+    [SerializeField] private Sweets sweet;
 
     // audio control
     AudioSource audioSource;
@@ -86,7 +83,6 @@ public class KitchenManager : MonoBehaviour
         textmeshpro_dessertscreated.text = dessertsChosen.ToString();
         
         inventoryData.Remove(sweet, dessertsChosen); // remove the desserts from the inventory
-        Debug.Log("Just removed " + dessertsChosen + " souffles.");
         restaurantData.AddStock(dessertsChosen); // add it to the restaurant stock (in outer world)
 
         dessertsLeft = dessertsChosen; // initialize the amount of desserts left

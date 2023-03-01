@@ -2,28 +2,29 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Jessica Lam
 // Has the list of Dessert Qualitys
 public class DessertSpawner : MonoBehaviour
 {  
     // Controls timing based on the song BPM
-    [SerializeField] Animator P1Anim;
-    [SerializeField] Animator P2Anim;
-    [SerializeField] Animator DessertToP1;
-    public float idleTime; // time to wait before starting song
-    public float BPM; // BPM of the song
-    private float startTime;
-    private bool started;
+    [SerializeField] private Animator P1Anim;
+    [SerializeField] private Animator P2Anim;
+    [SerializeField] private Animator DessertToP1;
+    [SerializeField] float idleTime; // time to wait before starting song
+    [SerializeField] float BPM; // BPM of the song
+    float startTime;
+    bool started;
 
     // Spawn Dessert
     float Timer;
-    public DessertController dessertPrefab;
+    [SerializeField] private  DessertController dessertPrefab;
     DessertController dessertClone;
 
     // List of Dessert
     public List<DessertController> desserts;
 
     // Take Kitchen Manager Script
-    public KitchenManager kitchenManager;
+    [SerializeField] private KitchenManager kitchenManager;
 
     void Start()
     {

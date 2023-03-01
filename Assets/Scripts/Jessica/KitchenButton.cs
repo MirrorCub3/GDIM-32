@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Jessica Lam
 public class KitchenButton : MonoBehaviour
 {
-    Animator anim;
-    string whichButton;
+    private Animator anim;
+    private string whichButton;
 
     // Start is called before the first frame update
     void Start()

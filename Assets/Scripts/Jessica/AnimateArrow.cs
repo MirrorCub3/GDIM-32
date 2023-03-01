@@ -5,7 +5,7 @@ using UnityEngine;
 // Jessica Lam
 public class AnimateArrow : MonoBehaviour
 {
-    Animator anim;
+    private Animator anim;
 
     // Start is called before the first frame update
     void Start()

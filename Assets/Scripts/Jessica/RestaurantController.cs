@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-//JESSICA Lam wrote this
+//Jessica Lam
 public class RestaurantController : MonoBehaviour
 {
     public delegate void RestaurantNotif(string msg);
@@ -11,8 +11,9 @@ public class RestaurantController : MonoBehaviour
 
     [SerializeField] private InventoryData inventoryData;
     [SerializeField] private RestaurantData restaurantData;
-    private string kitchenLevel;
+    string kitchenLevel;
 
+    // PlayerInteract references these, so the variables must be public
     public Image player1Bar;
     public Image player2Bar;
 
@@ -22,7 +23,7 @@ public class RestaurantController : MonoBehaviour
     public GameObject barBG1;
     public GameObject barBG2;
 
-    private bool calledLoad;
+    bool calledLoad;
 
     public Sweets cookieSweet;
 

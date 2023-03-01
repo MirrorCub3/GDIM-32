@@ -2,9 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Jessica Lam
 public class ArrowAnimate : MonoBehaviour
 {
-    Animator anim;
+    private Animator anim;
 
     // Start is called before the first frame update
     void Start()

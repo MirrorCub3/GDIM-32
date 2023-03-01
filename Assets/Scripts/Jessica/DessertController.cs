@@ -2,11 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Jessica Lam
 // Leaf class
 public class DessertController : MonoBehaviour, Quality
 {   
     SpriteRenderer spriteRenderer; // get current spriterenderer to change sprite during runtime
-    public Sweets sweetObject; // get the correct sweet object
+    [SerializeField] private Sweets sweetObject; // get the correct sweet object
 
     string keypressCode; // changes depending on P1 or P2
 

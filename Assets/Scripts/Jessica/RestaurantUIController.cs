@@ -4,19 +4,20 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
+// Jessica Lam
 public class RestaurantUIController : MonoBehaviour
 {
     [SerializeField] private RestaurantData restaurantData;
-    public Sweets sweet;
+    [SerializeField] private Sweets sweet;
 
     // text to change during run-time
     GameObject quantityOfDessert;
     TextMeshProUGUI textmeshpro_dessertQuantity;
-    private int dessertQuantity;
+    int dessertQuantity;
 
     GameObject moneyPerDessert;
     TextMeshProUGUI textmeshpro_dessertsMoney;
-    private int dessertsMoney;
+    int dessertsMoney;
 
     GameObject starSlider1GO;
     GameObject starSlider2GO;

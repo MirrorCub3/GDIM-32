@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 // Jessica Lam
-
 public class RestaurantUI : MonoBehaviour
 {
-    public GameObject restaurantDisplay;
-    private int playerCount;
+    [SerializeField] GameObject restaurantDisplay;
+    int playerCount;
 
     // Start is called before the first frame update
     void Start()

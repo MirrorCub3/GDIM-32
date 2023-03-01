@@ -1,14 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-//using UnityEngine.SceneManagement;
 
+// Jessica Lam
 public class Controller : MonoBehaviour
 {
 
     public void NextScene()
     {
-        //SceneManager.LoadScene("OuterWorld");
         GameManager.instance.UnloadKitchen();
     }
 }

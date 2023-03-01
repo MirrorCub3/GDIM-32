@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-// Jessica 
+// Jessica Lam
 public class ArrowControl : MonoBehaviour
 {
     // UI text
-    public GameObject numberToIncrease;
-    public GameObject maxAvailable;
+    [SerializeField] private GameObject numberToIncrease;
+    [SerializeField] private GameObject maxAvailable;
     // private variable
     private int maxCount;
     private int currentCount;

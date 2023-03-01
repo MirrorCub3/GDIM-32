@@ -4,24 +4,25 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+// Jessica Lam
 // Composite Class
 public class RatingManager : MonoBehaviour, Quality
 {
     [SerializeField] private RestaurantData restaurantData;
     [SerializeField] private DessertSpawner dessertSpawn; // script to take list of dessert prefabs from
-    float averageRating;
+    private float averageRating;
 
     [Header("InGameSliders")]
-    public Slider StarSlider3;
-    public Slider StarSlider2;
-    public Slider StarSlider1;
+    [SerializeField] private Slider StarSlider3;
+    [SerializeField] private Slider StarSlider2;
+    [SerializeField] private Slider StarSlider1;
 
     [Header("EndScreenSliders")]
-    public Slider StarSlider3End;
-    public Slider StarSlider2End;
-    public Slider StarSlider1End;
+    [SerializeField] private Slider StarSlider3End;
+    [SerializeField] private Slider StarSlider2End;
+    [SerializeField] private Slider StarSlider1End;
 
-    float currQuality;
+    private float currQuality;
 
     void Start()
     {

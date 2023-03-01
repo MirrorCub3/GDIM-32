@@ -21,7 +21,7 @@ public class PlayerInteract : MonoBehaviour
     private GameObject barBG;
 
     // take respective BAR for the restaurant we're at
-    public RestaurantController restaurantController;
+    [SerializeField] private RestaurantController restaurantController;
     private Image playerBar;
 
     // Start is called before the first frame update

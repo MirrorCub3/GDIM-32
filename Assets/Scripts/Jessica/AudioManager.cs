@@ -4,9 +4,10 @@ using System;
 using UnityEngine;
 using UnityEngine.Audio;
 
+// Jessica Lam
 public class AudioManager : MonoBehaviour
 {
-    public Sound[] sounds;
+    [SerializeField] private Sound[] sounds;
 
     void Awake()
     {
