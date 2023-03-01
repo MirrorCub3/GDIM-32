@@ -8,7 +8,7 @@ using TMPro;
 public class RestaurantBuyButton : MonoBehaviour
 {
     [Header("Restuarant Info")]
-    [SerializeField] private RestaurantData product; // this is a reference to the sweets object that this button purchases
+    [SerializeField] private RestaurantData product; // this is a reference to the restaurant object that this button purchases
     [SerializeField] private int cost;
     
 

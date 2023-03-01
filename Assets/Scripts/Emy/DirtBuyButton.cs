@@ -8,7 +8,7 @@ using TMPro;
 public class DirtBuyButton : MonoBehaviour 
 {
     [Header("Item Info")]
-    [SerializeField] private Dirt product; 
+    //[SerializeField] private Dirt product; 
     [SerializeField] private int cost;
 
     [Header("Visuals")]
@@ -21,7 +21,7 @@ public class DirtBuyButton : MonoBehaviour
     {
         inventory = GameObject.FindObjectOfType<Inventory>(); // this is the reference the inventory to update/add to
 
-        productIcon.sprite = product.icon; // change this to reference the UI icon instead
+        //productIcon.sprite = product.icon; 
         // change the costtext to reflect the cost
     }
 
