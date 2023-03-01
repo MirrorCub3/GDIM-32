@@ -34,12 +34,22 @@ public class ArrowControl : MonoBehaviour
     public void incrementByOne(){
         if (currentCount < maxCount){
             currentCount++;
-        }     
+            FindObjectOfType<AudioManager>().Play("Arrow Kitchen");
+        }
+        else
+        {
+            FindObjectOfType<AudioManager>().Play("Arrow Deny");
+        }
     }
 
     public void decrementByOne(){
         if (currentCount > 1){
             currentCount = currentCount-1;
-        }    
+            FindObjectOfType<AudioManager>().Play("Arrow Kitchen");
+        }
+        else
+        {
+            FindObjectOfType<AudioManager>().Play("Arrow Deny");
+        }
     }
 }

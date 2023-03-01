@@ -73,6 +73,7 @@ public class KitchenManager : MonoBehaviour
     }
 
     public void StartGameCycle(){
+        FindObjectOfType<AudioManager>().Play("Confirm");
         // start the rhythm kitchen section after choosing the amount of desserts
         Time.timeScale = 1f;
         // start music

@@ -1,0 +1,72 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1272869243892801287
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2265139858905325787}
+  - component: {fileID: 7607433392498548648}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2265139858905325787
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1272869243892801287}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.4328759, y: 0.26941365, z: -3.788616}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7607433392498548648
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1272869243892801287}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da60eb547465d8b48b8b9a676ddc1ce0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: Dessert Success
+    clip: {fileID: 8300000, guid: cf18e6dfd53a3364b941fffec50b5392, type: 3}
+    volume: 0.023
+    pitch: 1
+    source: {fileID: 0}
+  - name: Dessert Whiff
+    clip: {fileID: 8300000, guid: 5e1a5149f2da7154d913c8b4b147b3fc, type: 3}
+    volume: 0.087
+    pitch: 1.82
+    source: {fileID: 0}
+  - name: Button Press
+    clip: {fileID: 8300000, guid: 7dfc65eaeb2ace34c91fcf4503ef7a0d, type: 3}
+    volume: 0.1
+    pitch: 1
+    source: {fileID: 0}
+  - name: Arrow Kitchen
+    clip: {fileID: 8300000, guid: e1be9a0b86350ee4cb1f593441e935f1, type: 3}
+    volume: 0.087
+    pitch: 1
+    source: {fileID: 0}
+  - name: Confirm
+    clip: {fileID: 8300000, guid: cc0e4147857f3f848bf37729407ce006, type: 3}
+    volume: 0.087
+    pitch: 0.8
+    source: {fileID: 0}

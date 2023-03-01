@@ -3,13 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 
 // Jessica Lam
+// Also the Timing Controller
 // Has the list of Dessert Qualitys
 public class DessertSpawner : MonoBehaviour
 {  
     // Controls timing based on the song BPM
-    [SerializeField] private Animator P1Anim;
-    [SerializeField] private Animator P2Anim;
-    [SerializeField] private Animator DessertToP1;
+    [SerializeField] Animator P1Anim;
+    [SerializeField] Animator P2Anim;
+    [SerializeField] Animator DessertToP1;
+    [SerializeField] Animator ConveyerBelt;
+    [SerializeField] Animator ConveyerBeltBack;
+
     [SerializeField] float idleTime; // time to wait before starting song
     [SerializeField] float BPM; // BPM of the song
     float startTime;
@@ -32,6 +36,8 @@ public class DessertSpawner : MonoBehaviour
         Timer = .3f;
         P1Anim.speed = (BPM/60f);
         P2Anim.speed = (BPM/60f);
+        ConveyerBelt.speed = (BPM / 60f);
+        ConveyerBeltBack.speed = (BPM / 60f);
         DessertToP1.speed = (BPM / 60f);
         startTime = 0f;
     }
@@ -57,6 +63,8 @@ public class DessertSpawner : MonoBehaviour
             WaitFor(P1Anim);
             WaitFor(P2Anim);
             WaitFor(DessertToP1);
+            WaitFor(ConveyerBelt);
+            WaitFor(ConveyerBeltBack);
         }
         else {
             // Creates a new dessert every 2 seconds
