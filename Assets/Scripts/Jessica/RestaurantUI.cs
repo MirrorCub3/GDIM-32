@@ -5,6 +5,7 @@ using UnityEngine;
 // Jessica Lam
 public class RestaurantUI : MonoBehaviour
 {
+    [SerializeField] private Restaurant restaurant;
     [SerializeField] GameObject restaurantDisplay;
     int playerCount;
 
@@ -22,7 +23,7 @@ public class RestaurantUI : MonoBehaviour
 
     void OnTriggerEnter (Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && restaurant.IsOpen())
         {
             restaurantDisplay.SetActive(true);
             playerCount += 1;
@@ -31,7 +32,7 @@ public class RestaurantUI : MonoBehaviour
 
     void OnTriggerExit (Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && restaurant.IsOpen())
         {
             playerCount -= 1;
             if (playerCount == 0){

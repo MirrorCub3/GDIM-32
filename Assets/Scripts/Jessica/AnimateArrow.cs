@@ -23,7 +23,6 @@ public class AnimateArrow : MonoBehaviour
     }
 
     void OnMouseOver(){
-        Debug.Log("FAT");
         anim.SetBool("Hovering", true);
     }
 

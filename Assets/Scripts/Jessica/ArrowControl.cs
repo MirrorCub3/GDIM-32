@@ -32,7 +32,8 @@ public class ArrowControl : MonoBehaviour
     }
 
     public void incrementByOne(){
-        if (currentCount < maxCount){
+        if (currentCount < maxCount && currentCount < 100)
+        {
             currentCount++;
             FindObjectOfType<AudioManager>().Play("Arrow Kitchen");
         }

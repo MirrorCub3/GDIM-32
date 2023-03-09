@@ -5,7 +5,10 @@ using UnityEngine;
 // Jessica Lam
 // Leaf class
 public class DessertController : MonoBehaviour, Quality
-{   
+{
+    //[SerializeField] private GameManager gameManager; // knows if this is single player or multiplayer
+    public bool singleplayer;
+
     SpriteRenderer spriteRenderer; // get current spriterenderer to change sprite during runtime
     [SerializeField] private Sweets sweetObject; // get the correct sweet object
 
@@ -18,6 +21,7 @@ public class DessertController : MonoBehaviour, Quality
     void Start()
     {
         // Get this gameobjects SpriteRenderer component
+        singleplayer = true;
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
         keypressCode = "e";
         quality = 0f;
@@ -67,7 +71,8 @@ public class DessertController : MonoBehaviour, Quality
                 FindObjectOfType<AudioManager>().Play("Dessert Whiff");
             }
         }
-        else if (keypressCode == "p"){
+        else if (keypressCode == "p" && singleplayer == false)
+        {
             if (spriteRenderer.sprite == sweetObject.P1GoodSprite){
                 spriteRenderer.sprite = sweetObject.P1GoodP2BadSprite;
                 quality = 2f;
@@ -84,6 +89,21 @@ public class DessertController : MonoBehaviour, Quality
     // Checks if input buttons are pressed
     void CheckInput(string keypressCode)
     {
+        if (keypressCode == "p" && singleplayer == true && withinRange)
+        {
+            if (spriteRenderer.sprite == sweetObject.P1GoodSprite)
+            {
+                spriteRenderer.sprite = sweetObject.P1GoodP2GoodSprite;
+                quality = 3f;
+                FindObjectOfType<AudioManager>().Play("Dessert Success");
+            }
+            else if (spriteRenderer.sprite == sweetObject.P1BadSprite)
+            {
+                spriteRenderer.sprite = sweetObject.P1BadP2GoodSprite;
+                quality = 2f;
+                FindObjectOfType<AudioManager>().Play("Dessert Success");
+            }
+        }
         // if pressed on time
         if (Input.GetKeyDown(keypressCode) && withinRange){
             if (keypressCode == "e" && spriteRenderer.sprite != sweetObject.P1BadSprite){
@@ -109,7 +129,7 @@ public class DessertController : MonoBehaviour, Quality
                 spriteRenderer.sprite = sweetObject.P1BadSprite;
                 FindObjectOfType<AudioManager>().Play("Dessert Whiff");
             }
-            else if (keypressCode == "p"){
+            else if (keypressCode == "p" && singleplayer == false){
                 if (spriteRenderer.sprite == sweetObject.P1GoodSprite){
                     spriteRenderer.sprite = sweetObject.P1GoodP2BadSprite;
                     quality = 2f;

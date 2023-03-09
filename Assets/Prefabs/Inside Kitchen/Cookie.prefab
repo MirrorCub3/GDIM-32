@@ -121,9 +121,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4390c853bd03f94988225fe651c44e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  singleplayer: 1
   sweetObject: {fileID: 11400000, guid: 840c8f9486e3ab74284af5eaad662dd7, type: 2}
-  animScript: {fileID: 1776126983, guid: 4c84101cb25ece54abf82d136d528aac, type: 3}
-  anim2Script: {fileID: 1126457486508471754, guid: 7bd83e00d7b7a3d4899d8c3b31a66469, type: 3}
 --- !u!61 &2312669917052067985
 BoxCollider2D:
   m_ObjectHideFlags: 0

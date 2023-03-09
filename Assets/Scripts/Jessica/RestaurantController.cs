@@ -58,8 +58,8 @@ public class RestaurantController : MonoBehaviour
 
             if (!restaurantData.open)
             {
-                if (OnError != null)
-                    OnError.Invoke("This restaurant is not open.");
+                //if (OnError != null)
+                    //OnError.Invoke("This restaurant is not open."); // jess commented out because i removed the UI restaurant display when restaurant isn't open, so it shouldn't do anything
                 return;
             }
 
