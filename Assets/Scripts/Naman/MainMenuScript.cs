@@ -10,7 +10,7 @@ public class MainMenuScript : MonoBehaviour
     public void PlayGameSingle()
     {
         GameManager.instance.SetPlayMode(GameManager.PlayMode.SINGLE);
-        //GameManager.instance.LoadScene(singleScene);
+        //GameManager.instance.LoadScene(singleScene); // doesn't exist yet lmao
     }
 
     public void PlayGameMulti()

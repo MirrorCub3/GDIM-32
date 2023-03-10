@@ -6,7 +6,6 @@ using UnityEngine;
 // Leaf class
 public class DessertController : MonoBehaviour, Quality
 {
-    //[SerializeField] private GameManager gameManager; // knows if this is single player or multiplayer
     public bool singleplayer;
 
     SpriteRenderer spriteRenderer; // get current spriterenderer to change sprite during runtime
@@ -20,8 +19,16 @@ public class DessertController : MonoBehaviour, Quality
 
     void Start()
     {
+        // knows if this is single player or multiplayer
+        if (GameManager.instance.playmode == GameManager.PlayMode.SINGLE) {
+            singleplayer = true;
+        }
+        else // if (GameManager.instance.playmode == GameManager.PlayMode.MULTI) // commented out for testing purposes
+        {
+            singleplayer = false;
+        }
         // Get this gameobjects SpriteRenderer component
-        singleplayer = true;
+
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
         keypressCode = "e";
         quality = 0f;
