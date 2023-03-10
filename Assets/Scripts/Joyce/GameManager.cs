@@ -51,6 +51,7 @@ public class GameManager : MonoBehaviour, IReset
         }
 
         currScene = SceneManager.GetActiveScene().name;
+        playmode = PlayMode.MULTI;
 
         if (currScene != mainMenuScene)
             playing = true;
