@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: CremeBrulee
   m_EditorClassIdentifier: 
   sweetName: Creme Brulee
-  icon: {fileID: -1490512734, guid: 46dd2569a7877b940a3b92b9424477ab, type: 3}
-  UIIcon: {fileID: -1627661343, guid: 46dd2569a7877b940a3b92b9424477ab, type: 3}
+  icon: {fileID: 1001506483, guid: 618fb4744e665fd4794ed70c15aa4dc9, type: 3}
+  UIIcon: {fileID: -1247204140, guid: 618fb4744e665fd4794ed70c15aa4dc9, type: 3}
   qualityIcons: []
   growthTime: 120
   hungerFillAmount: 10

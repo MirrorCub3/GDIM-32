@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Cake
   m_EditorClassIdentifier: 
   sweetName: Cake
-  icon: {fileID: -1079979728, guid: d4573543a96dfd444bc4db7010b7daaf, type: 3}
-  UIIcon: {fileID: -816234718, guid: d4573543a96dfd444bc4db7010b7daaf, type: 3}
+  icon: {fileID: 427852714, guid: 618fb4744e665fd4794ed70c15aa4dc9, type: 3}
+  UIIcon: {fileID: 996355660, guid: 618fb4744e665fd4794ed70c15aa4dc9, type: 3}
   qualityIcons: []
   growthTime: 50
   hungerFillAmount: 10
