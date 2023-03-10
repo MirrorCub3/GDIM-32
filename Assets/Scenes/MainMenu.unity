@@ -447,6 +447,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5690165dc08237d49bbe5ff2f5c8ce51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  singleScene: OuterWorldSingle
+  multiScene: OuterWorld
 --- !u!1 &561665276
 GameObject:
   m_ObjectHideFlags: 0
@@ -702,7 +704,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1093730305
 RectTransform:
   m_ObjectHideFlags: 0
@@ -770,7 +772,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 548833477}
         m_TargetAssemblyTypeName: MainMenuScript, Assembly-CSharp
-        m_MethodName: PlayGame
+        m_MethodName: PlayGameSingle
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -904,7 +906,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 548833477}
         m_TargetAssemblyTypeName: MainMenuScript, Assembly-CSharp
-        m_MethodName: PlayGame
+        m_MethodName: PlayGameMulti
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

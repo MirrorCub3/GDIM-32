@@ -14,6 +14,9 @@ public class GameManager : MonoBehaviour, IReset
 
     public static GameManager instance; // reference to this singleton
 
+    public enum PlayMode { SINGLE, MULTI}
+    public PlayMode playmode { get; private set; }
+
     [Header("Scene Management")]
     [SerializeField] private string mainMenuScene = "MainMenu";
     [SerializeField] private string baseScene = "OuterWorld";
@@ -115,6 +118,11 @@ public class GameManager : MonoBehaviour, IReset
         SceneManager.LoadScene(currScene);
 
         loadingScreen.SetActive(false);
+    }
+
+    public void SetPlayMode(PlayMode mode)
+    {
+        playmode = mode;
     }
 
     public void SetOuterWorldToggle(GameObject toggle)
