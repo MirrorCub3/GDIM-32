@@ -78,6 +78,10 @@ public class NPC : MonoBehaviour
 
         int index = Random.Range(0, targets.Count);
         target = targets[index];
+        
+        // used to debug// very important this is game breaking
+        if(target == null)
+            Debug.Log("NULL RESTAURANT IN LIST: THIS IS BAD");
     }
 
     public virtual void Wander()
