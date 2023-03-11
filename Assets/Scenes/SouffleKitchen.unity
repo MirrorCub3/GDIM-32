@@ -394,7 +394,6 @@ GameObject:
   m_Component:
   - component: {fileID: 652547752}
   - component: {fileID: 652547751}
-  - component: {fileID: 652547753}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -460,14 +459,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!81 &652547753
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 652547749}
-  m_Enabled: 1
 --- !u!1 &782289229
 GameObject:
   m_ObjectHideFlags: 0
@@ -1047,7 +1038,7 @@ PrefabInstance:
     - target: {fileID: 740507664, guid: 334a649363f68614da355d40fb2be661, type: 3}
       propertyPath: kitchenManager
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1193683871}
     - target: {fileID: 740507664, guid: 334a649363f68614da355d40fb2be661, type: 3}
       propertyPath: ConveyerBeltBack
       value: 
@@ -1138,7 +1129,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 2646d6431caffa144b33e4a95e12a41a, type: 2}
     - target: {fileID: 5061312992963004732, guid: 334a649363f68614da355d40fb2be661, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5061312992963004732, guid: 334a649363f68614da355d40fb2be661, type: 3}
       propertyPath: restaurantData
@@ -1154,7 +1145,7 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: e8b6fc5d0f48c1e489037cf46c7b1787, type: 3}
     - target: {fileID: 5061312992963004733, guid: 334a649363f68614da355d40fb2be661, type: 3}
       propertyPath: m_PlayOnAwake
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5061312992963005122, guid: 334a649363f68614da355d40fb2be661, type: 3}
       propertyPath: m_Name
@@ -1254,6 +1245,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 334a649363f68614da355d40fb2be661, type: 3}
+--- !u!114 &1193683871 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5061312992963004732, guid: 334a649363f68614da355d40fb2be661, type: 3}
+  m_PrefabInstance: {fileID: 1193683870}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b1a1a4ec42373049b342209b726b11e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1218995004
 GameObject:
   m_ObjectHideFlags: 0

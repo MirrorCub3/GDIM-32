@@ -349,7 +349,6 @@ GameObject:
   m_Component:
   - component: {fileID: 652547752}
   - component: {fileID: 652547751}
-  - component: {fileID: 652547753}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -415,14 +414,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!81 &652547753
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 652547749}
-  m_Enabled: 1
 --- !u!1 &782289229
 GameObject:
   m_ObjectHideFlags: 0
@@ -1386,7 +1377,7 @@ PrefabInstance:
     - target: {fileID: 740507664, guid: 334a649363f68614da355d40fb2be661, type: 3}
       propertyPath: kitchenManager
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 5061312992535671613}
     - target: {fileID: 740507664, guid: 334a649363f68614da355d40fb2be661, type: 3}
       propertyPath: ConveyerBeltBack
       value: 
@@ -1397,11 +1388,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5061312992963004732, guid: 334a649363f68614da355d40fb2be661, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5061312992963004733, guid: 334a649363f68614da355d40fb2be661, type: 3}
       propertyPath: m_PlayOnAwake
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5061312992963005122, guid: 334a649363f68614da355d40fb2be661, type: 3}
       propertyPath: m_Name
@@ -1477,6 +1468,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 334a649363f68614da355d40fb2be661, type: 3}
+--- !u!114 &5061312992535671613 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5061312992963004732, guid: 334a649363f68614da355d40fb2be661, type: 3}
+  m_PrefabInstance: {fileID: 5061312992535671612}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b1a1a4ec42373049b342209b726b11e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &7319382834070805998
 PrefabInstance:
   m_ObjectHideFlags: 0
