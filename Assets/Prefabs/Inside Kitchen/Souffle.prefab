@@ -121,6 +121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4390c853bd03f94988225fe651c44e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  singleplayer: 1
   sweetObject: {fileID: 11400000, guid: 2646d6431caffa144b33e4a95e12a41a, type: 2}
 --- !u!61 &2312669917052067985
 BoxCollider2D:

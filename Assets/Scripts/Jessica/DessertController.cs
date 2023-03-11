@@ -6,7 +6,7 @@ using UnityEngine;
 // Leaf class
 public class DessertController : MonoBehaviour, Quality
 {
-    public bool singleplayer;
+    public bool singleplayer; // MAKE THIS PRIVATE WHEN BUILDING PLS
 
     SpriteRenderer spriteRenderer; // get current spriterenderer to change sprite during runtime
     [SerializeField] private Sweets sweetObject; // get the correct sweet object
@@ -20,18 +20,21 @@ public class DessertController : MonoBehaviour, Quality
     void Start()
     {
         // knows if this is single player or multiplayer
-        if (GameManager.instance.playmode == GameManager.PlayMode.SINGLE) {
-            singleplayer = true;
-        }
-        else // if (GameManager.instance.playmode == GameManager.PlayMode.MULTI) // commented out for testing purposes
+        if (GameManager.instance) // testing purposes
         {
-            singleplayer = false;
+            if (GameManager.instance.playmode == GameManager.PlayMode.SINGLE)
+            {
+                singleplayer = true;
+            }
+            else // if (GameManager.instance.playmode == GameManager.PlayMode.MULTI) // commented out for testing purposes
+            {
+                singleplayer = false;
+            }
         }
         // Get this gameobjects SpriteRenderer component
-
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
         keypressCode = "e";
-        quality = 0f;
+        quality = 2f;
     }
 
     void Update()
@@ -107,7 +110,14 @@ public class DessertController : MonoBehaviour, Quality
             else if (spriteRenderer.sprite == sweetObject.P1BadSprite)
             {
                 spriteRenderer.sprite = sweetObject.P1BadP2GoodSprite;
-                quality = 2f;
+                if (singleplayer == true)
+                {
+                    quality = 0.5f;
+                }
+                else
+                {
+                    quality = 2f;
+                }
                 FindObjectOfType<AudioManager>().Play("Dessert Success");
             }
         }
@@ -125,7 +135,14 @@ public class DessertController : MonoBehaviour, Quality
                 }
                 else if (spriteRenderer.sprite == sweetObject.P1BadSprite){
                     spriteRenderer.sprite = sweetObject.P1BadP2GoodSprite;
-                    quality = 2f;
+                    if (singleplayer == true)
+                    {
+                        quality = 0.5f;
+                    }
+                    else
+                    {
+                        quality = 2f;
+                    }
                     FindObjectOfType<AudioManager>().Play("Dessert Success");
                 }
             }
