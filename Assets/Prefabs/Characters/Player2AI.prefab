@@ -194,7 +194,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ef89bdec1d99d242a37aae7b2a39911, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  me: {fileID: 0}
+  me: {fileID: 3202429271976779745}
   anim: {fileID: 2245797982704194929}
   player: {fileID: 0}
   agent: {fileID: 3700829872038837676}
@@ -211,11 +211,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f93e2f041d4b8884bae010b49182c36a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  me: {fileID: 0}
+  me: {fileID: 3202429271976779745}
   anim: {fileID: 2245797982704194929}
   player: {fileID: 0}
   agent: {fileID: 3700829872038837676}
-  speed: 8
+  speed: 6
 --- !u!114 &3202429271976779744
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -228,11 +228,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 264a9fcbb5b182841810f88abf3c9f24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  me: {fileID: 0}
+  me: {fileID: 3202429271976779745}
   anim: {fileID: 2245797982704194929}
   player: {fileID: 0}
   agent: {fileID: 3700829872038837676}
-  speed: 8
+  speed: 6
 --- !u!114 &3202429271976779745
 MonoBehaviour:
   m_ObjectHideFlags: 0

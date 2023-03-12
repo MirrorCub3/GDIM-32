@@ -7,6 +7,9 @@ using UnityEngine.SceneManagement;
 // Jessica Lam
 public class PlayerInteract : MonoBehaviour
 {
+    public delegate void PlayerInteracting(bool interacting);
+    public event PlayerInteracting PlayerEntering;
+
     // which kitchen are we next to (the scene name must be the name of the object + Restaurant)
     private string kitchenLevel;
 
@@ -48,16 +51,18 @@ public class PlayerInteract : MonoBehaviour
     // called every frame
     void Update()
     {
-        if (holdingButton == false){
+        if (holdingButton == false)
+        {
             startPressTime = Time.time;
         }
 
         // when press keyPressCode and near the restaurant, set the start press time
-        if (Input.GetKeyDown(keyPressCode) && playerInRange == true)
+        if (Input.GetKeyDown(keyPressCode) && playerInRange)
         {
             holdingButton = true;
             startPressTime = Time.time;
             barBG.SetActive(true);
+            InvokeEntering(holdingButton);
         }
 
         // increase the fill progress bar if holding the button
@@ -66,12 +71,21 @@ public class PlayerInteract : MonoBehaviour
         }
 
         // if keyPressCode lifted
-        if (Input.GetKeyUp(keyPressCode) && playerInRange == true)
+        if (!playerInRange || Input.GetKeyUp(keyPressCode) && playerInRange)
         {
             holdingButton = false;
-            playerBar.fillAmount = 0;
-            barBG.SetActive(false);
+            if(playerBar)
+                playerBar.fillAmount = 0;
+            if(barBG)
+                barBG.SetActive(false);
+            InvokeEntering(holdingButton);
         }
+    }
+
+    void InvokeEntering(bool entering)
+    {
+        if (PlayerEntering != null)
+            PlayerEntering.Invoke(entering);
     }
 
     // When this player goes near a restaurant

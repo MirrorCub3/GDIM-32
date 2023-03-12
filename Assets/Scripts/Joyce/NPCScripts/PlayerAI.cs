@@ -7,7 +7,8 @@ using UnityEngine.AI;
 public class PlayerAI : MonoBehaviour
 {
     [Header("AI")]
-    public Queue<Transform> cardLocs;
+    [SerializeField] private PlayerInteract player1;
+    [HideInInspector] public Queue<Transform> cardLocs;
     public bool meeting { get; private set;}
 
     [Header("Strategies")]
@@ -22,13 +23,13 @@ public class PlayerAI : MonoBehaviour
 
     private void OnEnable()
     {
-        RecipeCardCollectable.OnCardSpawned += OnCardSpawned;  
-        // subcribe to player entering event
+        RecipeCardCollectable.OnCardSpawned += OnCardSpawned;
+        player1.PlayerEntering += PlayerInteracting;
     }
     private void OnDisable()
     {
         RecipeCardCollectable.OnCardSpawned -= OnCardSpawned;
-        // unsubcribe to player entering event
+        player1.PlayerEntering += PlayerInteracting;
     }
 
     void Awake()
