@@ -10,7 +10,11 @@ public class RecipeCardCollectable : MonoBehaviour, ICollectable
     // subscribers to this event will be notified for every card collected
     public delegate void HandleCardCollectedArgs(Sweets sweet, int count);
     public static event HandleCardCollectedArgs OnCardCollectedGlobal; // will be triggered for all cards
-    
+
+    // subscribers to this event will be notified when a new card is spawned and it's location
+    public delegate void CardSpawned(Transform loc);
+    public static event CardSpawned OnCardSpawned; // will be triggered for all cards
+
     // subscribers to this event will only be notified for specific card isntance
     public delegate void HandleCardCollected();
     public event HandleCardCollected ThisCardCollectedNotif;
@@ -30,6 +34,8 @@ public class RecipeCardCollectable : MonoBehaviour, ICollectable
         // setting the visuals
         sr.sprite = sweet.icon;
         countText.text = itemCount.ToString();
+        if (OnCardSpawned != null)
+            OnCardSpawned.Invoke(transform);
     }
 
     private void OnTriggerEnter(Collider other)
