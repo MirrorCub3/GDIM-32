@@ -30,8 +30,16 @@ public class DessertSpawner : MonoBehaviour
     // Take Kitchen Manager Script
     [SerializeField] private KitchenManager kitchenManager;
 
+    // Used for different timing & perks for each kitchen
+    int dessertCount;
+    [SerializeField] Sweets sweet;
+
+    // Cookie kitchen video and perks
+    [SerializeField] GameObject cookieVideo;
+
     void Start()
     {
+        cookieVideo.SetActive(false);
         desserts = new List<DessertController>();
         Timer = .3f;
         P1Anim.speed = (BPM/60f);
@@ -40,6 +48,7 @@ public class DessertSpawner : MonoBehaviour
         ConveyerBeltBack.speed = (BPM / 60f);
         DessertToP1.speed = (BPM / 60f);
         startTime = 0f;
+        dessertCount = 0;
     }
 
     void WaitFor(Animator anim)
@@ -71,6 +80,7 @@ public class DessertSpawner : MonoBehaviour
             Timer -= Time.deltaTime;
             if (Timer <= 0f)
             {
+                dessertCount += 1;
                 dessertClone = Instantiate(dessertPrefab);
                 Animator dessertAnim = dessertClone.GetComponent<Animator>();
                 dessertAnim.speed = (BPM/60f);
@@ -81,6 +91,10 @@ public class DessertSpawner : MonoBehaviour
                 }
                 Timer = (60f/BPM)*2f;
             }
+        }
+        if (dessertCount == 39 && sweet.sweetName == "Cookie")
+        {
+            cookieVideo.SetActive(true);
         }
     }
 

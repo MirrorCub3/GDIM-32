@@ -394,6 +394,7 @@ GameObject:
   m_Component:
   - component: {fileID: 652547752}
   - component: {fileID: 652547751}
+  - component: {fileID: 652547753}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -459,6 +460,14 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!81 &652547753
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 652547749}
+  m_Enabled: 1
 --- !u!1 &782289229
 GameObject:
   m_ObjectHideFlags: 0
@@ -820,17 +829,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 1.002}
---- !u!114 &873076097 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5061312992963004732, guid: 334a649363f68614da355d40fb2be661, type: 3}
-  m_PrefabInstance: {fileID: 1193683870}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2b1a1a4ec42373049b342209b726b11e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1110696861
 GameObject:
   m_ObjectHideFlags: 0
@@ -1036,7 +1034,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 464655a1de067394f88b0e6305ecf73a, type: 2}
     - target: {fileID: 740507664, guid: 334a649363f68614da355d40fb2be661, type: 3}
       propertyPath: BPM
-      value: 63.95
+      value: 64
       objectReference: {fileID: 0}
     - target: {fileID: 740507664, guid: 334a649363f68614da355d40fb2be661, type: 3}
       propertyPath: P1Anim
@@ -1048,7 +1046,7 @@ PrefabInstance:
       objectReference: {fileID: 472376676}
     - target: {fileID: 740507664, guid: 334a649363f68614da355d40fb2be661, type: 3}
       propertyPath: idleTime
-      value: 7.03
+      value: 7.6
       objectReference: {fileID: 0}
     - target: {fileID: 740507664, guid: 334a649363f68614da355d40fb2be661, type: 3}
       propertyPath: DessertToP1
@@ -1065,7 +1063,7 @@ PrefabInstance:
     - target: {fileID: 740507664, guid: 334a649363f68614da355d40fb2be661, type: 3}
       propertyPath: kitchenManager
       value: 
-      objectReference: {fileID: 873076097}
+      objectReference: {fileID: 0}
     - target: {fileID: 740507664, guid: 334a649363f68614da355d40fb2be661, type: 3}
       propertyPath: ConveyerBeltBack
       value: 
@@ -1172,7 +1170,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: bbf9afa348a58454fb865c37c602c22f, type: 2}
     - target: {fileID: 5061312992963004732, guid: 334a649363f68614da355d40fb2be661, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5061312992963004732, guid: 334a649363f68614da355d40fb2be661, type: 3}
       propertyPath: restaurantData
@@ -1188,7 +1186,7 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: 8ef1763473bfc7e4ea0dba73c5ef5920, type: 3}
     - target: {fileID: 5061312992963004733, guid: 334a649363f68614da355d40fb2be661, type: 3}
       propertyPath: m_PlayOnAwake
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5061312992963005122, guid: 334a649363f68614da355d40fb2be661, type: 3}
       propertyPath: m_Name
