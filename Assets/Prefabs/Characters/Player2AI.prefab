@@ -245,6 +245,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ed041da40f46f7448daf9e3d71e172c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player1: {fileID: 0}
   followStrat: {fileID: 3202429271976779744}
   collectStrat: {fileID: 3202429271976779743}
   meetStrat: {fileID: 3202429271976779742}
