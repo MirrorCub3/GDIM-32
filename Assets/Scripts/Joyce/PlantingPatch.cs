@@ -154,7 +154,7 @@ public class PlantingPatch : MonoBehaviour
         Cooldown(); // enter cooldown stage after collected
     }
 
-    public void Unlock(DirtStates state) // a public method for external code like the store to set the state of dirt once unlocked
+    public void Unlock(DirtStates state = DirtStates.GROW) // a public method for external code like the store to set the state of dirt once unlocked
     {
         currState = state;
         switch(state)

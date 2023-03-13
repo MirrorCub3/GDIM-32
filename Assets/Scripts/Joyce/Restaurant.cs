@@ -8,7 +8,10 @@ public class Restaurant : MonoBehaviour, IReset
     [Header("Data")]
     [SerializeField] private RestaurantData myData;
     [SerializeField] private Sweets product;
+    [SerializeField] private PlantingPatch dirt;
     [SerializeField] private bool startOpen;
+
+    [Header("Visual")]
     [SerializeField] private GameObject lockIcon;
     public int stock { get; private set; }
 
@@ -16,6 +19,8 @@ public class Restaurant : MonoBehaviour, IReset
     {
         stock = 0;
         myData.Init(stock, startOpen);
+        if (startOpen && dirt)
+            dirt.Unlock();
     }
 
     private void Update()
