@@ -957,7 +957,7 @@ MonoBehaviour:
   restaurantTag: PhysicalRestaurant
   sc: {fileID: 3018558153122908432}
   agent: {fileID: 530056580}
-  list: {fileID: 0}
+  list: {fileID: 6044283784231538157, guid: 29ebbf5e481333d45b5980c30e3491ba, type: 3}
   sweets:
   - {fileID: 11400000, guid: 840c8f9486e3ab74284af5eaad662dd7, type: 2}
   - {fileID: 11400000, guid: 2646d6431caffa144b33e4a95e12a41a, type: 2}

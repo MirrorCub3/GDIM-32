@@ -766,8 +766,8 @@ MonoBehaviour:
   restaurantTag: PhysicalRestaurant
   sc: {fileID: 6271949458423145675}
   agent: {fileID: 1776763845}
-  targets:
-  - {fileID: 0}
+  list: {fileID: 6044283784231538157, guid: 29ebbf5e481333d45b5980c30e3491ba, type: 3}
+  sweets: []
   wanderRadius: 20
   bubble: {fileID: 160870730294464457}
   bubbleIcon: {fileID: 3435554325980824349}
