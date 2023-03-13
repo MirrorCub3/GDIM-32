@@ -26,6 +26,8 @@ public class Restaurant : MonoBehaviour, IReset
     private void Update()
     {
         lockIcon.SetActive(!myData.open);
+        if (myData.open && dirt && !dirt.unlocked)
+            dirt.Unlock();
     }
 
     private void OnEnable() // when entering back into the scene, match data with scriptable object

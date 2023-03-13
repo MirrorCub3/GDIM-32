@@ -26,6 +26,7 @@ public class PlantingPatch : MonoBehaviour
 
     [Header("State Variables")]
     [SerializeField] private DirtStates currState = DirtStates.GROW; // used to keep track of the current state
+    public bool unlocked { get; private set; }
 
     private bool paused;
 
@@ -47,6 +48,7 @@ public class PlantingPatch : MonoBehaviour
         else
         {
             Locked();
+            unlocked = false;
         }
 
     }
@@ -133,6 +135,7 @@ public class PlantingPatch : MonoBehaviour
         lockedIcon.enabled = false;
         sprout.SetActive(true);
         time = 0;
+        plantTimeBar.gameObject.SetActive(true);
         plantTimeBar.value = time;
         fill.color = colors.GrowCol();
     }
@@ -156,6 +159,7 @@ public class PlantingPatch : MonoBehaviour
 
     public void Unlock(DirtStates state = DirtStates.GROW) // a public method for external code like the store to set the state of dirt once unlocked
     {
+        unlocked = true;
         currState = state;
         switch(state)
         {
