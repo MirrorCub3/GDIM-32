@@ -15,7 +15,7 @@ MonoBehaviour:
   sweetName: Creme Brulee
   icon: {fileID: 1001506483, guid: 618fb4744e665fd4794ed70c15aa4dc9, type: 3}
   UIIcon: {fileID: -1247204140, guid: 618fb4744e665fd4794ed70c15aa4dc9, type: 3}
-  qualityIcons: []
+  soloIcon: {fileID: 1334725629, guid: 3bc60cb78db0f404cbd9e92533a14bb3, type: 3}
   growthTime: 120
   hungerFillAmount: 10
   price: 120

@@ -23,10 +23,11 @@ public class NPC : MonoBehaviour
 
     [Header("Targeting")]
     [SerializeField] private RestaurantList list;
-    //[SerializeField] protected private List<Sweets> foods = new List<Sweets>();
-    //protected private Dictionary<Sweets, Transform> targetPairs = new Dictionary<Sweets, Transform>();
-    [SerializeField] protected private List<Transform> targets = new List<Transform>(); // adjust this to something more dynamic later for spawning purposes
+    [SerializeField] protected private List<Sweets> sweets = new List<Sweets>();
+    protected private Dictionary<Sweets, Transform> targetPairs = new Dictionary<Sweets, Transform>();
+    private List<Sweets> validSweets = new List<Sweets>(); // keeps only the sweets that have locations
     protected private Transform target; // the target position
+    protected private Sweets desiredSweet; // targeting sweet
 
     [Header("Wander Parameters")]
     [SerializeField] private float wanderRadius = 10f;
@@ -41,14 +42,21 @@ public class NPC : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         // Joyce Mai
         agent.updateRotation = false; // this keeps the sprite facing the camera
-
         sc = GetComponent<SphereCollider>();
         bubble.SetActive(false);
     }
 
-    private void GetLocations()
+    protected void GetLocations() // creates a dictonary based on desired sweets and their locations
     {
-        // for each food, grab location from list
+        foreach (Sweets s in sweets)
+        {
+            Transform loc = list.GetLocation(s);
+            if (loc) // only add valid locations to the dictionary
+            {
+                validSweets.Add(s); // keeps track of sweets with locations in a separate list
+                targetPairs.Add(s, loc);
+            }
+        }
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -96,17 +104,18 @@ public class NPC : MonoBehaviour
         return null;
     }
 
-    protected private void PickTarget() // chooses a random location from the list
+    protected private void PickTarget() // chooses a random location from the diectionary
     {
-        if (targets.Count <= 0) // don't pick a target if there are no targets
+        if (validSweets.Count <= 0) // don't pick a target if there are no targets
             return;
 
-        int index = Random.Range(0, targets.Count);
-        target = targets[index];
-        
-        // used to debug// very important this is game breaking
-        if(target == null)
-            Debug.Log("NULL RESTAURANT IN LIST: THIS IS BAD");
+        target = null;
+        while (target == null)
+        {
+            int index = Random.Range(0, validSweets.Count);
+            desiredSweet = validSweets[index];
+            target = targetPairs[desiredSweet];
+        }
     }
 
     public virtual void Wander()
@@ -132,7 +141,9 @@ public class NPC : MonoBehaviour
     public virtual void Target()
     {
         PickTarget();
-        sc.enabled = true;
+        sc.enabled = true; 
+        bubble.SetActive(true);
+        bubbleIcon.sprite = desiredSweet.soloIcon;
     }
 
     public virtual void AtRestaurant(Restaurant restaurant){}

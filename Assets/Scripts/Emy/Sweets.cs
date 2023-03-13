@@ -10,7 +10,7 @@ public class Sweets : ScriptableObject
     public string sweetName;
     public Sprite icon;
     public Sprite UIIcon;
-    public List<Sprite> qualityIcons;
+    public Sprite soloIcon;
 
     [Header("Number Values")]
     public float growthTime;

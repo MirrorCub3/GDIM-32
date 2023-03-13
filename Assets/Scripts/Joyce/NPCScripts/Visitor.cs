@@ -16,6 +16,7 @@ public class Visitor : NPC
     private void Start()
     {
         agent.speed = myData.Speed();
+        GetLocations();
 
         timerObject.SetActive(false);
 

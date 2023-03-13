@@ -15,7 +15,7 @@ MonoBehaviour:
   sweetName: Cookie
   icon: {fileID: -1637640883, guid: 3bbda862acf8d3e4fa17f634f2960f96, type: 3}
   UIIcon: {fileID: 1721356512, guid: 3bbda862acf8d3e4fa17f634f2960f96, type: 3}
-  qualityIcons: []
+  soloIcon: {fileID: 1558894207, guid: 3bc60cb78db0f404cbd9e92533a14bb3, type: 3}
   growthTime: 5
   hungerFillAmount: 1
   price: 10

@@ -1077,9 +1077,13 @@ MonoBehaviour:
   restaurantTag: PhysicalRestaurant
   sc: {fileID: 1530628260957870391}
   agent: {fileID: 1310202088}
-  targets:
-  - {fileID: 0}
-  - {fileID: 0}
+  list: {fileID: 0}
+  sweets:
+  - {fileID: 11400000, guid: f4a36a08603af89458f17076e90d4b20, type: 2}
+  - {fileID: 11400000, guid: 840c8f9486e3ab74284af5eaad662dd7, type: 2}
+  - {fileID: 11400000, guid: bdaa6f9cff5eda346943935f52df0267, type: 2}
+  - {fileID: 11400000, guid: bbf9afa348a58454fb865c37c602c22f, type: 2}
+  - {fileID: 11400000, guid: 2646d6431caffa144b33e4a95e12a41a, type: 2}
   wanderRadius: 20
   bubble: {fileID: 6293652226681310869}
   bubbleIcon: {fileID: 8889465239464709965}

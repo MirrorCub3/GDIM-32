@@ -10,15 +10,10 @@ public class DineAndDasher : Visitor
     [SerializeField] private int theftAmount;
     [SerializeField] private Transform hideSpot;
 
-    private void Awake()
+    private void Start()
     {
-        // Naman Khurana
-        agent = GetComponent<NavMeshAgent>();
-
-        // Joyce Mai
-        sc = GetComponent<SphereCollider>();
-        agent.updateRotation = false; // this keeps the sprite facing the camera
         agent.speed = myData.Speed();
+        GetLocations();
 
         timerObject.SetActive(false);
 

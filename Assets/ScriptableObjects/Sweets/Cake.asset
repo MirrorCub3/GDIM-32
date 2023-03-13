@@ -15,7 +15,7 @@ MonoBehaviour:
   sweetName: Cake
   icon: {fileID: 427852714, guid: 618fb4744e665fd4794ed70c15aa4dc9, type: 3}
   UIIcon: {fileID: 996355660, guid: 618fb4744e665fd4794ed70c15aa4dc9, type: 3}
-  qualityIcons: []
+  soloIcon: {fileID: -1367567077, guid: 3bc60cb78db0f404cbd9e92533a14bb3, type: 3}
   growthTime: 50
   hungerFillAmount: 10
   price: 80

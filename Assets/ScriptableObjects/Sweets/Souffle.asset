@@ -15,7 +15,7 @@ MonoBehaviour:
   sweetName: Souffle
   icon: {fileID: -661348349, guid: 3bbda862acf8d3e4fa17f634f2960f96, type: 3}
   UIIcon: {fileID: -77128254, guid: 3bbda862acf8d3e4fa17f634f2960f96, type: 3}
-  qualityIcons: []
+  soloIcon: {fileID: -446137352, guid: 3bc60cb78db0f404cbd9e92533a14bb3, type: 3}
   growthTime: 10
   hungerFillAmount: 2
   price: 20

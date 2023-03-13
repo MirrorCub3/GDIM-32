@@ -33,6 +33,11 @@ public class Restaurant : MonoBehaviour, IReset
         return myData.open;
     }
 
+    public Sweets GetProduct()
+    {
+        return product;
+    }
+
     public int BuyProduct(int amount = 1) // returns true or false based on successful purchase
     {
         if (stock <= 0)

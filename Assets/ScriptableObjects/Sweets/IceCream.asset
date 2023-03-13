@@ -15,7 +15,7 @@ MonoBehaviour:
   sweetName: Ice Cream
   icon: {fileID: 377354844, guid: 618fb4744e665fd4794ed70c15aa4dc9, type: 3}
   UIIcon: {fileID: -876660003, guid: 618fb4744e665fd4794ed70c15aa4dc9, type: 3}
-  qualityIcons: []
+  soloIcon: {fileID: -86042859, guid: 3bc60cb78db0f404cbd9e92533a14bb3, type: 3}
   growthTime: 30
   hungerFillAmount: 10
   price: 40

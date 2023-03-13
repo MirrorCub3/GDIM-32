@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
 
-// Joyce Mai
+// Joyce Mai & Naman Khurana
 public class Eater : NPC
 {   
     [Header("AI Variables")]
@@ -24,6 +24,7 @@ public class Eater : NPC
     private void Start()
     {
         agent.speed = myData.Speed();
+        GetLocations();
 
         hungerSlider.maxValue = myData.HungerLevel();
         hungerSlider.value = 0;
@@ -69,7 +70,7 @@ public class Eater : NPC
 
     public override void Target()
     {
-        if (emptyCount >= emptyTolerance && targets.Count != 1) // used to force the target of a different location if previous was constantly empty
+        if (emptyCount >= emptyTolerance && targetPairs.Count != 1) // used to force the target of a different location if previous was constantly empty
         {
             while (!target || target == lastTarget)
             {
@@ -77,7 +78,7 @@ public class Eater : NPC
             }
             ActiveOnValidTarget();
         }
-        else if (emptyCount >= emptyTolerance && targets.Count == 1) // if only one location is avaliable, sleep to delay
+        else if (emptyCount >= emptyTolerance && targetPairs.Count == 1) // if only one location is avaliable, sleep to delay
         {
             anim.SetTrigger("Sleep");
         }
@@ -90,9 +91,13 @@ public class Eater : NPC
 
     private void ActiveOnValidTarget()
     {
+        if (target == null)
+            return;
+
         sc.enabled = true;
         hungerBar.SetActive(true);
         bubble.SetActive(true);
+        bubbleIcon.sprite = desiredSweet.soloIcon;
     }
 
     public override void AtRestaurant(Restaurant restaurant)
