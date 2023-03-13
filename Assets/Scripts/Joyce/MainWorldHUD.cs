@@ -34,11 +34,13 @@ public class MainWorldHUD : MonoBehaviour
     {
         RevenueManager.CoinsChanged += UpdateCoinText;
         RestaurantController.OnError += PopUpMessage;
+        RestaurantControl.OnError += PopUpMessage;
     }
     private void OnDisable()
     {
         RevenueManager.CoinsChanged -= UpdateCoinText;
         RestaurantController.OnError -= PopUpMessage;
+        RestaurantControl.OnError -= PopUpMessage;
     }
 
     void Update()
