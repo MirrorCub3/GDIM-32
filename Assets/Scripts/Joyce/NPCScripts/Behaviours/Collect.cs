@@ -5,8 +5,8 @@ using UnityEngine;
 // Joyce Mai
 public class Collect : Strategy
 {
-    private Transform target;
-    private bool targetSet;
+    private Transform target; // reference to current target
+    private bool targetSet; // boolean to track when to dequeue
     void OnEnable()
     {
         agent.speed = speed;
@@ -30,14 +30,14 @@ public class Collect : Strategy
         }
     }
 
-    private void TargetCard()
+    private void TargetCard() // sets a new target or removes all null entries till empty
     {
         if (targetSet) // if the target had been set prior and is now null, remove it from the queue
             me.cardLocs.Dequeue();
-        while (target == null && me.cardLocs.Count > 0)
+        while (target == null && me.cardLocs.Count > 0) // keep picking spots until valid or out of spots
         {
             target = me.cardLocs.Peek(); // set the target to the first location in queue without removing
-            if (target == null)
+            if (target == null) // if the spot is null, remove it
                 me.cardLocs.Dequeue();
         }
 

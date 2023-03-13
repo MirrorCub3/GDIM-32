@@ -16,12 +16,15 @@ public class Movement : MonoBehaviour
 
     [Header("Visuals")]
     [SerializeField] private Animator anim;  // reference to the player's animator
+    [SerializeField] private GameObject playerDisplay; // shows the player's number -- deactivates when they move
 
     private void Start()
     {
         // setting the axes names
         xAxisName = "Horizontal" + playerNumber;
         yAxisName = "Vertical" + playerNumber;
+
+        playerDisplay.SetActive(true);
     }
 
     void Update()
@@ -32,6 +35,9 @@ public class Movement : MonoBehaviour
         float horizontal = Input.GetAxisRaw(xAxisName);
         float vertical = Input.GetAxisRaw(yAxisName);
         Vector3 direction = new Vector3(horizontal, 0, vertical).normalized; // creates a new vector for movement direction
+
+        if (Mathf.Abs(direction.magnitude) > 0)
+            playerDisplay.SetActive(false);
 
         anim.SetFloat("Speed", Mathf.Abs(direction.magnitude)); // setting the speed variable in the animator to change animation states
         if (Mathf.Abs(horizontal) > 0) // flips the object once the player moves in a direction
