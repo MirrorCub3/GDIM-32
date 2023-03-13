@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
 
-// Joyce Mai & Naman Khurana
+// Joyce Mai
 public class Eater : NPC
 {   
     [Header("AI Variables")]
@@ -17,20 +17,20 @@ public class Eater : NPC
     [Header("Visuals")]
     [SerializeField] protected GameObject hungerBar; // reference to the bar object
     [SerializeField] protected Slider hungerSlider; // reference to the bar used to show how full the NPC is
+    [SerializeField] protected GameObject timerObject; // reference to timer object
+    [SerializeField] private Slider timerSlider; // referecne to timer bar
     [SerializeField] protected SpriteRenderer sr;
 
-    private void Awake()
+    private void Start()
     {
-        // Naman Khurana
-        agent = GetComponent<NavMeshAgent>();
-
-        // Joyce Mai
-        sc = GetComponent<SphereCollider>();
-        agent.updateRotation = false; // this keeps the sprite facing the camera
         agent.speed = myData.Speed();
 
         hungerSlider.maxValue = myData.HungerLevel();
         hungerSlider.value = 0;
+        timerSlider.maxValue = myData.SleepTime();
+        timerSlider.value = 0;
+
+        timerObject.SetActive(false);
 
         lastTarget = null;
         emptyCount = 0;
@@ -55,8 +55,11 @@ public class Eater : NPC
             agent.SetDestination(target.position);
         }
 
-        if(currState == States.Wander || currState == States.Sleep)
+        if (currState == States.Wander || currState == States.Sleep)
+        {
             hungerBar.SetActive(false);
+            timerObject.SetActive(currState == States.Sleep);
+        }
     }
 
     public override Data GetData()
@@ -72,8 +75,7 @@ public class Eater : NPC
             {
                 PickTarget();
             }
-            sc.enabled = true;
-            hungerBar.SetActive(true);
+            ActiveOnValidTarget();
         }
         else if (emptyCount >= emptyTolerance && targets.Count == 1) // if only one location is avaliable, sleep to delay
         {
@@ -82,10 +84,17 @@ public class Eater : NPC
         else // picking target as usual
         {
             PickTarget();
-            sc.enabled = true;
-            hungerBar.SetActive(true);
+            ActiveOnValidTarget();
         }
     }
+
+    private void ActiveOnValidTarget()
+    {
+        sc.enabled = true;
+        hungerBar.SetActive(true);
+        bubble.SetActive(true);
+    }
+
     public override void AtRestaurant(Restaurant restaurant)
     {
         if (restaurant == null)
@@ -95,6 +104,7 @@ public class Eater : NPC
         }
 
         sc.enabled = false;
+        bubble.SetActive(false);
         Eat(restaurant);
     }
     public virtual void Eat(Restaurant restaurant)
@@ -130,7 +140,10 @@ public class Eater : NPC
     {
         target = null;
         agent.isStopped = true;
-        // enable the timer bar here
+
+        timerObject.SetActive(true);
+        timerSlider.value = 0;
+
         sr.sprite = myData.SleepSprite();
         sc.enabled = false;
         hungerSlider.value = 0;
@@ -138,9 +151,15 @@ public class Eater : NPC
     public void WakeUp()
     {
         sr.sprite = myData.NormalSprite();
+        timerObject.SetActive(false);
+        timerSlider.value = 0;
         agent.isStopped = false;
         sc.enabled = true;
         emptyCount = 0;
+    }
+    public void SetTimePassed(float time)
+    {
+        timerSlider.value = Mathf.Min(timerSlider.maxValue, time);
     }
 
 }

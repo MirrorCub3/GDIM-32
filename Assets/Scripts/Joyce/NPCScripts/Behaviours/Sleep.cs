@@ -30,6 +30,7 @@ public class Sleep : StateMachineBehaviour
         {
             animator.SetTrigger("Wander");
         }
+        script.SetTimePassed(time);
     }
     public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {

@@ -11,16 +11,10 @@ public class Visitor : NPC
     [SerializeField] protected VisitorData myData;
 
     [Header("UI")]
-    [SerializeField] protected GameObject timerObject;
-    [SerializeField] private Slider timerSlider;
-    private void Awake()
+    [SerializeField] protected GameObject timerObject; // reference to timer object
+    [SerializeField] private Slider timerSlider; // referecne to timer bar
+    private void Start()
     {
-        // Naman Khurana
-        agent = GetComponent<NavMeshAgent>();
-
-        // Joyce Mai
-        sc = GetComponent<SphereCollider>();
-        agent.updateRotation = false; // this keeps the sprite facing the camera
         agent.speed = myData.Speed();
 
         timerObject.SetActive(false);
@@ -69,6 +63,7 @@ public class Visitor : NPC
     public override void AtRestaurant(Restaurant restaurant) // defines what this AI does when at the restuarant
     {
         sc.enabled = false;
+        bubble.SetActive(false);
         anim.SetTrigger("Inspect");
     }
 }

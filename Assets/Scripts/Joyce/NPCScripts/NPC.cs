@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 // Joyce Mai and Naman Khurana
 public class NPC : MonoBehaviour
@@ -19,12 +20,36 @@ public class NPC : MonoBehaviour
     [SerializeField] private string restaurantTag = "PhysicalRestaurant";
     [SerializeField] protected private SphereCollider sc; // refrence to the sphere collider to turn on and off
     [SerializeField] protected private NavMeshAgent agent; // refrence to the nav mesh agent
+
+    [Header("Targeting")]
+    [SerializeField] private RestaurantList list;
+    //[SerializeField] protected private List<Sweets> foods = new List<Sweets>();
+    //protected private Dictionary<Sweets, Transform> targetPairs = new Dictionary<Sweets, Transform>();
     [SerializeField] protected private List<Transform> targets = new List<Transform>(); // adjust this to something more dynamic later for spawning purposes
     protected private Transform target; // the target position
 
     [Header("Wander Parameters")]
     [SerializeField] private float wanderRadius = 10f;
 
+    [Header("Target UI")]
+    [SerializeField] protected GameObject bubble;
+    [SerializeField] protected Image bubbleIcon;
+
+    private void Awake()
+    {
+        // Naman Khurana
+        agent = GetComponent<NavMeshAgent>();
+        // Joyce Mai
+        agent.updateRotation = false; // this keeps the sprite facing the camera
+
+        sc = GetComponent<SphereCollider>();
+        bubble.SetActive(false);
+    }
+
+    private void GetLocations()
+    {
+        // for each food, grab location from list
+    }
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag.Equals(restaurantTag) && other.transform == target)
