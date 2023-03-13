@@ -125,7 +125,7 @@ TextureImporter:
         width: 281
         height: 333
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -146,7 +146,7 @@ TextureImporter:
         width: 248
         height: 305
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -167,7 +167,7 @@ TextureImporter:
         width: 277
         height: 331
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -188,7 +188,7 @@ TextureImporter:
         width: 246
         height: 310
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -209,7 +209,7 @@ TextureImporter:
         width: 275
         height: 335
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -230,7 +230,7 @@ TextureImporter:
         width: 248
         height: 299
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -238,6 +238,69 @@ TextureImporter:
       bones: []
       spriteID: 865af5c0307047e428f3b2a2d331878b
       internalID: -1247204140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: recipe cards updated_6
+      rect:
+        serializedVersion: 2
+        x: 842
+        y: 3056
+        width: 187
+        height: 202
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f29d8c78acf76344861646e2db236c1
+      internalID: 1929050651
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: recipe cards updated_7
+      rect:
+        serializedVersion: 2
+        x: 1189
+        y: 3052
+        width: 186
+        height: 219
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1cddddaba707d35489cc62d35e3a06b6
+      internalID: 476675026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: recipe cards updated_8
+      rect:
+        serializedVersion: 2
+        x: 1470
+        y: 3061
+        width: 221
+        height: 186
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4456c89f2f963814fa32c98fad2a5908
+      internalID: 169059767
       vertices: []
       indices: 
       edges: []
@@ -257,7 +320,10 @@ TextureImporter:
       recipe cards updated_5: -1247204140
       recipe cards updated_2: 427852714
       recipe cards updated_3: 996355660
+      recipe cards updated_8: 169059767
       recipe cards updated_4: 1001506483
+      recipe cards updated_6: 1929050651
+      recipe cards updated_7: 476675026
       recipe cards updated_1: -876660003
   spritePackingTag: 
   pSDRemoveMatte: 0
