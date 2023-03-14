@@ -71,18 +71,18 @@ public class KitchenManager : MonoBehaviour
 
     void Update()
     {   // once chose the amt of desserts, constantly update the text with the amount of desserts left
-        Time.timeScale = 0f;
         if (chosen){
             textmeshpro_dessertsleft.text = dessertsLeft.ToString();
             startTimeScale = true;
         }
-        if (startTimeScale)
-        {   // start the rhythm kitchen section after choosing the amount of desserts
-            Time.timeScale = 1f;
+        else if (startTimeScale == false)
+        {
+            Time.timeScale = 0f;
         }
     }
 
     public void StartGameCycle(){
+        Time.timeScale = 1f;
         FindObjectOfType<AudioManager>().Play("Confirm");
         
         // start music

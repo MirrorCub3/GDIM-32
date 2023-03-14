@@ -152,7 +152,9 @@ public class GameManager : MonoBehaviour, IReset
             return;
         }
 
-        audioSource.Stop();
+        if (audioSource)
+            audioSource.Stop();
+        
 
         StopAllCoroutines();
         StartCoroutine(LoadKitchenAsync(sceneName));
@@ -165,7 +167,8 @@ public class GameManager : MonoBehaviour, IReset
             return;
         }
 
-        audioSource.Play();
+        if (audioSource)
+            audioSource.Play();
 
         StopAllCoroutines();
         StartCoroutine(UnloadIntoBaseAsync(currScene));
