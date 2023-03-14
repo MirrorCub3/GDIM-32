@@ -9,6 +9,7 @@ public class PauseMenu : MonoBehaviour
 {
 
     public GameObject pauseMenuUI;
+    private List<AudioSource> audioPlaying = new List<AudioSource>();
 
     // Update is called once per frame
     void Update()
@@ -21,7 +22,6 @@ public class PauseMenu : MonoBehaviour
             } else
             {
                 Pause();
-
             }
         }
     }
@@ -31,11 +31,10 @@ public class PauseMenu : MonoBehaviour
     {
         pauseMenuUI.SetActive(false);
         GameManager.instance.Resume();
-        AudioSource[] audios = FindObjectsOfType<AudioSource>();
 
-        foreach (AudioSource audio in audios)
+        foreach (AudioSource audio in audioPlaying)
         {
-            audio.Play();
+            audio.UnPause();
         }
     }
 
@@ -44,17 +43,21 @@ public class PauseMenu : MonoBehaviour
         pauseMenuUI.SetActive(true);
         GameManager.instance.Pause();
         AudioSource[] audios = FindObjectsOfType<AudioSource>();
+        audioPlaying = new List<AudioSource>();
 
         foreach (AudioSource audio in audios)
         {
-            audio.Pause();
+            if (audio.isPlaying)
+            {
+                audioPlaying.Add(audio);
+                audio.Pause();
+            }
         }
     }
 
     public void LoadMenu()
     {
         GameManager.instance.ToMainMenu();
-
     }
 
     public void QuitGame()

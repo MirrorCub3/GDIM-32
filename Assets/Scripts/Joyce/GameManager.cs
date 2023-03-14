@@ -37,6 +37,9 @@ public class GameManager : MonoBehaviour, IReset
 
     [HideInInspector] public bool paused { get; private set; }
 
+    // put outer world music here
+    [SerializeField] private AudioSource audioSource;
+
     void Awake()
     {
         // singleton pattern
@@ -148,6 +151,9 @@ public class GameManager : MonoBehaviour, IReset
             Debug.Log("You should not be loading kitchens from the main menu or from other kitchens");
             return;
         }
+
+        audioSource.Stop();
+
         StopAllCoroutines();
         StartCoroutine(LoadKitchenAsync(sceneName));
     }
@@ -158,6 +164,9 @@ public class GameManager : MonoBehaviour, IReset
             Debug.Log("you cannot unload a null kitchen");
             return;
         }
+
+        audioSource.Play();
+
         StopAllCoroutines();
         StartCoroutine(UnloadIntoBaseAsync(currScene));
     }

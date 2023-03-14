@@ -114,15 +114,15 @@ public class KitchenManager : MonoBehaviour
     }
 
     void EndGameCycle(){
+        Time.timeScale = 0f;
         audioSource.Stop();
         ratingManager.SetEndSliders();
-        dessertSpawner.DestroyAllDesserts();
-        Time.timeScale = 0f;
         EndGameCanvas.SetActive(true);
     }
 
     // used for player input at the end of kitchen
     public void BackToOuterWorld(){
+        dessertSpawner.DestroyAllDesserts();
         Time.timeScale = 1f;
         GameManager.instance.UnloadKitchen();
     }
