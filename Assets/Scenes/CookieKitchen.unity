@@ -1437,6 +1437,10 @@ PrefabInstance:
       propertyPath: ConveyerBeltBack
       value: 
       objectReference: {fileID: 1218995005}
+    - target: {fileID: 5061312992963004733, guid: 334a649363f68614da355d40fb2be661, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 5061312992963005122, guid: 334a649363f68614da355d40fb2be661, type: 3}
       propertyPath: m_Name
       value: KitchenManager

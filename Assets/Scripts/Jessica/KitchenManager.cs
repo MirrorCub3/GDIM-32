@@ -37,6 +37,8 @@ public class KitchenManager : MonoBehaviour
 
     [SerializeField] private Sweets sweet;
 
+    bool startTimeScale;
+
     // audio control
     AudioSource audioSource;
 
@@ -50,7 +52,7 @@ public class KitchenManager : MonoBehaviour
         textmeshpro_dessertschosen = DessertsChosen.GetComponent<TMPro.TextMeshProUGUI>();
         textmeshpro_dessertsleft = DessertsLeftDisplay.GetComponent<TMPro.TextMeshProUGUI>();
         textmeshpro_dessertscreated = DessertsCreated.GetComponent<TMPro.TextMeshProUGUI>();
-        
+
         // set up the max amount of cards available (based on your inventory)
         textmeshpro_maxcards = MaxCardsInventory.GetComponent<TMPro.TextMeshProUGUI>();
         if (inventoryData.itemDictionary.TryGetValue(sweet, out InventoryItem item))
@@ -63,19 +65,26 @@ public class KitchenManager : MonoBehaviour
 
         // audio control initialize
         audioSource = GetComponent<AudioSource>();
+
+        startTimeScale = false;
     }
 
     void Update()
     {   // once chose the amt of desserts, constantly update the text with the amount of desserts left
+        Time.timeScale = 0f;
         if (chosen){
             textmeshpro_dessertsleft.text = dessertsLeft.ToString();
+            startTimeScale = true;
+        }
+        if (startTimeScale)
+        {   // start the rhythm kitchen section after choosing the amount of desserts
+            Time.timeScale = 1f;
         }
     }
 
     public void StartGameCycle(){
         FindObjectOfType<AudioManager>().Play("Confirm");
-        // start the rhythm kitchen section after choosing the amount of desserts
-        Time.timeScale = 1f;
+        
         // start music
         audioSource.clip = sweet.BGMusic;
         audioSource.Play();
