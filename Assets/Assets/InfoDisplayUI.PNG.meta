@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 87c99ca9e7c3dae46bfb3f06102ff163
+guid: b81a129b3f2ab32469b91517c653f7c8
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -117,169 +117,127 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: testEnviron_0
+      name: InfoDisplayUI_0
       rect:
         serializedVersion: 2
-        x: 29
-        y: 1320
-        width: 701
-        height: 573
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 284cd6775417de34ea6be6197e6e3107
-      internalID: 1094422078
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: testEnviron_1
-      rect:
-        serializedVersion: 2
-        x: 805
-        y: 1692
-        width: 503
-        height: 216
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d29f4aeaa2af5d041ab982de5b3d5008
-      internalID: -828152869
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: testEnviron_2
-      rect:
-        serializedVersion: 2
-        x: 1853
-        y: 900
-        width: 593
-        height: 971
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8a52ab1c481aeaa4a9d65f978d94f471
-      internalID: 1637331350
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: testEnviron_3
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 711
-        width: 326
-        height: 570
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 45c8cc7042a15f64cba1b42934792e66
-      internalID: 1265577967
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: testEnviron_4
-      rect:
-        serializedVersion: 2
-        x: 382
-        y: 711
-        width: 347
-        height: 584
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8b07d73afe3715e4fa824e6027239ce7
-      internalID: 178242150
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: testEnviron_5
-      rect:
-        serializedVersion: 2
-        x: 784
-        y: 694
-        width: 1035
-        height: 763
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b3d7dfa4a10c9854ea907efb4167c66d
-      internalID: 658799191
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: testEnviron_6
-      rect:
-        serializedVersion: 2
-        x: 68
-        y: 153
-        width: 470
-        height: 436
+        x: 101
+        y: 1830
+        width: 77
+        height: 102
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dfb0259ba5380644f9536a5ade71c2ad
-      internalID: -498337739
+      spriteID: 6e8a1d93dbe667e40a26aadaad93431d
+      internalID: -1485658191
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: testEnviron_7
+      name: InfoDisplayUI_1
       rect:
         serializedVersion: 2
-        x: 584
-        y: 328
-        width: 231
-        height: 261
+        x: 237
+        y: 1830
+        width: 76
+        height: 101
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d78a1d95e72e8a04787914b1be3d4c9a
-      internalID: 2075131303
+      spriteID: 5b0bf19a886dcaf42ae021a7b034edc5
+      internalID: 376293264
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InfoDisplayUI_2
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 1553
+        width: 510
+        height: 181
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c7e4f6e9fec1bc449839b81c58ea6a8c
+      internalID: 1720323955
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InfoDisplayUI_3
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 1396
+        width: 311
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc6365aeee57fb8459aa62a90eb886ef
+      internalID: -936820340
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InfoDisplayUI_4
+      rect:
+        serializedVersion: 2
+        x: 89
+        y: 1135
+        width: 741
+        height: 181
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73e2189d2cf852f408958356aa532948
+      internalID: -1334702757
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InfoDisplayUI_5
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 212
+        width: 1125
+        height: 863
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 36920e52d5c4a03439ddb8d63ae9e86a
+      internalID: -1990247506
       vertices: []
       indices: 
       edges: []
@@ -295,14 +253,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      testEnviron_0: 1094422078
-      testEnviron_6: -498337739
-      testEnviron_3: 1265577967
-      testEnviron_4: 178242150
-      testEnviron_1: -828152869
-      testEnviron_2: 1637331350
-      testEnviron_5: 658799191
-      testEnviron_7: 2075131303
+      InfoDisplayUI_5: -1990247506
+      InfoDisplayUI_2: 1720323955
+      InfoDisplayUI_4: -1334702757
+      InfoDisplayUI_0: -1485658191
+      InfoDisplayUI_3: -936820340
+      InfoDisplayUI_1: 376293264
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

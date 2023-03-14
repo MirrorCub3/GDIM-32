@@ -6,8 +6,12 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "PersistentData/ RestaurantData")]
 public class RestaurantData : ScriptableObject, IReset
 {
+    public delegate void OpenClose(bool open);
+    public event OpenClose OnOpenClose;
+
     // will hold persistent restaurant data
     public bool open { get; private set; }
+    public bool wasOpened { get; private set;}
     private bool startOpen;
     public float stars { get; private set; }
     [SerializeField] private float startStars = 1.5f;
@@ -19,6 +23,7 @@ public class RestaurantData : ScriptableObject, IReset
         stars = startStars;
         open = isOpen;
         startOpen = open;
+        wasOpened = startOpen;
     }
 
     public void Reset()
@@ -55,5 +60,11 @@ public class RestaurantData : ScriptableObject, IReset
     public void OpenCloseRestaurant(bool isOpen)
     {
         open = isOpen;
+
+        if (OnOpenClose != null)
+            OnOpenClose.Invoke(isOpen);
+
+        if (open && !wasOpened)
+            wasOpened = true;
     }
 }

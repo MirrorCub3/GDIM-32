@@ -12,6 +12,7 @@ public class PlantingPatch : MonoBehaviour
     [SerializeField] private GameObject spawnPrefab; // will be used to instantiate the card
     // create private references here to the spawn prefabs's details via scritable object data
     [SerializeField] private Sweets spawnData;
+    private GameObject spawn;
 
     [Header("Visuals and UI")]
     [SerializeField] private Image lockedIcon; // image to display when the patch is not yet usable
@@ -110,7 +111,7 @@ public class PlantingPatch : MonoBehaviour
         lockedIcon.enabled = false;
         sprout.SetActive(false);
         time = spawnData.growthTime;
-        GameObject spawn = Instantiate(spawnPrefab, transform);
+        spawn = Instantiate(spawnPrefab, transform);
         // subscribing to the instance's collect action
         spawn.GetComponent<RecipeCardCollectable>().ThisCardCollectedNotif += OnCollect;
         plantTimeBar.gameObject.SetActive(false);
@@ -142,6 +143,8 @@ public class PlantingPatch : MonoBehaviour
 
     private void Locked() // used when the dirt patch is on the map but yet to become useable
     {
+        if (spawn)
+            Destroy(spawn);
         currState = DirtStates.LOCKED;
 
         sprout.SetActive(false);
@@ -173,7 +176,7 @@ public class PlantingPatch : MonoBehaviour
                 Spawn();
                 break;
             default:
-                print("You should not be setting to locked state in unlock");
+                Locked();
                 break;
         }
     }

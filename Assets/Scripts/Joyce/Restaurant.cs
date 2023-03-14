@@ -19,22 +19,21 @@ public class Restaurant : MonoBehaviour, IReset
     {
         stock = 0;
         myData.Init(stock, startOpen);
-        if (startOpen && dirt)
-            dirt.Unlock();
+        if (startOpen)
+            Open();
     }
 
-    private void Update()
-    {
-        lockIcon.SetActive(!myData.open);
-        if (myData.open && dirt && !dirt.unlocked)
-            dirt.Unlock();
-    }
 
     private void OnEnable() // when entering back into the scene, match data with scriptable object
     {
         stock = myData.stock;
+        myData.OnOpenClose += OnOpenClose;
     }
 
+    private void OnDisable()
+    {
+        myData.OnOpenClose -= OnOpenClose;
+    }
     public bool IsOpen()
     {
         return myData.open;
@@ -83,9 +82,34 @@ public class Restaurant : MonoBehaviour, IReset
         myData.RemoveStars(removeAmount);
         if(myData.stars <= 0)
         {
-            myData.OpenCloseRestaurant(false);
-            RestaurantManager.instance.CloseRestaurant(myData);
+            Close();
         }
+    }
+
+    private void Close()
+    {
+        if (!myData.open)
+            return;
+        lockIcon.SetActive(true);
+        RestaurantManager.instance.CloseRestaurant(myData);
+        if (dirt)
+            dirt.Unlock(PlantingPatch.DirtStates.LOCKED);
+    }
+
+    private void Open()
+    {
+        lockIcon.SetActive(false);
+        if (dirt)
+            dirt.Unlock();
+        // do the popup if it wasnt opened before
+    }
+
+    private void OnOpenClose(bool isOpen)
+    {
+        if (isOpen)
+            Open();
+        else
+            Close();
     }
 
     public RestaurantData GetData()
