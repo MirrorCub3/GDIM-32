@@ -9,6 +9,7 @@ public class ArrowControl : MonoBehaviour
     // UI text
     [SerializeField] private GameObject numberToIncrease;
     [SerializeField] private GameObject maxAvailable;
+    [SerializeField] private GameObject max100popup;
     // private variable
     private int maxCount;
     private int currentCount;
@@ -22,7 +23,16 @@ public class ArrowControl : MonoBehaviour
         textmeshpro_number = numberToIncrease.GetComponent<TMPro.TextMeshProUGUI>();
         textmeshpro_max_number = maxAvailable.GetComponent<TMPro.TextMeshProUGUI>();
         maxCount = int.Parse(textmeshpro_max_number.text);
-        currentCount = maxCount;
+        if (maxCount <= 100)
+        {
+            currentCount = maxCount;
+            max100popup.SetActive(false);
+        }
+        else
+        {
+            currentCount = 100;
+            max100popup.SetActive(true);
+        }
     }
 
     // Update is called once per frame
@@ -31,26 +41,36 @@ public class ArrowControl : MonoBehaviour
         textmeshpro_number.text = currentCount.ToString();
     }
 
-    public void incrementByOne(){
+    public void incrementByOne()
+    {
         if (currentCount < maxCount && currentCount < 100)
         {
             currentCount++;
             FindObjectOfType<AudioManager>().Play("Arrow Kitchen");
+            max100popup.SetActive(false);
         }
         else
         {
             FindObjectOfType<AudioManager>().Play("Arrow Deny");
+            if (currentCount == 100)
+            {
+                max100popup.SetActive(true);
+            }
         }
     }
 
-    public void decrementByOne(){
-        if (currentCount > 1){
-            currentCount = currentCount-1;
+    public void decrementByOne()
+    {
+        if (currentCount > 1)
+        {
+            currentCount = currentCount - 1;
             FindObjectOfType<AudioManager>().Play("Arrow Kitchen");
+            max100popup.SetActive(false);
         }
         else
         {
             FindObjectOfType<AudioManager>().Play("Arrow Deny");
+            max100popup.SetActive(false);
         }
     }
 }
