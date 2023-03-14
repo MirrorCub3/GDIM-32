@@ -10,6 +10,7 @@ public class Restaurant : MonoBehaviour, IReset
     [SerializeField] private Sweets product;
     [SerializeField] private PlantingPatch dirt;
     [SerializeField] private bool startOpen;
+    [SerializeField] private RestaurantOpenSpawner spawner;
 
     [Header("Visual")]
     [SerializeField] private GameObject lockIcon;
@@ -102,6 +103,11 @@ public class Restaurant : MonoBehaviour, IReset
         if (dirt)
             dirt.Unlock();
         // do the popup if it wasnt opened before
+        if (!myData.wasOpened && spawner)
+        {
+            spawner.Spawn();
+            myData.SetWasOpened();
+        }
     }
 
     private void OnOpenClose(bool isOpen)

@@ -23,7 +23,7 @@ public class RestaurantData : ScriptableObject, IReset
         stars = startStars;
         open = isOpen;
         startOpen = open;
-        wasOpened = startOpen;
+        wasOpened = false;
     }
 
     public void Reset()
@@ -63,8 +63,10 @@ public class RestaurantData : ScriptableObject, IReset
 
         if (OnOpenClose != null)
             OnOpenClose.Invoke(isOpen);
+    }
 
-        if (open && !wasOpened)
-            wasOpened = true;
+    public void SetWasOpened()
+    {
+        wasOpened = true;
     }
 }

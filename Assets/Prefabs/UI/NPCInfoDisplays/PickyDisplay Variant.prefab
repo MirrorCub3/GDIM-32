@@ -1,0 +1,179 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &3369325759705384964
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 7959745669352068258, guid: fef9c9875375b9d4fb3509027b745b53, type: 3}
+      propertyPath: m_text
+      value: Picky
+      objectReference: {fileID: 0}
+    - target: {fileID: 7959745669788421996, guid: fef9c9875375b9d4fb3509027b745b53, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -120
+      objectReference: {fileID: 0}
+    - target: {fileID: 7959745669788421996, guid: fef9c9875375b9d4fb3509027b745b53, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7959745669788421999, guid: fef9c9875375b9d4fb3509027b745b53, type: 3}
+      propertyPath: m_text
+      value: '" those who fail to satisfy my palette are fools"'
+      objectReference: {fileID: 0}
+    - target: {fileID: 7959745669788421999, guid: fef9c9875375b9d4fb3509027b745b53, type: 3}
+      propertyPath: m_fontSize
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 7959745669788421999, guid: fef9c9875375b9d4fb3509027b745b53, type: 3}
+      propertyPath: m_fontStyle
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7959745669788421999, guid: fef9c9875375b9d4fb3509027b745b53, type: 3}
+      propertyPath: m_fontColor.b
+      value: 0.26666668
+      objectReference: {fileID: 0}
+    - target: {fileID: 7959745669788421999, guid: fef9c9875375b9d4fb3509027b745b53, type: 3}
+      propertyPath: m_fontColor.g
+      value: 0.20784315
+      objectReference: {fileID: 0}
+    - target: {fileID: 7959745669788421999, guid: fef9c9875375b9d4fb3509027b745b53, type: 3}
+      propertyPath: m_fontColor.r
+      value: 0.2509804
+      objectReference: {fileID: 0}
+    - target: {fileID: 7959745669788421999, guid: fef9c9875375b9d4fb3509027b745b53, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 7959745669788421999, guid: fef9c9875375b9d4fb3509027b745b53, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4282660160
+      objectReference: {fileID: 0}
+    - target: {fileID: 7959745669788421999, guid: fef9c9875375b9d4fb3509027b745b53, type: 3}
+      propertyPath: m_VerticalAlignment
+      value: 512
+      objectReference: {fileID: 0}
+    - target: {fileID: 7959745669919189348, guid: fef9c9875375b9d4fb3509027b745b53, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7959745670459342706, guid: fef9c9875375b9d4fb3509027b745b53, type: 3}
+      propertyPath: m_text
+      value: An arrogant customer from the slime kingdom, only eats one type of sweet
+      objectReference: {fileID: 0}
+    - target: {fileID: 7959745670459342706, guid: fef9c9875375b9d4fb3509027b745b53, type: 3}
+      propertyPath: m_fontSize
+      value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 7959745670459342706, guid: fef9c9875375b9d4fb3509027b745b53, type: 3}
+      propertyPath: m_fontStyle
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7959745670459342706, guid: fef9c9875375b9d4fb3509027b745b53, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 7959745671344652725, guid: fef9c9875375b9d4fb3509027b745b53, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -1896308047, guid: 8f0d5998e01874c42be655f5cef404b8, type: 3}
+    - target: {fileID: 7959745671371380769, guid: fef9c9875375b9d4fb3509027b745b53, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7959745671371380769, guid: fef9c9875375b9d4fb3509027b745b53, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7959745671371380769, guid: fef9c9875375b9d4fb3509027b745b53, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7959745671371380769, guid: fef9c9875375b9d4fb3509027b745b53, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7959745671371380769, guid: fef9c9875375b9d4fb3509027b745b53, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7959745671371380769, guid: fef9c9875375b9d4fb3509027b745b53, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7959745671371380769, guid: fef9c9875375b9d4fb3509027b745b53, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7959745671371380769, guid: fef9c9875375b9d4fb3509027b745b53, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 400
+      objectReference: {fileID: 0}
+    - target: {fileID: 7959745671371380769, guid: fef9c9875375b9d4fb3509027b745b53, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 7959745671371380769, guid: fef9c9875375b9d4fb3509027b745b53, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7959745671371380769, guid: fef9c9875375b9d4fb3509027b745b53, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7959745671371380769, guid: fef9c9875375b9d4fb3509027b745b53, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7959745671371380769, guid: fef9c9875375b9d4fb3509027b745b53, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7959745671371380769, guid: fef9c9875375b9d4fb3509027b745b53, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7959745671371380769, guid: fef9c9875375b9d4fb3509027b745b53, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7959745671371380769, guid: fef9c9875375b9d4fb3509027b745b53, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7959745671371380769, guid: fef9c9875375b9d4fb3509027b745b53, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7959745671371380769, guid: fef9c9875375b9d4fb3509027b745b53, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7959745671371380769, guid: fef9c9875375b9d4fb3509027b745b53, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7959745671371380769, guid: fef9c9875375b9d4fb3509027b745b53, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7959745671371380769, guid: fef9c9875375b9d4fb3509027b745b53, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7959745671371380774, guid: fef9c9875375b9d4fb3509027b745b53, type: 3}
+      propertyPath: m_Name
+      value: PickyDisplay Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 7959745671412598921, guid: fef9c9875375b9d4fb3509027b745b53, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7959745671412598927, guid: fef9c9875375b9d4fb3509027b745b53, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: fef9c9875375b9d4fb3509027b745b53, type: 3}
