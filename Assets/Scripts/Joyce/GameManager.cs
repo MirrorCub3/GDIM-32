@@ -19,7 +19,8 @@ public class GameManager : MonoBehaviour, IReset
 
     [Header("Scene Management")]
     [SerializeField] private string mainMenuScene = "MainMenu";
-    [SerializeField] private string baseScene = "OuterWorld";
+    [SerializeField] private string baseSceneName = "OuterWorld";
+    private string baseScene = "OuterWorld";
     private GameObject outerWorld;
 
     // book keeping variables for scene management
@@ -51,6 +52,9 @@ public class GameManager : MonoBehaviour, IReset
         }
 
         currScene = SceneManager.GetActiveScene().name;
+        if (currScene.Contains(baseSceneName))
+            baseScene = currScene;
+
         playmode = PlayMode.MULTI;
 
         if (currScene != mainMenuScene)
@@ -81,6 +85,8 @@ public class GameManager : MonoBehaviour, IReset
 
     public void ToMainMenu() // simple call to menu, for ease of access
     {
+        inKitchen = false;
+        playing = false;
         LoadScene(mainMenuScene);
         RevenueManager.instance.Reset();
     }
@@ -100,6 +106,8 @@ public class GameManager : MonoBehaviour, IReset
 
     public void GoToEndScreen()
     {
+        inKitchen = true;
+        playing = false;
         Reset();
         LoadScene("EndScreen");
     }
@@ -107,6 +115,8 @@ public class GameManager : MonoBehaviour, IReset
     public void LoadScene(string nextScene = "OuterWorld")
     {
         Resume(); // makes sure scenes dont load in paused
+        if (nextScene.Contains(baseSceneName))
+            baseScene = nextScene;
 
         if (nextScene == mainMenuScene && inKitchen) // if the current scene is the kitchen make sure to unload it first
             UnloadKitchen();

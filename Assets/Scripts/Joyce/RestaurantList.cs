@@ -9,6 +9,7 @@ public class RestaurantList : MonoBehaviour
 
     private void Awake() // super expensive! only do once
     {
+        restaurantLocs = new Dictionary<Sweets, Transform>();
         Restaurant[] restaurants = GameObject.FindObjectsOfType<Restaurant>();
         foreach(Restaurant r in restaurants)
         {

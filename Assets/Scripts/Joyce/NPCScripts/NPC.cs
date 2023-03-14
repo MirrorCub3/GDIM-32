@@ -141,6 +141,10 @@ public class NPC : MonoBehaviour
     public virtual void Target()
     {
         PickTarget();
+
+        if (target == null)
+            return;
+
         sc.enabled = true; 
         bubble.SetActive(true);
         bubbleIcon.sprite = desiredSweet.soloIcon;
