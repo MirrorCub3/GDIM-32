@@ -103,7 +103,6 @@ public class GameManager : MonoBehaviour, IReset
     {
         inventoryData.Reset();
         RevenueManager.instance.Reset();
-        RestaurantManager.instance.Reset();
     }
 
     public void GoToEndScreen()

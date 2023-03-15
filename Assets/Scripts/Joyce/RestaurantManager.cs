@@ -5,7 +5,6 @@ using UnityEngine;
 // Joyce Mai
 public class RestaurantManager : MonoBehaviour, IReset
 {
-    public static RestaurantManager instance;
     public delegate void OnCloseRestaurant(RestaurantData data);
     public static OnCloseRestaurant OnClose;
 
@@ -14,17 +13,6 @@ public class RestaurantManager : MonoBehaviour, IReset
 
     private void Awake()
     {
-        // singleton pattern
-        if (instance == null)
-        {
-            instance = this;
-            DontDestroyOnLoad(instance);
-        }
-        else
-        {
-            Destroy(this.gameObject);
-            return;
-        }
         Reset();
     }
 
@@ -43,6 +31,7 @@ public class RestaurantManager : MonoBehaviour, IReset
     public void CloseRestaurant(RestaurantData data)
     {
         openRestaurants--;
+        print(data + "just closed ");
         if (OnClose != null)
             OnClose.Invoke(data);
         if(openRestaurants <= 0)
@@ -56,4 +45,8 @@ public class RestaurantManager : MonoBehaviour, IReset
         openRestaurants++;
     }
 
+    private void OnDestroy()
+    {
+        Reset();
+    }
 }

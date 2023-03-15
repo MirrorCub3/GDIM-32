@@ -11,6 +11,7 @@ public class Restaurant : MonoBehaviour, IReset
     [SerializeField] private PlantingPatch dirt;
     [SerializeField] private bool startOpen;
     [SerializeField] private RestaurantOpenSpawner spawner;
+    private static RestaurantManager manager;
 
     [Header("Visual")]
     [SerializeField] private GameObject lockIcon;
@@ -18,9 +19,11 @@ public class Restaurant : MonoBehaviour, IReset
 
     private void Awake()
     {
+        manager = FindObjectOfType<RestaurantManager>();
         stock = 0;
         myData.Init(stock, startOpen);
-        OnOpenClose(startOpen);
+        if (startOpen)
+            Open();
 
     }
 
@@ -89,10 +92,10 @@ public class Restaurant : MonoBehaviour, IReset
 
     private void Close()
     {
-        if (!myData.open)
-            return;
+        Debug.Log("closing down");
+        myData.OpenCloseRestaurant(false);
         lockIcon.SetActive(true);
-        RestaurantManager.instance.CloseRestaurant(myData);
+        manager.CloseRestaurant(myData);
         if (dirt)
             dirt.Unlock(PlantingPatch.DirtStates.LOCKED);
     }

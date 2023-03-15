@@ -10,6 +10,7 @@ public class RestaurantBuyButton : MonoBehaviour
     [Header("Restuarant Info")]
     [SerializeField] private RestaurantData product; // this is a reference to the restaurant object that this button purchases
     [SerializeField] private int cost;
+    private RestaurantManager manager;
     
 
     [Header("UI")]
@@ -21,6 +22,7 @@ public class RestaurantBuyButton : MonoBehaviour
 
     private void Start()
     {
+        manager = FindObjectOfType<RestaurantManager>();
         costText.text = cost.ToString();
         myButton.interactable = false;
         if (product.open)
@@ -51,7 +53,7 @@ public class RestaurantBuyButton : MonoBehaviour
 
     public void Purchase() //subtract cost from rev 
     {
-        RestaurantManager.instance.OpenRestaurant(product);
+        manager.OpenRestaurant(product);
         RevenueManager.instance.ChangeCoins(-cost);
         Open();
     }

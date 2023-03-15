@@ -61,7 +61,7 @@ public class RestaurantData : ScriptableObject, IReset
     {
         open = isOpen;
 
-        if (OnOpenClose != null)
+        if (isOpen && OnOpenClose != null)
             OnOpenClose.Invoke(isOpen);
     }
 
