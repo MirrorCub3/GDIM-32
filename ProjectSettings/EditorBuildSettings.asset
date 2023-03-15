@@ -12,8 +12,8 @@ EditorBuildSettings:
     path: Assets/Scenes/OuterWorld.unity
     guid: f0abc020d9f1f2c4ea10528e079cd358
   - enabled: 1
-    path: Assets/Scenes/Joyce/OuterWorldBackup.unity
-    guid: 20229c11938d2154485230daa2521b99
+    path: Assets/Scenes/OuterWorldSingle.unity
+    guid: 1854692f4caeeb344819900a73b058cf
   - enabled: 1
     path: Assets/Scenes/CookieKitchen.unity
     guid: f7425721aa2c15c4fb11e0b049b00e8f

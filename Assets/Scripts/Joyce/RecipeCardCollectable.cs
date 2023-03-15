@@ -34,6 +34,10 @@ public class RecipeCardCollectable : MonoBehaviour, ICollectable
         // setting the visuals
         sr.sprite = sweet.icon;
         countText.text = itemCount.ToString();
+    }
+
+    private void Start()
+    {
         if (OnCardSpawned != null)
             OnCardSpawned.Invoke(transform);
     }

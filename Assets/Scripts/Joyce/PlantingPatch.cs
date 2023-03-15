@@ -31,7 +31,7 @@ public class PlantingPatch : MonoBehaviour
 
     private bool paused;
 
-    void Start()
+    void Awake()
     {
         plantTimeBar.maxValue = spawnData.growthTime;
         if (currState == DirtStates.SPAWN) 
