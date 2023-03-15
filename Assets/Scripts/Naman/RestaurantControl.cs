@@ -18,6 +18,7 @@ public class RestaurantControl : MonoBehaviour
 
     [SerializeField] private InventoryData inventoryData;
     [SerializeField] private RestaurantData restaurantData;
+    [SerializeField] private int requiredCount = 2; // the amount of players required to be present
     string kitchenLevel;
 
     // PlayerInteract references these, so the variables must be public
@@ -27,7 +28,7 @@ public class RestaurantControl : MonoBehaviour
 
 
     bool calledLoad;
-
+    int playerCount;
     public Sweets cookieSweet;
 
 
@@ -41,6 +42,7 @@ public class RestaurantControl : MonoBehaviour
         // takes the gameobjects name (which player # the script is on)
         kitchenLevel = gameObject.name + "Kitchen";
         calledLoad = false;
+        playerCount = 0;
     }
 
 
@@ -50,6 +52,7 @@ public class RestaurantControl : MonoBehaviour
         player1Bar.fillAmount = 0;
         calledLoad = false;
         barBG1.SetActive(false);
+        playerCount = 0;
     }
 
     //void OnTriggerEnter(Collider other)
@@ -82,7 +85,8 @@ public class RestaurantControl : MonoBehaviour
                         OnError.Invoke("You have no " + cookieSweet.sweetName + " cards in stock.");
                     return;
                 }
-                LoadKitchen();
+                else if(playerCount >= requiredCount)
+                    LoadKitchen();
             }
             else
             {
@@ -91,12 +95,28 @@ public class RestaurantControl : MonoBehaviour
             }
 
         }
+    }
 
-        void LoadKitchen()
+    void LoadKitchen()
+    {
+        // Code to load the location
+        GameManager.instance.LoadKitchen(kitchenLevel);
+
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
         {
-            // Code to load the location
-            GameManager.instance.LoadKitchen(kitchenLevel);
+            playerCount += 1;
+        }
+    }
 
+    void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            playerCount -= 1;
         }
     }
 }
