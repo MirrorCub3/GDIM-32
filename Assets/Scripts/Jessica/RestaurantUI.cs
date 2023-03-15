@@ -21,6 +21,12 @@ public class RestaurantUI : MonoBehaviour
         playerCount = 0;
     }
 
+    private void Update()
+    {
+        if(!restaurant.IsOpen())
+            restaurantDisplay.SetActive(false);
+    }
+
     void OnTriggerEnter (Collider other)
     {
         if (other.CompareTag("Player") && restaurant.IsOpen())
