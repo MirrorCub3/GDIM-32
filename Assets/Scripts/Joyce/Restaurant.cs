@@ -20,8 +20,8 @@ public class Restaurant : MonoBehaviour, IReset
     {
         stock = 0;
         myData.Init(stock, startOpen);
-        if (startOpen)
-            Open();
+        OnOpenClose(startOpen);
+
     }
 
 
@@ -102,7 +102,7 @@ public class Restaurant : MonoBehaviour, IReset
         lockIcon.SetActive(false);
         if (dirt)
             dirt.Unlock();
-        // do the popup if it wasnt opened before
+
         if (!myData.wasOpened && spawner)
         {
             spawner.Spawn();
