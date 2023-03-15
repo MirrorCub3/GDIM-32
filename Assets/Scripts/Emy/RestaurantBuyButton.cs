@@ -20,9 +20,10 @@ public class RestaurantBuyButton : MonoBehaviour
     [SerializeField] private GameObject cardButton;
     [SerializeField] private GameObject dirtButton;
 
-    private void Start()
+    private void Awake()
     {
         manager = FindObjectOfType<RestaurantManager>();
+        manager.OnClose += Closed;
         costText.text = cost.ToString();
         myButton.interactable = false;
         if (product.open)
@@ -38,12 +39,12 @@ public class RestaurantBuyButton : MonoBehaviour
     private void OnEnable()
     {
         RevenueManager.CoinsChanged += CheckCanUse;
-        RestaurantManager.OnClose += Closed;
+        manager.OnClose += Closed;
     }
     private void OnDisable()
     {
         RevenueManager.CoinsChanged -= CheckCanUse;
-        RestaurantManager.OnClose -= Closed;
+        manager.OnClose -= Closed;
     }
 
     private void CheckCanUse(int currCoins)

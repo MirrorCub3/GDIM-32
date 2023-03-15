@@ -45,6 +45,9 @@ public class MainWorldHUD : MonoBehaviour
 
     void Update()
     {
+        if (GameManager.instance.paused)
+            return;
+
         if (Input.GetKeyDown(inventoryToggleKey)) // allows for keypress to toggle
         {
             ToggleInventory();

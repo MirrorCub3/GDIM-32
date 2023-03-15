@@ -6,7 +6,7 @@ using UnityEngine;
 public class RestaurantManager : MonoBehaviour, IReset
 {
     public delegate void OnCloseRestaurant(RestaurantData data);
-    public static OnCloseRestaurant OnClose;
+    public event OnCloseRestaurant OnClose;
 
     [SerializeField] private List<RestaurantData> restaurants;
     private int openRestaurants = 0;

@@ -93,6 +93,7 @@ public class Restaurant : MonoBehaviour, IReset
     private void Close()
     {
         Debug.Log("closing down");
+        myData.Reset();
         myData.OpenCloseRestaurant(false);
         lockIcon.SetActive(true);
         manager.CloseRestaurant(myData);

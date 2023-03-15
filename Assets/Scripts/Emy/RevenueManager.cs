@@ -47,6 +47,6 @@ public class RevenueManager : MonoBehaviour, IReset
 
     public void Reset()
     {
-        coins = 0;
+        coins = 1000;
     }
 }
