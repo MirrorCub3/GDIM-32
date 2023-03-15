@@ -21,6 +21,9 @@ EditorBuildSettings:
     path: Assets/Scenes/SouffleKitchen.unity
     guid: 705add96c38371b4299345edd78a418a
   - enabled: 1
+    path: Assets/Scenes/IceCreamKitchen.unity
+    guid: 4bfbeaf1b1e69da45978992e77f56434
+  - enabled: 1
     path: Assets/Scenes/EndScreen.unity
     guid: 850920ef0a42405479b445cc654423ff
   m_configObjects: {}
