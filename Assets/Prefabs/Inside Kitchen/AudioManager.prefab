@@ -45,6 +45,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sounds:
+  - name: Main Menu
+    clip: {fileID: 8300000, guid: 312ad2999409ee6468853773ccb6f244, type: 3}
+    volume: 0.15
+    pitch: 1
+    source: {fileID: 0}
+  - name: Outer World
+    clip: {fileID: 8300000, guid: 07fec0ca6b8c53644abd3254889ec315, type: 3}
+    volume: 0.151
+    pitch: 1
+    source: {fileID: 0}
   - name: Dessert Success
     clip: {fileID: 8300000, guid: cf18e6dfd53a3364b941fffec50b5392, type: 3}
     volume: 0.023

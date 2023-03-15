@@ -37,8 +37,7 @@ public class GameManager : MonoBehaviour, IReset
 
     [HideInInspector] public bool paused { get; private set; }
 
-    // put outer world music here
-    [SerializeField] private AudioSource audioSource;
+    private List<AudioSource> audioPlaying = new List<AudioSource>();
 
     void Awake()
     {
@@ -146,29 +145,39 @@ public class GameManager : MonoBehaviour, IReset
 
     public void LoadKitchen(string sceneName) // loads the kitchen scene over the overorld scene
     {
+        AudioSource[] audios = FindObjectsOfType<AudioSource>();
+        audioPlaying = new List<AudioSource>();
+
+        foreach (AudioSource audio in audios)
+        {
+            if (audio.isPlaying)
+            {
+                audioPlaying.Add(audio);
+                audio.Pause();
+            }
+        }
+
         if (!playing || inKitchen)
         {
             Debug.Log("You should not be loading kitchens from the main menu or from other kitchens");
             return;
         }
 
-        if (audioSource)
-            audioSource.Stop();
-        
-
         StopAllCoroutines();
         StartCoroutine(LoadKitchenAsync(sceneName));
     }
     public void UnloadKitchen() // starts unloading process of the kitchen
     {
+        foreach (AudioSource audio in audioPlaying)
+        {
+            audio.UnPause();
+        }
+
         if (!playing || !inKitchen)
         {
             Debug.Log("you cannot unload a null kitchen");
             return;
         }
-
-        if (audioSource)
-            audioSource.Play();
 
         StopAllCoroutines();
         StartCoroutine(UnloadIntoBaseAsync(currScene));
