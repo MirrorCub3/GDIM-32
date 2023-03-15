@@ -63,7 +63,7 @@ public class AudioManager : MonoBehaviour
         {
             Play("Main Menu");
         }
-        else if (currScene == "OuterWorld")
+        else if (currScene.Contains("OuterWorld"))
         {
             Play("Outer World");
         }
