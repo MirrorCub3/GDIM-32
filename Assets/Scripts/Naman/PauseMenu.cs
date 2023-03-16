@@ -7,8 +7,8 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
-
-    public GameObject pauseMenuUI;
+    [SerializeField] private GameObject pauseMenuUI;
+    [SerializeField] private JournalTab journalTab;
     private List<AudioSource> audioPlaying = new List<AudioSource>();
 
     // Update is called once per frame
@@ -31,6 +31,7 @@ public class PauseMenu : MonoBehaviour
     {
         pauseMenuUI.SetActive(false);
         GameManager.instance.Resume();
+        journalTab.CloseContent();
 
         foreach (AudioSource audio in audioPlaying)
         {

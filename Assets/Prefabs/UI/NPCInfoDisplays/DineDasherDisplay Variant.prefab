@@ -21,7 +21,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7959745670459342706, guid: fef9c9875375b9d4fb3509027b745b53, type: 3}
       propertyPath: m_text
-      value: A mean slime that will take your food without paying
+      value: A slimy fellow that will take your food without paying
       objectReference: {fileID: 0}
     - target: {fileID: 7959745671344652725, guid: fef9c9875375b9d4fb3509027b745b53, type: 3}
       propertyPath: m_Sprite

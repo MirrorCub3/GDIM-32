@@ -10,6 +10,10 @@ public class InventoryData : ScriptableObject, IReset
     public List<InventoryItem> inventory { get; private set;}
     public Dictionary<Sweets, InventoryItem> itemDictionary { get; private set; }
 
+    private void Awake()
+    {
+        itemDictionary = new Dictionary<Sweets, InventoryItem>();
+    }
     public void Init()
     {
         itemDictionary = new Dictionary<Sweets, InventoryItem>();
@@ -54,6 +58,7 @@ public class InventoryData : ScriptableObject, IReset
     public void Reset()
     {
         inventory.Clear();
-        itemDictionary.Clear();
+        if(itemDictionary != null)
+            itemDictionary.Clear();
     }
 }
