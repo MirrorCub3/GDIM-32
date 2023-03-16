@@ -43,6 +43,7 @@ public class AudioManager : MonoBehaviour
     void Update()
     {
         currScene = SceneManager.GetActiveScene().name;
+        Debug.Log("The current scene is: " + currScene);
         if (prevScene != currScene)
         {
             UpdateMusic();
@@ -63,7 +64,7 @@ public class AudioManager : MonoBehaviour
         {
             Play("Main Menu");
         }
-        else if (currScene.Contains("OuterWorld"))
+        else if (currScene == "OuterWorld" || currScene == "OuterWorldSingle")
         {
             Play("Outer World");
         }

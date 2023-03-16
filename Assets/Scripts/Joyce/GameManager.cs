@@ -144,6 +144,13 @@ public class GameManager : MonoBehaviour, IReset
 
     public void LoadKitchen(string sceneName) // loads the kitchen scene over the overorld scene
     {
+
+        if (!playing || inKitchen)
+        {
+            Debug.Log("You should not be loading kitchens from the main menu or from other kitchens");
+            return;
+        }
+
         AudioSource[] audios = FindObjectsOfType<AudioSource>();
         audioPlaying = new List<AudioSource>();
 
@@ -156,26 +163,20 @@ public class GameManager : MonoBehaviour, IReset
             }
         }
 
-        if (!playing || inKitchen)
-        {
-            Debug.Log("You should not be loading kitchens from the main menu or from other kitchens");
-            return;
-        }
-
         StopAllCoroutines();
         StartCoroutine(LoadKitchenAsync(sceneName));
     }
     public void UnloadKitchen() // starts unloading process of the kitchen
     {
-        foreach (AudioSource audio in audioPlaying)
-        {
-            audio.UnPause();
-        }
-
         if (!playing || !inKitchen)
         {
             Debug.Log("you cannot unload a null kitchen");
             return;
+        }
+
+        foreach (AudioSource audio in audioPlaying)
+        {
+            audio.UnPause();
         }
 
         StopAllCoroutines();
