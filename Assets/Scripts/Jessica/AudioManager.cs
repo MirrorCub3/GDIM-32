@@ -43,7 +43,6 @@ public class AudioManager : MonoBehaviour
     void Update()
     {
         currScene = SceneManager.GetActiveScene().name;
-        Debug.Log("The current scene is: " + currScene);
         if (prevScene != currScene)
         {
             UpdateMusic();
