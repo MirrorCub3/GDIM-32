@@ -67,6 +67,10 @@ public class AudioManager : MonoBehaviour
         {
             Play("Outer World");
         }
+        else if (currScene == "CremeBruleeKitchen") // in-game testing, remove later
+        {
+            Play("CremeBruleeKitchen");
+        }
     }
 
     public void Play(string name)

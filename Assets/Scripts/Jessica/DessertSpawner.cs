@@ -35,11 +35,11 @@ public class DessertSpawner : MonoBehaviour
     [SerializeField] Sweets sweet;
 
     // Cookie kitchen video and perks
-    [SerializeField] GameObject cookieVideo;
+    [SerializeField] GameObject video;
 
     void Start()
     {
-        cookieVideo.SetActive(false);
+        video.SetActive(false);
         desserts = new List<DessertController>();
         Timer = .3f;
         P1Anim.speed = (BPM/60f);
@@ -94,7 +94,11 @@ public class DessertSpawner : MonoBehaviour
         }
         if (dessertCount == 39 && sweet.sweetName == "Cookie")
         {
-            cookieVideo.SetActive(true);
+            video.SetActive(true);
+        }
+        if (dessertCount == 0 && sweet.sweetName == "Souffle")
+        {
+            video.SetActive(true);
         }
     }
 
