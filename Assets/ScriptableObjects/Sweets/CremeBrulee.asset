@@ -19,11 +19,11 @@ MonoBehaviour:
   growthTime: 120
   hungerFillAmount: 10
   price: 120
-  startSprite: {fileID: 0}
-  P1GoodSprite: {fileID: 0}
-  P1BadSprite: {fileID: 0}
-  P1GoodP2BadSprite: {fileID: 0}
-  P1BadP2BadSprite: {fileID: 0}
-  P1GoodP2GoodSprite: {fileID: 0}
-  P1BadP2GoodSprite: {fileID: 0}
+  startSprite: {fileID: 1687297932, guid: 0e4f3a0700d6b9d47a45c23e46c5e9ba, type: 3}
+  P1GoodSprite: {fileID: 665283138, guid: 0e4f3a0700d6b9d47a45c23e46c5e9ba, type: 3}
+  P1BadSprite: {fileID: -267894968, guid: 0e4f3a0700d6b9d47a45c23e46c5e9ba, type: 3}
+  P1GoodP2BadSprite: {fileID: -2075620282, guid: 0e4f3a0700d6b9d47a45c23e46c5e9ba, type: 3}
+  P1BadP2BadSprite: {fileID: 1245360559, guid: 0e4f3a0700d6b9d47a45c23e46c5e9ba, type: 3}
+  P1GoodP2GoodSprite: {fileID: -386402437, guid: 0e4f3a0700d6b9d47a45c23e46c5e9ba, type: 3}
+  P1BadP2GoodSprite: {fileID: 1924811867, guid: 0e4f3a0700d6b9d47a45c23e46c5e9ba, type: 3}
   BGMusic: {fileID: 0}

@@ -88,7 +88,6 @@ public class DessertSpawner : MonoBehaviour
             Timer -= Time.deltaTime;
             if (Timer <= 0f)
             {
-                Debug.Log(dessertCount);
                 dessertCount += 1;
                 dessertClone = Instantiate(dessertPrefab);
                 Animator dessertAnim = dessertClone.GetComponent<Animator>();

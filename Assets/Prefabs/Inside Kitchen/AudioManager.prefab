@@ -49,39 +49,47 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 312ad2999409ee6468853773ccb6f244, type: 3}
     volume: 0.15
     pitch: 1
+    loop: 1
     source: {fileID: 0}
   - name: Outer World
     clip: {fileID: 8300000, guid: 07fec0ca6b8c53644abd3254889ec315, type: 3}
     volume: 0.151
     pitch: 1
+    loop: 1
     source: {fileID: 0}
   - name: Dessert Success
     clip: {fileID: 8300000, guid: cf18e6dfd53a3364b941fffec50b5392, type: 3}
     volume: 0.023
     pitch: 1
+    loop: 0
     source: {fileID: 0}
   - name: Dessert Whiff
     clip: {fileID: 8300000, guid: 5e1a5149f2da7154d913c8b4b147b3fc, type: 3}
     volume: 0.087
     pitch: 1.82
+    loop: 0
     source: {fileID: 0}
   - name: Button Press
     clip: {fileID: 8300000, guid: 7dfc65eaeb2ace34c91fcf4503ef7a0d, type: 3}
     volume: 0.1
     pitch: 1
+    loop: 0
     source: {fileID: 0}
   - name: Arrow Kitchen
     clip: {fileID: 8300000, guid: e1be9a0b86350ee4cb1f593441e935f1, type: 3}
     volume: 0.087
     pitch: 1
+    loop: 0
     source: {fileID: 0}
   - name: Confirm
     clip: {fileID: 8300000, guid: cc0e4147857f3f848bf37729407ce006, type: 3}
     volume: 0.087
     pitch: 0.8
+    loop: 0
     source: {fileID: 0}
   - name: Arrow Deny
     clip: {fileID: 8300000, guid: 7dfc65eaeb2ace34c91fcf4503ef7a0d, type: 3}
     volume: 0.1
     pitch: 0.6
+    loop: 0
     source: {fileID: 0}

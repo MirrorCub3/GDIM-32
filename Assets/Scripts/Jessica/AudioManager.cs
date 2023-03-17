@@ -37,6 +37,7 @@ public class AudioManager : MonoBehaviour
             s.setClip();
             s.setVolume();
             s.setPitch();
+            s.setLoop();
         }
     }
 

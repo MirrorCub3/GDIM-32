@@ -15,6 +15,8 @@ public class Sound {
     [Range(0.1f, 3f)]
     [SerializeField] float pitch;
 
+    [SerializeField] bool loop;
+
     [HideInInspector]
     [SerializeField] AudioSource source;
 
@@ -41,6 +43,11 @@ public class Sound {
     public void setPitch()
     {
         source.pitch = pitch;
+    }
+
+    public void setLoop()
+    {
+        source.loop = loop;
     }
 
     public void playSource()
