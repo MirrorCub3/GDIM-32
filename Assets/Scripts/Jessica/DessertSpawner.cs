@@ -37,6 +37,11 @@ public class DessertSpawner : MonoBehaviour
     // Cookie kitchen video and perks
     [SerializeField] GameObject video;
 
+    // Icecream kitchen perks
+    [SerializeField] GameObject darkness;
+    [SerializeField] GameObject darknessP1;
+    [SerializeField] GameObject darknessP2;
+
     void Start()
     {
         if (video)
@@ -103,6 +108,33 @@ public class DessertSpawner : MonoBehaviour
         if (dessertCount == 0 && sweet.sweetName == "Souffle")
         {
             video.SetActive(true);
+        }
+        if (sweet.sweetName == "Ice Cream")
+        {
+            if (dessertCount == 0)
+            {
+                darkness.SetActive(true);
+            }
+            else
+            {
+                darkControl();
+            }
+        }
+    }
+
+    void darkControl()
+    {
+        int remainder = dessertCount % 2;
+        if (remainder == 0)
+        {
+            darknessP1.SetActive(true);
+            darknessP2.SetActive(false);
+        }
+        else if (remainder == 1)
+        {
+            darkness.SetActive(false);
+            darknessP1.SetActive(false);
+            darknessP2.SetActive(true);
         }
     }
 
