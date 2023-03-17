@@ -27,6 +27,9 @@ EditorBuildSettings:
     path: Assets/Scenes/CakeKitchen.unity
     guid: 1db02be023c8dc343a1cd7b132871180
   - enabled: 1
+    path: Assets/Scenes/CremeBruleeKitchen.unity
+    guid: abd8ec4d5bd305c48b23f1667caad1b2
+  - enabled: 1
     path: Assets/Scenes/EndScreen.unity
     guid: 850920ef0a42405479b445cc654423ff
   m_configObjects: {}
