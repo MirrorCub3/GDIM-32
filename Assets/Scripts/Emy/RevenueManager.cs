@@ -12,6 +12,8 @@ public class RevenueManager : MonoBehaviour, IReset
     public static RevenueManager instance;
     public int coins { get; private set; }
 
+    [SerializeField] private int startCoins = 0;
+
 
     private void Awake()
     {
@@ -47,6 +49,6 @@ public class RevenueManager : MonoBehaviour, IReset
 
     public void Reset()
     {
-        coins = 0;
+        coins = startCoins;
     }
 }

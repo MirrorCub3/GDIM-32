@@ -2175,6 +2175,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7658457791410068742, guid: f29509a375e83db40aa04991a3c7e826, type: 3}
+      propertyPath: product
+      value: 
+      objectReference: {fileID: 11400000, guid: bdaa6f9cff5eda346943935f52df0267, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f29509a375e83db40aa04991a3c7e826, type: 3}
 --- !u!224 &8356475009568962920 stripped
@@ -3282,6 +3286,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CakeBuyButton
       objectReference: {fileID: 0}
+    - target: {fileID: 7658457791410068742, guid: f29509a375e83db40aa04991a3c7e826, type: 3}
+      propertyPath: product
+      value: 
+      objectReference: {fileID: 11400000, guid: f4a36a08603af89458f17076e90d4b20, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f29509a375e83db40aa04991a3c7e826, type: 3}
 --- !u!224 &3307345822581543996 stripped
@@ -3935,6 +3943,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: IcecreamBuyButton
       objectReference: {fileID: 0}
+    - target: {fileID: 7658457791410068742, guid: f29509a375e83db40aa04991a3c7e826, type: 3}
+      propertyPath: product
+      value: 
+      objectReference: {fileID: 11400000, guid: bbf9afa348a58454fb865c37c602c22f, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f29509a375e83db40aa04991a3c7e826, type: 3}
 --- !u!224 &1677781014204414613 stripped

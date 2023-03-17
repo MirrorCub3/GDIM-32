@@ -8,26 +8,43 @@ using TMPro;
 public class DirtBuyButton : MonoBehaviour 
 {
     [Header("Item Info")]
-    //[SerializeField] private Dirt product; 
+    [SerializeField] private List<PlantingPatch> dirts;
     [SerializeField] private int cost;
+    private int currIndex = 0;
 
     [Header("Visuals")]
-    [SerializeField] private Image productIcon;
     [SerializeField] private TextMeshProUGUI costText;
-
-    private Inventory inventory;
+    [SerializeField] private Button myButton;
 
     private void Start()
     {
-        inventory = GameObject.FindObjectOfType<Inventory>(); // this is the reference the inventory to update/add to
+        currIndex = 0;
+        costText.text = cost.ToString();
+        myButton.interactable = false;
 
-        //productIcon.sprite = product.icon; 
-        // change the costtext to reflect the cost
     }
 
+    private void CheckCanUse(int currCoins)
+    {
+        if (currIndex >= dirts.Count)
+        {
+            myButton.interactable = false;
+            return;
+        }
+        myButton.interactable = (currCoins >= cost) && currIndex < dirts.Count;
+    }
+
+    private void Update()
+    {
+        CheckCanUse(RevenueManager.instance.coins);
+    }
 
     public void Purchase() //subtract cost from rev 
     {
-       //inventory.Add(product, 1); // adding one of this sweets object to the inventory
+        if (currIndex >= dirts.Count)
+            return;
+        dirts[currIndex].Unlock();
+        currIndex++;
+        RevenueManager.instance.ChangeCoins(-cost);
     }
 }
