@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 // Jessica Lam
 public class ArrowControl : MonoBehaviour
@@ -16,21 +17,55 @@ public class ArrowControl : MonoBehaviour
 
     TextMeshProUGUI textmeshpro_number;
     TextMeshProUGUI textmeshpro_max_number;
+    TextMeshProUGUI textmeshpro_maxpopup;
+
+    [SerializeField] Sweets sweetType;
+
+    int dessertMax;
 
     // Start is called before the first frame update
     void Start()
     {
         textmeshpro_number = numberToIncrease.GetComponent<TMPro.TextMeshProUGUI>();
         textmeshpro_max_number = maxAvailable.GetComponent<TMPro.TextMeshProUGUI>();
+        textmeshpro_maxpopup = max100popup.GetComponent<TMPro.TextMeshProUGUI>();
+
         maxCount = int.Parse(textmeshpro_max_number.text);
-        if (maxCount <= 100)
+
+        Debug.Log(sweetType.sweetName);
+
+        if (sweetType)
+        {
+            if (sweetType.sweetName == "Ice Cream")
+            {
+                SetMax(50);
+                dessertMax = 50;
+            }
+            else
+            {
+                SetMax();
+                dessertMax = 100;
+            }
+        }
+        else
+        {
+            SetMax();
+            dessertMax = 100;
+        }   
+    }
+
+    void SetMax(int customMax = 100)
+    {
+        Debug.Log("The custom max is: " + customMax);
+        textmeshpro_maxpopup.text = "Max " + customMax;
+        if (maxCount <= customMax)
         {
             currentCount = maxCount;
             max100popup.SetActive(false);
         }
         else
         {
-            currentCount = 100;
+            currentCount = customMax;
             max100popup.SetActive(true);
         }
     }
@@ -43,7 +78,7 @@ public class ArrowControl : MonoBehaviour
 
     public void incrementByOne()
     {
-        if (currentCount < maxCount && currentCount < 100)
+        if (currentCount < maxCount && currentCount < dessertMax)
         {
             currentCount++;
             FindObjectOfType<AudioManager>().Play("Arrow Kitchen");
@@ -52,7 +87,7 @@ public class ArrowControl : MonoBehaviour
         else
         {
             FindObjectOfType<AudioManager>().Play("Arrow Deny");
-            if (currentCount == 100)
+            if (currentCount == dessertMax)
             {
                 max100popup.SetActive(true);
             }

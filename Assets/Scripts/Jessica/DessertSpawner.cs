@@ -39,7 +39,10 @@ public class DessertSpawner : MonoBehaviour
 
     void Start()
     {
-        video.SetActive(false);
+        if (video)
+        {
+            video.SetActive(false);
+        }
         desserts = new List<DessertController>();
         Timer = .3f;
         P1Anim.speed = (BPM/60f);
@@ -80,6 +83,7 @@ public class DessertSpawner : MonoBehaviour
             Timer -= Time.deltaTime;
             if (Timer <= 0f)
             {
+                Debug.Log(dessertCount);
                 dessertCount += 1;
                 dessertClone = Instantiate(dessertPrefab);
                 Animator dessertAnim = dessertClone.GetComponent<Animator>();
