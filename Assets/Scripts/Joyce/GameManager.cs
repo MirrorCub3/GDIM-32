@@ -90,7 +90,8 @@ public class GameManager : MonoBehaviour, IReset
         inKitchen = false;
         playing = false;
         LoadScene(mainMenuScene);
-        RevenueManager.instance.Reset();
+        if(RevenueManager.instance)
+            RevenueManager.instance.Reset();
     }
 
     public void Restart()
