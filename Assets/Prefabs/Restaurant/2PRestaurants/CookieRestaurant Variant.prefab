@@ -311,6 +311,10 @@ PrefabInstance:
       propertyPath: spawner
       value: 
       objectReference: {fileID: 8531609850983275381}
+    - target: {fileID: 8531609852689552534, guid: 0b15b6360fdb9264a8d12a088d4a9e0c, type: 3}
+      propertyPath: closeTab
+      value: 
+      objectReference: {fileID: 6919403479085567899, guid: 99aa9d915bfc1724483e5fce006b48c6, type: 3}
     - target: {fileID: 8531609852810789796, guid: 0b15b6360fdb9264a8d12a088d4a9e0c, type: 3}
       propertyPath: m_LocalPosition.z
       value: -11

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 914d9549dc0ef264aac436fa8ed2dac9
+guid: a93aa491f57ce9c43981a7f015e10386
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -44,7 +44,7 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 0
+  spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
@@ -117,22 +117,22 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: popup_0
+      name: game rules_0
       rect:
         serializedVersion: 2
-        x: 40
-        y: 19
-        width: 1121
-        height: 378
+        x: 764
+        y: 854
+        width: 1035
+        height: 586
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 30, y: 30, z: 30, w: 30}
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d584b4354b61b914d8fb496fbe996528
-      internalID: -845978817
+      spriteID: 3b6b834dc0e1ee54abd751d931b7acf0
+      internalID: 1049054258
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      popup_0: -845978817
+      game rules_0: 1049054258
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

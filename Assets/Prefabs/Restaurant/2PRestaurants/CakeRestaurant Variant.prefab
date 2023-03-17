@@ -570,6 +570,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 749764176}
     - target: {fileID: 8531609852689552534, guid: 0b15b6360fdb9264a8d12a088d4a9e0c, type: 3}
+      propertyPath: closeTab
+      value: 
+      objectReference: {fileID: 1401874825779739431, guid: 6840caa14292aae4daed9e4228ad1c1d, type: 3}
+    - target: {fileID: 8531609852689552534, guid: 0b15b6360fdb9264a8d12a088d4a9e0c, type: 3}
       propertyPath: startOpen
       value: 0
       objectReference: {fileID: 0}

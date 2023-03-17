@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 914d9549dc0ef264aac436fa8ed2dac9
+guid: 2c0e8c08ba7934e42a2b2edbec0a620e
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -44,7 +44,7 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 0
+  spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
@@ -117,22 +117,22 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: popup_0
+      name: custom restaurant_0
       rect:
         serializedVersion: 2
-        x: 40
-        y: 19
-        width: 1121
-        height: 378
+        x: 762
+        y: 856
+        width: 1036
+        height: 452
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 30, y: 30, z: 30, w: 30}
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d584b4354b61b914d8fb496fbe996528
-      internalID: -845978817
+      spriteID: d2d1f3ad53c717748b14b0f339525b83
+      internalID: -708295305
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      popup_0: -845978817
+      custom restaurant_0: -708295305
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

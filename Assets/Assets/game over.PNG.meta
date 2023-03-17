@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 914d9549dc0ef264aac436fa8ed2dac9
+guid: b650b27d889f4cc4faaa80db8d0e8242
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -44,7 +44,7 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 0
+  spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
@@ -117,22 +117,64 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: popup_0
+      name: game over_1
       rect:
         serializedVersion: 2
-        x: 40
-        y: 19
-        width: 1121
-        height: 378
+        x: 1312
+        y: 860
+        width: 483
+        height: 421
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 30, y: 30, z: 30, w: 30}
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d584b4354b61b914d8fb496fbe996528
-      internalID: -845978817
+      spriteID: f05647f5a26e0504db05bdf0a6422ab5
+      internalID: 1155423522
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: game over_3
+      rect:
+        serializedVersion: 2
+        x: 978
+        y: 859
+        width: 278
+        height: 307
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04e9943bf39144b41b6f1390e1459470
+      internalID: 1433556036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: game over_6
+      rect:
+        serializedVersion: 2
+        x: 1324
+        y: 978
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 832de7d344b021544b9535e9268dd585
+      internalID: 1956926746
       vertices: []
       indices: 
       edges: []
@@ -148,7 +190,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      popup_0: -845978817
+      game over_1: 1155423522
+      game over_2: -179820684
+      game over_5: -936842945
+      game over_0: -1499764781
+      game over_3: 1433556036
+      game over_6: 1956926746
+      game over_4: 356470752
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

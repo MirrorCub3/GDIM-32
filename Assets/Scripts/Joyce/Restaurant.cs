@@ -15,6 +15,7 @@ public class Restaurant : MonoBehaviour, IReset
 
     [Header("Visual")]
     [SerializeField] private GameObject lockIcon;
+    [SerializeField] private GameObject closeTab;
     public int stock { get; private set; }
 
     private void Awake()
@@ -24,7 +25,7 @@ public class Restaurant : MonoBehaviour, IReset
         myData.Init(stock, startOpen);
         if (startOpen)
             Open();
-
+        closeTab.SetActive(false);
     }
 
 
@@ -92,7 +93,7 @@ public class Restaurant : MonoBehaviour, IReset
 
     private void Close()
     {
-        Debug.Log("closing down");
+        closeTab.SetActive(true);
         myData.Reset();
         myData.OpenCloseRestaurant(false);
         lockIcon.SetActive(true);
