@@ -32,8 +32,6 @@ public class ArrowControl : MonoBehaviour
 
         maxCount = int.Parse(textmeshpro_max_number.text);
 
-        Debug.Log(sweetType.sweetName);
-
         if (sweetType)
         {
             if (sweetType.sweetName == "Ice Cream")
@@ -56,7 +54,6 @@ public class ArrowControl : MonoBehaviour
 
     void SetMax(int customMax = 100)
     {
-        Debug.Log("The custom max is: " + customMax);
         textmeshpro_maxpopup.text = "Max " + customMax;
         if (maxCount <= customMax)
         {
