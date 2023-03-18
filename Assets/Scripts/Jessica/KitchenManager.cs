@@ -104,7 +104,8 @@ public class KitchenManager : MonoBehaviour
     }
 
     public void ReduceDessertByOne(){
-        if (textmeshpro_dessertsleft.text == "0"){
+        if (dessertsLeft == 0)
+        {
             EndGameCycle();
         }
         else {
