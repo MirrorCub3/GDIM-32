@@ -34,6 +34,7 @@ public class DessertSpawner : MonoBehaviour
     int dessertCount;
     [SerializeField] Sweets sweet;
 
+    [Header("Kitchen Stuff")]
     // Cookie kitchen video and perks
     [SerializeField] GameObject video;
 
@@ -41,6 +42,14 @@ public class DessertSpawner : MonoBehaviour
     [SerializeField] GameObject darkness;
     [SerializeField] GameObject darknessP1;
     [SerializeField] GameObject darknessP2;
+
+    // Cake kitchen perks
+    [SerializeField] GameObject bubble;
+    [SerializeField] GameObject bubble2;
+    [SerializeField] SpriteRenderer thought;
+    [SerializeField] SpriteRenderer thought2;
+    [SerializeField] List<Sprite> thoughtList;
+    bool justChanged;
 
     void Start()
     {
@@ -54,9 +63,18 @@ public class DessertSpawner : MonoBehaviour
         P2Anim.speed = (BPM/60f);
         ConveyerBelt.speed = (BPM / 60f);
         ConveyerBeltBack.speed = (BPM / 60f);
-        DessertToP1.speed = (BPM / 60f);
+        if (DessertToP1)
+        {
+            DessertToP1.speed = (BPM / 60f);
+        }
         startTime = 0f;
         dessertCount = 0;
+        if (bubble && bubble2)
+        {
+            bubble.SetActive(false);
+            bubble2.SetActive(false);
+            justChanged = false;
+        }
     }
 
     void WaitFor(Animator anim)
@@ -73,21 +91,41 @@ public class DessertSpawner : MonoBehaviour
         desserts.Add(dessert);
     }
 
+    public void DestroyAllDesserts() // destroys all the prefabs when exiting kitchen
+    {
+        foreach (DessertController dessert in desserts)
+        {
+            Destroy(dessert.gameObject);
+        }
+    }
+
     void Update()
     {   // start Timer
         if (started == false){
             startTime = startTime + Time.deltaTime;
             WaitFor(P1Anim);
             WaitFor(P2Anim);
-            WaitFor(DessertToP1);
+            if (DessertToP1)
+                WaitFor(DessertToP1);
             WaitFor(ConveyerBelt);
             WaitFor(ConveyerBeltBack);
         }
         else {
             // Creates a new dessert every 2 seconds
             Timer -= Time.deltaTime;
+            if (sweet.sweetName == "Cake")
+            {
+                if (Timer <= (60f / BPM) && dessertCount >=1 && justChanged == false)
+                {
+                    cakeControl(true);
+                }
+            }
             if (Timer <= 0f)
             {
+                if (sweet.sweetName == "Cake")
+                {
+                    cakeControl(false);
+                }
                 dessertCount += 1;
                 dessertClone = Instantiate(dessertPrefab);
                 Animator dessertAnim = dessertClone.GetComponent<Animator>();
@@ -137,11 +175,23 @@ public class DessertSpawner : MonoBehaviour
         }
     }
 
-    public void DestroyAllDesserts() // destroys all the prefabs when exiting kitchen
+    void cakeControl(bool p2turn)
     {
-        foreach (DessertController dessert in desserts)
-            {
-                Destroy(dessert.gameObject);
-            }
+        if (p2turn == false)
+        {
+            int randomNumber = Random.Range(0, thoughtList.Count);
+            thought.sprite = thoughtList[randomNumber];
+            bubble.SetActive(true);
+            bubble2.SetActive(false);
+            justChanged = false;
+        }
+        else if (p2turn == true)
+        {
+            int randomNumber = Random.Range(0, thoughtList.Count);
+            thought2.sprite = thoughtList[randomNumber];
+            bubble.SetActive(false);
+            bubble2.SetActive(true);
+            justChanged = true;
+        }
     }
 }

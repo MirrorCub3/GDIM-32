@@ -195,15 +195,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7607433392498548648, guid: 51fd88ae4147da44981b01455555215c, type: 3}
       propertyPath: sounds.Array.size
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 7607433392498548648, guid: 51fd88ae4147da44981b01455555215c, type: 3}
       propertyPath: sounds.Array.data[8].clip
       value: 
-      objectReference: {fileID: 8300000, guid: 6b03680342b4c9941b44d4c2c95e30ed, type: 3}
+      objectReference: {fileID: 8300000, guid: 166abb78e3297364b8b70161559feda8, type: 3}
     - target: {fileID: 7607433392498548648, guid: 51fd88ae4147da44981b01455555215c, type: 3}
       propertyPath: sounds.Array.data[8].name
-      value: CakeKitchen
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 7607433392498548648, guid: 51fd88ae4147da44981b01455555215c, type: 3}
       propertyPath: sounds.Array.data[8].pitch
@@ -211,7 +211,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7607433392498548648, guid: 51fd88ae4147da44981b01455555215c, type: 3}
       propertyPath: sounds.Array.data[8].volume
-      value: 0.144
+      value: 0.087
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 51fd88ae4147da44981b01455555215c, type: 3}
@@ -409,7 +409,7 @@ Animator:
   m_GameObject: {fileID: 4985091904866391746}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: facdad3f5b64844468b374929e49a563, type: 2}
+  m_Controller: {fileID: 9100000, guid: 74add2b6a608ec44185c616a4421b1e6, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -429,6 +429,7 @@ GameObject:
   m_Component:
   - component: {fileID: 652547752}
   - component: {fileID: 652547751}
+  - component: {fileID: 652547753}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -494,6 +495,14 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!81 &652547753
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 652547749}
+  m_Enabled: 0
 --- !u!1 &782289229
 GameObject:
   m_ObjectHideFlags: 0
@@ -931,20 +940,20 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 16999321, guid: 334a649363f68614da355d40fb2be661, type: 3}
       propertyPath: m_text
-      value: i'm just too good
+      value: woo Let's go!!
       objectReference: {fileID: 0}
     - target: {fileID: 558860291, guid: 334a649363f68614da355d40fb2be661, type: 3}
       propertyPath: restaurantData
       value: 
-      objectReference: {fileID: 11400000, guid: 61d89d673367b714a96635413539d4f2, type: 2}
+      objectReference: {fileID: 11400000, guid: 728f16a944dd7454e9ee4fce35564a57, type: 2}
     - target: {fileID: 740507664, guid: 334a649363f68614da355d40fb2be661, type: 3}
       propertyPath: BPM
-      value: 81.2
+      value: 69.1
       objectReference: {fileID: 0}
     - target: {fileID: 740507664, guid: 334a649363f68614da355d40fb2be661, type: 3}
       propertyPath: sweet
       value: 
-      objectReference: {fileID: 11400000, guid: f4a36a08603af89458f17076e90d4b20, type: 2}
+      objectReference: {fileID: 11400000, guid: bdaa6f9cff5eda346943935f52df0267, type: 2}
     - target: {fileID: 740507664, guid: 334a649363f68614da355d40fb2be661, type: 3}
       propertyPath: P1Anim
       value: 
@@ -968,7 +977,7 @@ PrefabInstance:
     - target: {fileID: 740507664, guid: 334a649363f68614da355d40fb2be661, type: 3}
       propertyPath: dessertPrefab
       value: 
-      objectReference: {fileID: 2312669917052067986, guid: a8db1f18aab2d7e4db2f8481444dde69, type: 3}
+      objectReference: {fileID: 2312669917052067986, guid: 911b120ed7781e84db7d3df48095bbcf, type: 3}
     - target: {fileID: 740507664, guid: 334a649363f68614da355d40fb2be661, type: 3}
       propertyPath: kitchenManager
       value: 
@@ -1012,15 +1021,31 @@ PrefabInstance:
     - target: {fileID: 1418699890, guid: 334a649363f68614da355d40fb2be661, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 427852714, guid: 618fb4744e665fd4794ed70c15aa4dc9, type: 3}
+      objectReference: {fileID: 1001506483, guid: 618fb4744e665fd4794ed70c15aa4dc9, type: 3}
+    - target: {fileID: 1572032495, guid: 334a649363f68614da355d40fb2be661, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 63.6736
+      objectReference: {fileID: 0}
+    - target: {fileID: 1572032495, guid: 334a649363f68614da355d40fb2be661, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 51.0611
+      objectReference: {fileID: 0}
     - target: {fileID: 1572032495, guid: 334a649363f68614da355d40fb2be661, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.9
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1572032495, guid: 334a649363f68614da355d40fb2be661, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -431.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1572032495, guid: 334a649363f68614da355d40fb2be661, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -326.4
       objectReference: {fileID: 0}
     - target: {fileID: 1572032496, guid: 334a649363f68614da355d40fb2be661, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 476675026, guid: 618fb4744e665fd4794ed70c15aa4dc9, type: 3}
+      objectReference: {fileID: 169059767, guid: 618fb4744e665fd4794ed70c15aa4dc9, type: 3}
     - target: {fileID: 2076619951, guid: 334a649363f68614da355d40fb2be661, type: 3}
       propertyPath: m_text
       value: WONDERFUL job!
@@ -1032,7 +1057,7 @@ PrefabInstance:
     - target: {fileID: 5061312992191611744, guid: 334a649363f68614da355d40fb2be661, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 427852714, guid: 618fb4744e665fd4794ed70c15aa4dc9, type: 3}
+      objectReference: {fileID: 1001506483, guid: 618fb4744e665fd4794ed70c15aa4dc9, type: 3}
     - target: {fileID: 5061312992507505450, guid: 334a649363f68614da355d40fb2be661, type: 3}
       propertyPath: m_Volume
       value: 0.21
@@ -1064,7 +1089,7 @@ PrefabInstance:
     - target: {fileID: 5061312992963004732, guid: 334a649363f68614da355d40fb2be661, type: 3}
       propertyPath: sweet
       value: 
-      objectReference: {fileID: 11400000, guid: f4a36a08603af89458f17076e90d4b20, type: 2}
+      objectReference: {fileID: 11400000, guid: bdaa6f9cff5eda346943935f52df0267, type: 2}
     - target: {fileID: 5061312992963004732, guid: 334a649363f68614da355d40fb2be661, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -1072,10 +1097,10 @@ PrefabInstance:
     - target: {fileID: 5061312992963004732, guid: 334a649363f68614da355d40fb2be661, type: 3}
       propertyPath: restaurantData
       value: 
-      objectReference: {fileID: 11400000, guid: 61d89d673367b714a96635413539d4f2, type: 2}
+      objectReference: {fileID: 11400000, guid: 728f16a944dd7454e9ee4fce35564a57, type: 2}
     - target: {fileID: 5061312992963004733, guid: 334a649363f68614da355d40fb2be661, type: 3}
       propertyPath: m_Volume
-      value: 0.12
+      value: 0.08
       objectReference: {fileID: 0}
     - target: {fileID: 5061312992963004733, guid: 334a649363f68614da355d40fb2be661, type: 3}
       propertyPath: m_audioClip
@@ -1574,7 +1599,7 @@ Animator:
   m_GameObject: {fileID: 3394810703339060964}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: d7230e7d2bbdc92458382ed8e929d30c, type: 2}
+  m_Controller: {fileID: 9100000, guid: ea185880c0e187d4d81ddb14d75652e2, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -2026,9 +2051,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4985091904866391746}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 3.5, y: 1.2, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1.0000001, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1869967860}

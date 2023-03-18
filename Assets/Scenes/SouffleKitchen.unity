@@ -1197,6 +1197,18 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5061312991529715117, guid: 334a649363f68614da355d40fb2be661, type: 3}
+      propertyPath: m_Color.b
+      value: 0.76561946
+      objectReference: {fileID: 0}
+    - target: {fileID: 5061312991529715117, guid: 334a649363f68614da355d40fb2be661, type: 3}
+      propertyPath: m_Color.g
+      value: 0.8198927
+      objectReference: {fileID: 0}
+    - target: {fileID: 5061312991529715117, guid: 334a649363f68614da355d40fb2be661, type: 3}
+      propertyPath: m_Color.r
+      value: 0.8773585
+      objectReference: {fileID: 0}
     - target: {fileID: 5061312992191611744, guid: 334a649363f68614da355d40fb2be661, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -1241,6 +1253,10 @@ PrefabInstance:
       propertyPath: restaurantData
       value: 
       objectReference: {fileID: 11400000, guid: 3f96c64f0350e79418e38b020690977d, type: 2}
+    - target: {fileID: 5061312992963004733, guid: 334a649363f68614da355d40fb2be661, type: 3}
+      propertyPath: Loop
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5061312992963004733, guid: 334a649363f68614da355d40fb2be661, type: 3}
       propertyPath: m_Volume
       value: 0.15
