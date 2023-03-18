@@ -35,8 +35,10 @@ public class DessertSpawner : MonoBehaviour
     [SerializeField] Sweets sweet;
 
     [Header("Kitchen Stuff")]
-    // Cookie kitchen video and perks
+    // Cookie, Souffle, Creme kitchen video and perks
     [SerializeField] GameObject video;
+    // Creme effect video
+    [SerializeField] GameObject addtVideo;
 
     // Icecream kitchen perks
     [SerializeField] GameObject darkness;
@@ -75,6 +77,10 @@ public class DessertSpawner : MonoBehaviour
             bubble2.SetActive(false);
             justChanged = false;
         }
+        if (addtVideo)
+        {
+            addtVideo.SetActive(false);
+        }
     }
 
     void WaitFor(Animator anim)
@@ -111,20 +117,27 @@ public class DessertSpawner : MonoBehaviour
             WaitFor(ConveyerBeltBack);
         }
         else {
+            Debug.Log(dessertCount);
             // Creates a new dessert every 2 seconds
             Timer -= Time.deltaTime;
-            if (sweet.sweetName == "Cake")
+            if (sweet.sweetName == "Cake" || sweet.sweetName == "Creme Brulee")
             {
                 if (Timer <= (60f / BPM) && dessertCount >=1 && justChanged == false)
                 {
-                    cakeControl(true);
+                    if (sweet.sweetName == "Cake")
+                        cakeControl(true);
+                    else
+                        cremeControl(true);
                 }
             }
             if (Timer <= 0f)
             {
-                if (sweet.sweetName == "Cake")
+                if (sweet.sweetName == "Cake" || sweet.sweetName == "Creme Brulee")
                 {
-                    cakeControl(false);
+                    if (sweet.sweetName == "Cake")
+                        cakeControl(false);
+                    else
+                        cremeControl(false);
                 }
                 dessertCount += 1;
                 dessertClone = Instantiate(dessertPrefab);
@@ -142,11 +155,11 @@ public class DessertSpawner : MonoBehaviour
         {
             video.SetActive(true);
         }
-        if (dessertCount == 0 && sweet.sweetName == "Souffle")
+        else if (dessertCount == 0 && sweet.sweetName == "Souffle")
         {
             video.SetActive(true);
         }
-        if (sweet.sweetName == "Ice Cream")
+        else if (sweet.sweetName == "Ice Cream")
         {
             if (dessertCount == 0)
             {
@@ -156,6 +169,10 @@ public class DessertSpawner : MonoBehaviour
             {
                 darkControl();
             }
+        }
+        else if (sweet.sweetName == "Creme Brulee" && dessertCount == 0)
+        {
+            video.SetActive(true);
         }
     }
 
@@ -169,7 +186,8 @@ public class DessertSpawner : MonoBehaviour
         }
         else if (remainder == 1)
         {
-            darkness.SetActive(false);
+            if (darkness)
+                darkness.SetActive(false);
             darknessP1.SetActive(false);
             darknessP2.SetActive(true);
         }
@@ -193,5 +211,33 @@ public class DessertSpawner : MonoBehaviour
             bubble2.SetActive(true);
             justChanged = true;
         }
+    }
+
+    void cremeControl(bool p2turn)
+    {
+    if (dessertCount == 7 || dessertCount == 29 || dessertCount == 55 || dessertCount == 69)
+        {
+            addtVideo.SetActive(true);
+            removeEffects();
+        }
+        else if (dessertCount == 15 || dessertCount == 39 || dessertCount == 63 || dessertCount == 80)
+        {
+            addtVideo.SetActive(false);
+            removeEffects();
+        }
+        if (39 <= dessertCount && dessertCount <= 54)
+        {
+            darkControl();
+        }
+        else if (23 <= dessertCount && dessertCount <= 28)
+            cakeControl(p2turn);
+    }
+
+    void removeEffects()
+    {
+        darknessP1.SetActive(false);
+        darknessP2.SetActive(false);
+        bubble.SetActive(false);
+        bubble2.SetActive(false);
     }
 }
