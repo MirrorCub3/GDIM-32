@@ -29,10 +29,6 @@ public class RatingManager : MonoBehaviour, Quality
         averageRating = 0f;
 
         currQuality = 0f;
-
-        StarSlider3.value = 0f;
-        StarSlider2.value = 0f;
-        StarSlider1.value = 0f;
     }
 
     void Update()
@@ -49,12 +45,12 @@ public class RatingManager : MonoBehaviour, Quality
             StarSlider2.value = currQuality-1;
             StarSlider3.value = 0f;
         }
-        else if (2f < currQuality && currQuality <= 3f){
+        else if (2f < currQuality && currQuality < 3f){
             StarSlider1.value = 1f;
             StarSlider2.value = 1f;
             StarSlider3.value = currQuality-2;
         }
-        else if (currQuality == 3f){
+        else if (currQuality >= 3f){
             StarSlider1.value = 1f;
             StarSlider2.value = 1f;
             StarSlider3.value = 1f;
@@ -62,7 +58,7 @@ public class RatingManager : MonoBehaviour, Quality
     }
 
     public float GetQuality(){
-        averageRating = 0f; // added for testing purposes
+        averageRating = 0f;
         foreach (DessertController dessert in dessertSpawn.desserts)
             {
                 averageRating += dessert.GetQuality();
@@ -71,10 +67,37 @@ public class RatingManager : MonoBehaviour, Quality
     }
 
     public void SetEndSliders(){
-        Update();
+        // called Update but replaced with the same code because it wasn't working
+        currQuality = GetQuality(); // current quality of all the desserts = the quality of your restaurant
+
+        if (currQuality <= 1f)
+        {
+            StarSlider1.value = currQuality;
+            StarSlider2.value = 0f;
+            StarSlider3.value = 0f;
+        }
+        else if (1f < currQuality && currQuality <= 2f)
+        {
+            StarSlider1.value = 1f;
+            StarSlider2.value = currQuality - 1;
+            StarSlider3.value = 0f;
+        }
+        else if (2f < currQuality && currQuality <= 3f)
+        {
+            StarSlider1.value = 1f;
+            StarSlider2.value = 1f;
+            StarSlider3.value = currQuality - 2;
+        }
+        else if (currQuality == 3f)
+        {
+            StarSlider1.value = 1f;
+            StarSlider2.value = 1f;
+            StarSlider3.value = 1f;
+        }
+
+        restaurantData.SetStars(currQuality);
         StarSlider1End.value = StarSlider1.value;
         StarSlider2End.value = StarSlider2.value;
         StarSlider3End.value = StarSlider3.value;
-        restaurantData.SetStars(currQuality);
     }
 }

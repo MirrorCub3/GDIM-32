@@ -386,6 +386,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8619b37eb6334794993791ebf84623de, type: 3}
+--- !u!1 &472352870 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5753730500227432423, guid: 8619b37eb6334794993791ebf84623de, type: 3}
+  m_PrefabInstance: {fileID: 472352869}
+  m_PrefabAsset: {fileID: 0}
 --- !u!212 &472376674
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1117,6 +1122,10 @@ PrefabInstance:
       propertyPath: dessertPrefab
       value: 
       objectReference: {fileID: 2312669917052067986, guid: e291bdecdc2d17842894203d15fa642f, type: 3}
+    - target: {fileID: 740507664, guid: 334a649363f68614da355d40fb2be661, type: 3}
+      propertyPath: videoPlayerGO
+      value: 
+      objectReference: {fileID: 472352870}
     - target: {fileID: 740507664, guid: 334a649363f68614da355d40fb2be661, type: 3}
       propertyPath: kitchenManager
       value: 

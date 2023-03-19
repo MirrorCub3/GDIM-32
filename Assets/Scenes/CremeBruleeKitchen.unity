@@ -838,6 +838,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8619b37eb6334794993791ebf84623de, type: 3}
+--- !u!1 &676129768 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5753730500227432423, guid: 8619b37eb6334794993791ebf84623de, type: 3}
+  m_PrefabInstance: {fileID: 676129767}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &698992883
 GameObject:
   m_ObjectHideFlags: 0
@@ -1545,6 +1550,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2312669917052067986, guid: 911b120ed7781e84db7d3df48095bbcf, type: 3}
     - target: {fileID: 740507664, guid: 334a649363f68614da355d40fb2be661, type: 3}
+      propertyPath: videoPlayerGO
+      value: 
+      objectReference: {fileID: 676129768}
+    - target: {fileID: 740507664, guid: 334a649363f68614da355d40fb2be661, type: 3}
       propertyPath: kitchenManager
       value: 
       objectReference: {fileID: 1193683872}
@@ -1552,6 +1561,10 @@ PrefabInstance:
       propertyPath: ConveyerBeltBack
       value: 
       objectReference: {fileID: 1218995005}
+    - target: {fileID: 740507664, guid: 334a649363f68614da355d40fb2be661, type: 3}
+      propertyPath: addtvideoPlayerGO
+      value: 
+      objectReference: {fileID: 1836002346}
     - target: {fileID: 740507664, guid: 334a649363f68614da355d40fb2be661, type: 3}
       propertyPath: thoughtList.Array.size
       value: 20
@@ -2554,6 +2567,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8619b37eb6334794993791ebf84623de, type: 3}
+--- !u!1 &1836002346 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5753730500227432423, guid: 8619b37eb6334794993791ebf84623de, type: 3}
+  m_PrefabInstance: {fileID: 1836002345}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &1866507641 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1805765646, guid: 334a649363f68614da355d40fb2be661, type: 3}

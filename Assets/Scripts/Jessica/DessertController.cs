@@ -34,7 +34,6 @@ public class DessertController : MonoBehaviour, Quality
         // Get this gameobjects SpriteRenderer component
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
         keypressCode = "e";
-        quality = 2f;
     }
 
     void Update()
@@ -67,6 +66,10 @@ public class DessertController : MonoBehaviour, Quality
         {
             keypressCode = "p";
         }
+        //else if (other.name == "Destroy Area")
+        //{
+        //    addQuality();
+        //}
 
     }
 
@@ -110,14 +113,7 @@ public class DessertController : MonoBehaviour, Quality
             else if (spriteRenderer.sprite == sweetObject.P1BadSprite)
             {
                 spriteRenderer.sprite = sweetObject.P1BadP2GoodSprite;
-                if (singleplayer == true)
-                {
-                    quality = 0.5f;
-                }
-                else
-                {
-                    quality = 2f;
-                }
+                quality = 0.5f;
                 FindObjectOfType<AudioManager>().Play("Dessert Success");
             }
         }
@@ -127,7 +123,7 @@ public class DessertController : MonoBehaviour, Quality
                 spriteRenderer.sprite = sweetObject.P1GoodSprite;
                 FindObjectOfType<AudioManager>().Play("Dessert Success");
             }
-            else if (keypressCode == "p"){
+            else if (keypressCode == "p" && singleplayer == false){
                 if (spriteRenderer.sprite == sweetObject.P1GoodSprite){
                     spriteRenderer.sprite = sweetObject.P1GoodP2GoodSprite;
                     quality = 3f;
@@ -135,21 +131,15 @@ public class DessertController : MonoBehaviour, Quality
                 }
                 else if (spriteRenderer.sprite == sweetObject.P1BadSprite){
                     spriteRenderer.sprite = sweetObject.P1BadP2GoodSprite;
-                    if (singleplayer == true)
-                    {
-                        quality = 0.5f;
-                    }
-                    else
-                    {
-                        quality = 2f;
-                    }
+                    quality = 2f;
                     FindObjectOfType<AudioManager>().Play("Dessert Success");
                 }
             }
         }
         // if pressed too early
         else if (Input.GetKeyDown(keypressCode) && !withinRange){
-            if (keypressCode == "e"){
+            if (keypressCode == "e" && spriteRenderer.sprite != sweetObject.P1GoodSprite)
+            {
                 spriteRenderer.sprite = sweetObject.P1BadSprite;
                 FindObjectOfType<AudioManager>().Play("Dessert Whiff");
             }

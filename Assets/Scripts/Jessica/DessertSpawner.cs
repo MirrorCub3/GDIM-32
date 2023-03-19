@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Video;
 
 // Jessica Lam
 // Also the Timing Controller
@@ -37,8 +38,12 @@ public class DessertSpawner : MonoBehaviour
     [Header("Kitchen Stuff")]
     // Cookie, Souffle, Creme kitchen video and perks
     [SerializeField] GameObject video;
+    [SerializeField] GameObject videoPlayerGO;
+    VideoPlayer videoPlayer;
     // Creme effect video
     [SerializeField] GameObject addtVideo;
+    [SerializeField] GameObject addtvideoPlayerGO;
+    VideoPlayer addtvideoPlayer;
 
     // Icecream kitchen perks
     [SerializeField] GameObject darkness;
@@ -58,6 +63,7 @@ public class DessertSpawner : MonoBehaviour
         if (video)
         {
             video.SetActive(false);
+            videoPlayer = videoPlayerGO.GetComponent<VideoPlayer>();
         }
         desserts = new List<DessertController>();
         Timer = .3f;
@@ -80,6 +86,7 @@ public class DessertSpawner : MonoBehaviour
         if (addtVideo)
         {
             addtVideo.SetActive(false);
+            addtvideoPlayer = addtvideoPlayerGO.GetComponent<VideoPlayer>();
         }
     }
 
@@ -116,8 +123,7 @@ public class DessertSpawner : MonoBehaviour
             WaitFor(ConveyerBelt);
             WaitFor(ConveyerBeltBack);
         }
-        else {
-            Debug.Log(dessertCount);
+        else { 
             // Creates a new dessert every 2 seconds
             Timer -= Time.deltaTime;
             if (sweet.sweetName == "Cake" || sweet.sweetName == "Creme Brulee")
@@ -151,13 +157,19 @@ public class DessertSpawner : MonoBehaviour
                 Timer = (60f/BPM)*2f;
             }
         }
-        if (dessertCount == 39 && sweet.sweetName == "Cookie")
+        if (sweet.sweetName == "Souffle" || sweet.sweetName == "Creme Brulee" || sweet.sweetName == "Cookie")
         {
-            video.SetActive(true);
-        }
-        else if (dessertCount == 0 && sweet.sweetName == "Souffle")
-        {
-            video.SetActive(true);
+            if (dessertCount == 0 && sweet.sweetName == "Souffle" || sweet.sweetName == "Creme Brulee" && dessertCount == 0 || dessertCount == 39 && sweet.sweetName == "Cookie")
+                video.SetActive(true);
+
+            if (GameManager.instance.paused == true)
+            {
+                videoPlayer.Pause();
+            }
+            else if (GameManager.instance.paused == true && video.activeSelf == true)
+            {
+                videoPlayer.Play();
+            }
         }
         else if (sweet.sweetName == "Ice Cream")
         {
@@ -169,10 +181,6 @@ public class DessertSpawner : MonoBehaviour
             {
                 darkControl();
             }
-        }
-        else if (sweet.sweetName == "Creme Brulee" && dessertCount == 0)
-        {
-            video.SetActive(true);
         }
     }
 
@@ -215,22 +223,32 @@ public class DessertSpawner : MonoBehaviour
 
     void cremeControl(bool p2turn)
     {
-    if (dessertCount == 7 || dessertCount == 29 || dessertCount == 55 || dessertCount == 69)
+        if (dessertCount > 0 && GameManager.instance.paused == true)
         {
-            addtVideo.SetActive(true);
-            removeEffects();
+            videoPlayer.Pause();
+            addtvideoPlayer.Pause();
         }
-        else if (dessertCount == 15 || dessertCount == 39 || dessertCount == 63 || dessertCount == 80)
+        else
         {
-            addtVideo.SetActive(false);
-            removeEffects();
+            videoPlayer.Play();
+            addtvideoPlayer.Play();
         }
-        if (39 <= dessertCount && dessertCount <= 54)
-        {
-            darkControl();
-        }
-        else if (23 <= dessertCount && dessertCount <= 28)
-            cakeControl(p2turn);
+        if (dessertCount == 7 || dessertCount == 29 || dessertCount == 55 || dessertCount == 69)
+            {
+                addtVideo.SetActive(true);
+                removeEffects();
+            }
+            else if (dessertCount == 15 || dessertCount == 39 || dessertCount == 63 || dessertCount == 80)
+            {
+                addtVideo.SetActive(false);
+                removeEffects();
+            }
+            if (39 <= dessertCount && dessertCount <= 54)
+            {
+                darkControl();
+            }
+            else if (23 <= dessertCount && dessertCount <= 28)
+                cakeControl(p2turn);
     }
 
     void removeEffects()
