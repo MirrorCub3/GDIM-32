@@ -775,7 +775,7 @@ PrefabInstance:
     - target: {fileID: 5753730500227432416, guid: 8619b37eb6334794993791ebf84623de, type: 3}
       propertyPath: m_VideoClip
       value: 
-      objectReference: {fileID: 32900000, guid: 0b3a5870be37b1b4c93c321e588febe9, type: 3}
+      objectReference: {fileID: 32900000, guid: 8259c313b391472499895eadecdecdc6, type: 3}
     - target: {fileID: 5753730500227432416, guid: 8619b37eb6334794993791ebf84623de, type: 3}
       propertyPath: m_PlayOnAwake
       value: 1
@@ -2500,7 +2500,7 @@ PrefabInstance:
     - target: {fileID: 5753730500227432416, guid: 8619b37eb6334794993791ebf84623de, type: 3}
       propertyPath: m_VideoClip
       value: 
-      objectReference: {fileID: 32900000, guid: f2c6401b7fbe1b140889c102e59c33e6, type: 3}
+      objectReference: {fileID: 32900000, guid: 457f54bdb63ee1948a30bfc2467d4f31, type: 3}
     - target: {fileID: 5753730500227432416, guid: 8619b37eb6334794993791ebf84623de, type: 3}
       propertyPath: m_PlayOnAwake
       value: 1
